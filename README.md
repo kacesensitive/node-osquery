@@ -1,7 +1,9 @@
-#node-osquery
+# node-osquery
+
 This is a Node.js module providing convenient access to OSQuery data.
 
-##Installation
+## Installation
+
 You can install this module via npm using the following command:
 
 `
@@ -14,7 +16,8 @@ or using yarn:
 yarn add YOUR_PACKAGE_NAME
 `
 
-##Usage
+## Usage
+
 You can import and use the methods provided by this package as follows:
 
 `
@@ -23,22 +26,25 @@ const { runOSQuery } = require('node-osquery');
 import { runOSQuery } from 'node-osquery';
 
 const main = async () => {
-const result = await runOSQuery(`select * from users`);
+const result = await runOSQuery('select * from users');
 console.log(result);
 };
 
 main().catch(console.error);
 `
 
-##Test
+## Test
+
 To run the test suite, execute the following command:
 
 `
 npm test
 `
 
-##Contributing
+## Contributing
+
 I appreciate your contributions! Please feel free to submit a pull request or open an issue on the repository.
 
-##License
+## License
+
 This project is licensed under the MIT License.
