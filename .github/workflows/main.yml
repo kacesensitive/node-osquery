@@ -1,4 +1,4 @@
-name: Generate badges on custom branch
+name: Generate badges
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  generate-badges-on-custom-branch:
+  generate-badges:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -26,20 +26,10 @@ jobs:
       - name: Installing dependencies
         run: yarn install
 
-      - name: Delete remote badges branch
-        run: git push origin --delete badges
-
-      - name: Create badges branch
-        run: git checkout -b badges
-
       - name: Tests
-        run: yarn test-ci
+        run: yarn test:badges
 
       - name: Generating coverage badges
         uses: ./
         with:
           branches: '*'
-          target-branch: badges
-
-      - name: Push badges branch
-        run: git push origin badges

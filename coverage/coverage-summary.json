@@ -1,0 +1,4 @@
+{"total": {"lines":{"total":1119,"covered":325,"skipped":0,"pct":29.04},"statements":{"total":1119,"covered":325,"skipped":0,"pct":29.04},"functions":{"total":279,"covered":15,"skipped":0,"pct":5.37},"branches":{"total":7,"covered":3,"skipped":0,"pct":42.85},"branchesTrue":{"total":0,"covered":0,"skipped":0,"pct":"Unknown"}}
+,"/Users/kc/Desktop/Code/node-osquery/src/getters.ts": {"lines":{"total":1101,"covered":312,"skipped":0,"pct":28.33},"functions":{"total":275,"covered":12,"skipped":0,"pct":4.36},"statements":{"total":1101,"covered":312,"skipped":0,"pct":28.33},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"/Users/kc/Desktop/Code/node-osquery/src/runOSQuery.ts": {"lines":{"total":18,"covered":13,"skipped":0,"pct":72.22},"functions":{"total":4,"covered":3,"skipped":0,"pct":75},"statements":{"total":18,"covered":13,"skipped":0,"pct":72.22},"branches":{"total":7,"covered":3,"skipped":0,"pct":42.85}}
+}
