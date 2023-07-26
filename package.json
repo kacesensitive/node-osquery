@@ -11,7 +11,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/username/repository.git"
+    "url": "https://github.com/kacesensitive/node-osquery"
   },
   "scripts": {
     "build": "tsc",
