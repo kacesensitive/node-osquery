@@ -1,5 +1,10 @@
 # node-osquery
 
+![Badge Branches](./coverage/badge-branches.svg)
+![Badge Functions](./coverage/badge-functions.svg)
+![Badge Lines](./coverage/badge-lines.svg)
+![Badge Statements](./coverage/badge-statements.svg)
+
 This is a Node.js module providing convenient access to OSQuery data.
 
 ## Installation
