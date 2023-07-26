@@ -7,20 +7,20 @@ This is a Node.js module providing convenient access to OSQuery data.
 You can install this module via npm using the following command:
 
 `
-npm install --save YOUR_PACKAGE_NAME
+npm install --save node-osquery
 `
 
 or using yarn:
 
 `
-yarn add YOUR_PACKAGE_NAME
+yarn add node-osquery
 `
 
 ## Usage
 
 You can import and use the methods provided by this package as follows:
 
-`
+```
 const { runOSQuery } = require('node-osquery');
 // OR with ES6 import
 import { runOSQuery } from 'node-osquery';
@@ -31,7 +31,7 @@ console.log(result);
 };
 
 main().catch(console.error);
-`
+```
 
 ## Test
 
