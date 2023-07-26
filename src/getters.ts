@@ -1,279 +1,279 @@
-import { OsType, runOsquery } from './runOSQuery';
+import { OsType, runOsquery } from './runOsquery';
 import {
-  AccountPolicyData,
-  AcpiTables,
-  AdConfig,
-  Alf,
-  AlfExceptions,
-  AlfExplicitAuths,
-  AppCompatShims,
-  AppSchemes,
-  ApparmorEvents,
-  ApparmorProfiles,
-  Apps,
-  AptSources,
-  ArpCache,
-  Asl,
-  AtomPackage,
-  Augeas,
-  Authenticode,
-  AuthorizationMechanisms,
-  Authorizations,
-  AuthorizedKeys,
-  Autoexec,
-  AzureInstanceMetadata,
-  AzureInstanceTag,
-  BackgroundActivitiesModerator,
-  Battery,
-  BitlockerInfo,
-  BlockDevices,
-  BpfProcessEvents,
-  BpfSocketEvents,
-  BrowserPlugins,
-  CPUID,
-  CPUInfo,
-  CarbonBlackInfo,
-  Carve,
-  Certificate,
-  ChassisInfo,
-  ChocolateyPackages,
-  ChromeExtension,
-  ChromeExtensionContentScript,
-  Connectivity,
-  CpuTime,
-  Crashes,
-  Crontab,
-  CupsDestinations,
-  CupsJobs,
-  Curl,
-  CurlCertificate,
-  DebPackages,
-  DefaultEnvironment,
-  DeviceFile,
-  DeviceFirmware,
-  DeviceHash,
-  DevicePartitions,
-  DiskEncryption,
-  DiskEvent,
-  DiskInfo,
-  DnsCache,
-  DnsResolvers,
-  DockerContainerEnvs,
-  DockerContainerFsChanges,
-  DockerContainerLabels,
-  DockerContainerMounts,
-  DockerContainerNetworks,
-  DockerContainerPorts,
-  DockerContainerProcesses,
-  DockerContainerStats,
-  DockerContainers,
-  DockerImageHistory,
-  DockerImageLabels,
-  DockerImageLayers,
-  DockerImages,
-  DockerInfo,
-  DockerNetworkLabels,
-  DockerNetworks,
-  DockerVersion,
-  DockerVolumeLabels,
-  DockerVolumes,
-  Drivers,
-  Ec2InstanceMetadata,
-  Ec2InstanceTags,
-  EsProcessEvent,
-  EsProcessFileEvent,
-  EtcHosts,
-  EtcProtocols,
-  EtcServices,
-  EventTap,
-  ExtendedAttributes,
-  FanSpeedSensor,
-  FileEvents,
-  FirefoxAddon,
-  Gatekeeper,
-  GatekeeperApprovedApps,
-  Group,
-  HardwareEvents,
-  Hash,
-  HomebrewPackages,
-  HvciStatus,
-  IBridgeInfo,
-  IOKitDeviceTree,
-  IOKitRegistry,
-  IeExtensions,
-  IntelMeInfo,
-  InterfaceAddresses,
-  InterfaceDetails,
-  InterfaceIpv6,
-  Iptables,
-  KernelExtensions,
-  KernelInfo,
-  KernelKeys,
-  KernelModules,
-  KernelPanics,
-  KeychainAcls,
-  KeychainItems,
-  KnownHosts,
-  KvaSpeculativeInfo,
-  Last,
-  Launchd,
-  LaunchdOverrides,
-  ListeningPorts,
-  LoadAverage,
-  LocationServices,
-  LoggedInUsers,
-  LogicalDrives,
-  LogonSessions,
-  LxdCertificates,
-  LxdCluster,
-  LxdClusterMembers,
-  LxdImages,
-  LxdInstanceConfig,
-  LxdInstanceDevices,
-  LxdInstances,
-  LxdNetworks,
-  LxdStoragePools,
-  Magic,
-  ManagedPolicies,
-  MdDevices,
-  MdDrives,
-  MdPersonalities,
-  Mdfind,
-  Mdls,
-  MemoryArrayMappedAddresses,
-  MemoryArrays,
-  MemoryDeviceMappedAddresses,
-  MemoryDevices,
-  MemoryErrorInfo,
-  MemoryInfo,
-  MemoryMap,
-  Mounts,
-  Msr,
-  NTDomains,
-  NTFSACLPermissions,
-  NTFSJournalEvents,
-  NfsShares,
-  NpmPackages,
-  Nvram,
-  OemStrings,
-  OfficeMRU,
-  OsVersion,
-  OsqueryEvents,
-  OsqueryExtensions,
-  OsqueryFlags,
-  OsqueryInfo,
-  OsqueryPacks,
-  OsqueryRegistry,
-  OsquerySchedule,
-  PackageBom,
-  PackageInstallHistory,
-  PackageReceipt,
-  PasswordPolicy,
-  Patches,
-  PciDevices,
-  PhysicalDiskPerformance,
-  Pipes,
-  PlatformInfo,
-  PlistEntry,
-  PortageKeywords,
-  PortagePackages,
-  PortageUse,
-  PowerSensor,
-  PowershellEvents,
-  Preferences,
-  Prefetch,
-  ProcessEnvs,
-  ProcessEtwEvents,
-  ProcessEvents,
-  ProcessFileEvents,
-  ProcessMemoryMap,
-  ProcessNamespaces,
-  ProcessOpenFiles,
-  ProcessOpenPipes,
-  ProcessOpenSockets,
-  Processes,
-  Programs,
-  PrometheusMetrics,
-  PythonPackages,
-  QuickLookCache,
-  Registry,
-  Routes,
-  RpmPackageFiles,
-  RpmPackages,
-  RunningApps,
-  SafariExtensions,
-  Sandboxes,
-  ScheduledTask,
-  ScreenLock,
-  SeccompEvents,
-  SecureBoot,
-  SecurityProfileInfo,
-  SelinuxEvents,
-  SelinuxSettings,
-  Services,
-  Shadow,
-  SharedFolder,
-  SharedMemory,
-  SharedResources,
-  SharingPreferences,
-  ShellHistory,
-  Shellbags,
-  Shimcache,
-  Signature,
-  SipConfig,
-  SmbiosTables,
-  SmcKeys,
-  SocketEvents,
-  SshConfigs,
-  StartupItems,
-  Sudoers,
-  SuidBin,
-  SyslogEvent,
-  SystemControls,
-  SystemExtensions,
-  SystemInfo,
-  SystemdUnit,
-  TemperatureSensor,
-  Time,
-  TimeMachineBackup,
-  TimeMachineDestinations,
-  TpmInfo,
-  UlimitInfo,
-  UnifiedLog,
-  Uptime,
-  UsbDevices,
-  UserAssist,
-  UserEvents,
-  UserGroups,
-  UserInteractionEvents,
-  UserSshKeys,
-  Users,
-  VideoInfo,
-  VirtualMemoryInfo,
-  WifiNetworks,
-  WifiStatus,
-  WifiSurvey,
-  WinBaseObj,
-  WindowsCrashes,
-  WindowsEventlog,
-  WindowsEvents,
-  WindowsFirewallRules,
-  WindowsOptionalFeatures,
-  WindowsSecurityCenter,
-  WindowsSecurityProducts,
-  WindowsUpdateHistory,
-  WmiBiosInfo,
-  WmiCliEventConsumers,
-  WmiEventFilters,
-  WmiFilterConsumerBinding,
-  WmiScriptEventConsumers,
-  XProtectEntries,
-  XProtectMeta,
-  XProtectReports,
-  YCloudInstanceMetadata,
-  Yara,
-  YaraEvents,
-  YumSource,
+    AccountPolicyData,
+    AcpiTables,
+    AdConfig,
+    Alf,
+    AlfExceptions,
+    AlfExplicitAuths,
+    AppCompatShims,
+    AppSchemes,
+    ApparmorEvents,
+    ApparmorProfiles,
+    Apps,
+    AptSources,
+    ArpCache,
+    Asl,
+    AtomPackage,
+    Augeas,
+    Authenticode,
+    AuthorizationMechanisms,
+    Authorizations,
+    AuthorizedKeys,
+    Autoexec,
+    AzureInstanceMetadata,
+    AzureInstanceTag,
+    BackgroundActivitiesModerator,
+    Battery,
+    BitlockerInfo,
+    BlockDevices,
+    BpfProcessEvents,
+    BpfSocketEvents,
+    BrowserPlugins,
+    CPUID,
+    CPUInfo,
+    CarbonBlackInfo,
+    Carve,
+    Certificate,
+    ChassisInfo,
+    ChocolateyPackages,
+    ChromeExtension,
+    ChromeExtensionContentScript,
+    Connectivity,
+    CpuTime,
+    Crashes,
+    Crontab,
+    CupsDestinations,
+    CupsJobs,
+    Curl,
+    CurlCertificate,
+    DebPackages,
+    DefaultEnvironment,
+    DeviceFile,
+    DeviceFirmware,
+    DeviceHash,
+    DevicePartitions,
+    DiskEncryption,
+    DiskEvent,
+    DiskInfo,
+    DnsCache,
+    DnsResolvers,
+    DockerContainerEnvs,
+    DockerContainerFsChanges,
+    DockerContainerLabels,
+    DockerContainerMounts,
+    DockerContainerNetworks,
+    DockerContainerPorts,
+    DockerContainerProcesses,
+    DockerContainerStats,
+    DockerContainers,
+    DockerImageHistory,
+    DockerImageLabels,
+    DockerImageLayers,
+    DockerImages,
+    DockerInfo,
+    DockerNetworkLabels,
+    DockerNetworks,
+    DockerVersion,
+    DockerVolumeLabels,
+    DockerVolumes,
+    Drivers,
+    Ec2InstanceMetadata,
+    Ec2InstanceTags,
+    EsProcessEvent,
+    EsProcessFileEvent,
+    EtcHosts,
+    EtcProtocols,
+    EtcServices,
+    EventTap,
+    ExtendedAttributes,
+    FanSpeedSensor,
+    FileEvents,
+    FirefoxAddon,
+    Gatekeeper,
+    GatekeeperApprovedApps,
+    Group,
+    HardwareEvents,
+    Hash,
+    HomebrewPackages,
+    HvciStatus,
+    IBridgeInfo,
+    IOKitDeviceTree,
+    IOKitRegistry,
+    IeExtensions,
+    IntelMeInfo,
+    InterfaceAddresses,
+    InterfaceDetails,
+    InterfaceIpv6,
+    Iptables,
+    KernelExtensions,
+    KernelInfo,
+    KernelKeys,
+    KernelModules,
+    KernelPanics,
+    KeychainAcls,
+    KeychainItems,
+    KnownHosts,
+    KvaSpeculativeInfo,
+    Last,
+    Launchd,
+    LaunchdOverrides,
+    ListeningPorts,
+    LoadAverage,
+    LocationServices,
+    LoggedInUsers,
+    LogicalDrives,
+    LogonSessions,
+    LxdCertificates,
+    LxdCluster,
+    LxdClusterMembers,
+    LxdImages,
+    LxdInstanceConfig,
+    LxdInstanceDevices,
+    LxdInstances,
+    LxdNetworks,
+    LxdStoragePools,
+    Magic,
+    ManagedPolicies,
+    MdDevices,
+    MdDrives,
+    MdPersonalities,
+    Mdfind,
+    Mdls,
+    MemoryArrayMappedAddresses,
+    MemoryArrays,
+    MemoryDeviceMappedAddresses,
+    MemoryDevices,
+    MemoryErrorInfo,
+    MemoryInfo,
+    MemoryMap,
+    Mounts,
+    Msr,
+    NTDomains,
+    NTFSACLPermissions,
+    NTFSJournalEvents,
+    NfsShares,
+    NpmPackages,
+    Nvram,
+    OemStrings,
+    OfficeMRU,
+    OsVersion,
+    OsqueryEvents,
+    OsqueryExtensions,
+    OsqueryFlags,
+    OsqueryInfo,
+    OsqueryPacks,
+    OsqueryRegistry,
+    OsquerySchedule,
+    PackageBom,
+    PackageInstallHistory,
+    PackageReceipt,
+    PasswordPolicy,
+    Patches,
+    PciDevices,
+    PhysicalDiskPerformance,
+    Pipes,
+    PlatformInfo,
+    PlistEntry,
+    PortageKeywords,
+    PortagePackages,
+    PortageUse,
+    PowerSensor,
+    PowershellEvents,
+    Preferences,
+    Prefetch,
+    ProcessEnvs,
+    ProcessEtwEvents,
+    ProcessEvents,
+    ProcessFileEvents,
+    ProcessMemoryMap,
+    ProcessNamespaces,
+    ProcessOpenFiles,
+    ProcessOpenPipes,
+    ProcessOpenSockets,
+    Processes,
+    Programs,
+    PrometheusMetrics,
+    PythonPackages,
+    QuickLookCache,
+    Registry,
+    Routes,
+    RpmPackageFiles,
+    RpmPackages,
+    RunningApps,
+    SafariExtensions,
+    Sandboxes,
+    ScheduledTask,
+    ScreenLock,
+    SeccompEvents,
+    SecureBoot,
+    SecurityProfileInfo,
+    SelinuxEvents,
+    SelinuxSettings,
+    Services,
+    Shadow,
+    SharedFolder,
+    SharedMemory,
+    SharedResources,
+    SharingPreferences,
+    ShellHistory,
+    Shellbags,
+    Shimcache,
+    Signature,
+    SipConfig,
+    SmbiosTables,
+    SmcKeys,
+    SocketEvents,
+    SshConfigs,
+    StartupItems,
+    Sudoers,
+    SuidBin,
+    SyslogEvent,
+    SystemControls,
+    SystemExtensions,
+    SystemInfo,
+    SystemdUnit,
+    TemperatureSensor,
+    Time,
+    TimeMachineBackup,
+    TimeMachineDestinations,
+    TpmInfo,
+    UlimitInfo,
+    UnifiedLog,
+    Uptime,
+    UsbDevices,
+    UserAssist,
+    UserEvents,
+    UserGroups,
+    UserInteractionEvents,
+    UserSshKeys,
+    Users,
+    VideoInfo,
+    VirtualMemoryInfo,
+    WifiNetworks,
+    WifiStatus,
+    WifiSurvey,
+    WinBaseObj,
+    WindowsCrashes,
+    WindowsEventlog,
+    WindowsEvents,
+    WindowsFirewallRules,
+    WindowsOptionalFeatures,
+    WindowsSecurityCenter,
+    WindowsSecurityProducts,
+    WindowsUpdateHistory,
+    WmiBiosInfo,
+    WmiCliEventConsumers,
+    WmiEventFilters,
+    WmiFilterConsumerBinding,
+    WmiScriptEventConsumers,
+    XProtectEntries,
+    XProtectMeta,
+    XProtectReports,
+    YCloudInstanceMetadata,
+    Yara,
+    YaraEvents,
+    YumSource,
 } from './types/table_interfaces';
 
 // 🍎🐧🪟
@@ -284,13 +284,13 @@ import {
  * @return A Promise that resolves with the arp_cache table, or rejects with an error message.
  */
 export async function getArpCache(): Promise<ArpCache[]> {
-  const output = await runOsquery('SELECT * FROM arp_cache', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const arpCache: ArpCache[] = JSON.parse(output);
-  return arpCache;
+    const output = await runOsquery('SELECT * FROM arp_cache', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const arpCache: ArpCache[] = JSON.parse(output);
+    return arpCache;
 }
 
 /**
@@ -299,13 +299,13 @@ export async function getArpCache(): Promise<ArpCache[]> {
  * @return A Promise that resolves with the atom_packages table, or rejects with an error message.
  */
 export async function getAtomPackages(): Promise<AtomPackage[]> {
-  const output = await runOsquery('SELECT * FROM atom_packages', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const atomPackages: AtomPackage[] = JSON.parse(output);
-  return atomPackages;
+    const output = await runOsquery('SELECT * FROM atom_packages', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const atomPackages: AtomPackage[] = JSON.parse(output);
+    return atomPackages;
 }
 
 /**
@@ -314,15 +314,15 @@ export async function getAtomPackages(): Promise<AtomPackage[]> {
  * @return A Promise that resolves with the azure_instance_metadata table, or rejects with an error message.
  */
 export async function getAzureInstanceMetadata(): Promise<
-  AzureInstanceMetadata[]
+    AzureInstanceMetadata[]
 > {
-  const output = await runOsquery('SELECT * FROM azure_instance_metadata', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const azureInstanceMetadata: AzureInstanceMetadata[] = JSON.parse(output);
-  return azureInstanceMetadata;
+    const output = await runOsquery('SELECT * FROM azure_instance_metadata', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const azureInstanceMetadata: AzureInstanceMetadata[] = JSON.parse(output);
+    return azureInstanceMetadata;
 }
 
 /**
@@ -331,13 +331,13 @@ export async function getAzureInstanceMetadata(): Promise<
  * @return A Promise that resolves with the azure_instance_tags table, or rejects with an error message.
  */
 export async function getAzureInstanceTags(): Promise<AzureInstanceTag[]> {
-  const output = await runOsquery('SELECT * FROM azure_instance_tags', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const azureInstanceTags: AzureInstanceTag[] = JSON.parse(output);
-  return azureInstanceTags;
+    const output = await runOsquery('SELECT * FROM azure_instance_tags', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const azureInstanceTags: AzureInstanceTag[] = JSON.parse(output);
+    return azureInstanceTags;
 }
 
 /**
@@ -346,13 +346,13 @@ export async function getAzureInstanceTags(): Promise<AzureInstanceTag[]> {
  * @return A Promise that resolves with the carbon_black_info table, or rejects with an error message.
  */
 export async function getCarbonBlackInfo(): Promise<CarbonBlackInfo[]> {
-  const output = await runOsquery('SELECT * FROM carbon_black_info', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const carbonBlackInfo: CarbonBlackInfo[] = JSON.parse(output);
-  return carbonBlackInfo;
+    const output = await runOsquery('SELECT * FROM carbon_black_info', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const carbonBlackInfo: CarbonBlackInfo[] = JSON.parse(output);
+    return carbonBlackInfo;
 }
 
 /**
@@ -361,13 +361,13 @@ export async function getCarbonBlackInfo(): Promise<CarbonBlackInfo[]> {
  * @return A Promise that resolves with the carves table, or rejects with an error message.
  */
 export async function getCarves(): Promise<Carve[]> {
-  const output = await runOsquery('SELECT * FROM carves', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const carves: Carve[] = JSON.parse(output);
-  return carves;
+    const output = await runOsquery('SELECT * FROM carves', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const carves: Carve[] = JSON.parse(output);
+    return carves;
 }
 
 /**
@@ -376,13 +376,13 @@ export async function getCarves(): Promise<Carve[]> {
  * @return A Promise that resolves with the certificates table, or rejects with an error message.
  */
 export async function getCertificates(): Promise<Certificate[]> {
-  const output = await runOsquery('SELECT * FROM certificates', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const certificates: Certificate[] = JSON.parse(output);
-  return certificates;
+    const output = await runOsquery('SELECT * FROM certificates', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const certificates: Certificate[] = JSON.parse(output);
+    return certificates;
 }
 
 /**
@@ -391,15 +391,15 @@ export async function getCertificates(): Promise<Certificate[]> {
  * @return A Promise that resolves with the chrome_extension_content_scripts table, or rejects with an error message.
  */
 export async function getChromeExtensionContentScripts(): Promise<
-  ChromeExtensionContentScript[]
+    ChromeExtensionContentScript[]
 > {
-  const output = await runOsquery(
-    'SELECT * FROM chrome_extension_content_scripts',
-    [OsType.LINUX, OsType.DARWIN, OsType.WINDOWS_NT],
-  );
-  const chromeExtensionContentScripts: ChromeExtensionContentScript[] =
-    JSON.parse(output);
-  return chromeExtensionContentScripts;
+    const output = await runOsquery(
+        'SELECT * FROM chrome_extension_content_scripts',
+        [OsType.LINUX, OsType.DARWIN, OsType.WINDOWS_NT],
+    );
+    const chromeExtensionContentScripts: ChromeExtensionContentScript[] =
+        JSON.parse(output);
+    return chromeExtensionContentScripts;
 }
 
 /**
@@ -408,13 +408,13 @@ export async function getChromeExtensionContentScripts(): Promise<
  * @return A Promise that resolves with the chrome_extensions table, or rejects with an error message.
  */
 export async function getChromeExtensions(): Promise<ChromeExtension[]> {
-  const output = await runOsquery('SELECT * FROM chrome_extensions', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const chromeExtensions: ChromeExtension[] = JSON.parse(output);
-  return chromeExtensions;
+    const output = await runOsquery('SELECT * FROM chrome_extensions', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const chromeExtensions: ChromeExtension[] = JSON.parse(output);
+    return chromeExtensions;
 }
 
 /**
@@ -423,13 +423,13 @@ export async function getChromeExtensions(): Promise<ChromeExtension[]> {
  * @return A Promise that resolves with the cpu_info table, or rejects with an error message.
  */
 export async function getCpuInfo(): Promise<CPUInfo[]> {
-  const output = await runOsquery('SELECT * FROM cpu_info', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const cpuInfo: CPUInfo[] = JSON.parse(output);
-  return cpuInfo;
+    const output = await runOsquery('SELECT * FROM cpu_info', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const cpuInfo: CPUInfo[] = JSON.parse(output);
+    return cpuInfo;
 }
 
 /**
@@ -438,13 +438,13 @@ export async function getCpuInfo(): Promise<CPUInfo[]> {
  * @return A Promise that resolves with the cpuid table, or rejects with an error message.
  */
 export async function getCpuid(): Promise<CPUID[]> {
-  const output = await runOsquery('SELECT * FROM cpuid', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const cpuid: CPUID[] = JSON.parse(output);
-  return cpuid;
+    const output = await runOsquery('SELECT * FROM cpuid', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const cpuid: CPUID[] = JSON.parse(output);
+    return cpuid;
 }
 
 /**
@@ -453,13 +453,13 @@ export async function getCpuid(): Promise<CPUID[]> {
  * @return A Promise that resolves with the curl table, or rejects with an error message.
  */
 export async function getCurl(): Promise<Curl[]> {
-  const output = await runOsquery('SELECT * FROM curl', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const curl: Curl[] = JSON.parse(output);
-  return curl;
+    const output = await runOsquery('SELECT * FROM curl', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const curl: Curl[] = JSON.parse(output);
+    return curl;
 }
 
 /**
@@ -468,13 +468,13 @@ export async function getCurl(): Promise<Curl[]> {
  * @return A Promise that resolves with the curl_certificate table, or rejects with an error message.
  */
 export async function getCurlCertificate(): Promise<CurlCertificate[]> {
-  const output = await runOsquery('SELECT * FROM curl_certificate', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const curlCertificate: CurlCertificate[] = JSON.parse(output);
-  return curlCertificate;
+    const output = await runOsquery('SELECT * FROM curl_certificate', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const curlCertificate: CurlCertificate[] = JSON.parse(output);
+    return curlCertificate;
 }
 
 /**
@@ -483,13 +483,13 @@ export async function getCurlCertificate(): Promise<CurlCertificate[]> {
  * @return A Promise that resolves with the ec2_instance_metadata table, or rejects with an error message.
  */
 export async function getEc2InstanceMetadata(): Promise<Ec2InstanceMetadata[]> {
-  const output = await runOsquery('SELECT * FROM ec2_instance_metadata', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const ec2InstanceMetadata: Ec2InstanceMetadata[] = JSON.parse(output);
-  return ec2InstanceMetadata;
+    const output = await runOsquery('SELECT * FROM ec2_instance_metadata', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const ec2InstanceMetadata: Ec2InstanceMetadata[] = JSON.parse(output);
+    return ec2InstanceMetadata;
 }
 
 /**
@@ -498,13 +498,13 @@ export async function getEc2InstanceMetadata(): Promise<Ec2InstanceMetadata[]> {
  * @return A Promise that resolves with the ec2_instance_tags table, or rejects with an error message.
  */
 export async function getEc2InstanceTags(): Promise<Ec2InstanceTags[]> {
-  const output = await runOsquery('SELECT * FROM ec2_instance_tags', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const ec2InstanceTags: Ec2InstanceTags[] = JSON.parse(output);
-  return ec2InstanceTags;
+    const output = await runOsquery('SELECT * FROM ec2_instance_tags', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const ec2InstanceTags: Ec2InstanceTags[] = JSON.parse(output);
+    return ec2InstanceTags;
 }
 
 /**
@@ -513,13 +513,13 @@ export async function getEc2InstanceTags(): Promise<Ec2InstanceTags[]> {
  * @return A Promise that resolves with the etc_hosts table, or rejects with an error message.
  */
 export async function getEtcHosts(): Promise<EtcHosts[]> {
-  const output = await runOsquery('SELECT * FROM etc_hosts', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const etcHosts: EtcHosts[] = JSON.parse(output);
-  return etcHosts;
+    const output = await runOsquery('SELECT * FROM etc_hosts', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const etcHosts: EtcHosts[] = JSON.parse(output);
+    return etcHosts;
 }
 
 /**
@@ -528,13 +528,13 @@ export async function getEtcHosts(): Promise<EtcHosts[]> {
  * @return A Promise that resolves with the etc_protocols table, or rejects with an error message.
  */
 export async function getEtcProtocols(): Promise<EtcProtocols[]> {
-  const output = await runOsquery('SELECT * FROM etc_protocols', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const etcProtocols: EtcProtocols[] = JSON.parse(output);
-  return etcProtocols;
+    const output = await runOsquery('SELECT * FROM etc_protocols', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const etcProtocols: EtcProtocols[] = JSON.parse(output);
+    return etcProtocols;
 }
 
 /**
@@ -543,13 +543,13 @@ export async function getEtcProtocols(): Promise<EtcProtocols[]> {
  * @return A Promise that resolves with the etc_services table, or rejects with an error message.
  */
 export async function getEtcServices(): Promise<EtcServices[]> {
-  const output = await runOsquery('SELECT * FROM etc_services', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const etcServices: EtcServices[] = JSON.parse(output);
-  return etcServices;
+    const output = await runOsquery('SELECT * FROM etc_services', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const etcServices: EtcServices[] = JSON.parse(output);
+    return etcServices;
 }
 
 /**
@@ -558,13 +558,13 @@ export async function getEtcServices(): Promise<EtcServices[]> {
  * @return A Promise that resolves with the file table, or rejects with an error message.
  */
 export async function getFile(): Promise<File[]> {
-  const output = await runOsquery('SELECT * FROM file', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const file: File[] = JSON.parse(output);
-  return file;
+    const output = await runOsquery('SELECT * FROM file', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const file: File[] = JSON.parse(output);
+    return file;
 }
 
 /**
@@ -573,13 +573,13 @@ export async function getFile(): Promise<File[]> {
  * @return A Promise that resolves with the Firefox addons table, or rejects with an error message.
  */
 export async function getFirefoxAddons(): Promise<FirefoxAddon[]> {
-  const output = await runOsquery('SELECT * FROM firefox_addons', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const firefoxAddons: FirefoxAddon[] = JSON.parse(output);
-  return firefoxAddons;
+    const output = await runOsquery('SELECT * FROM firefox_addons', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const firefoxAddons: FirefoxAddon[] = JSON.parse(output);
+    return firefoxAddons;
 }
 
 /**
@@ -588,13 +588,13 @@ export async function getFirefoxAddons(): Promise<FirefoxAddon[]> {
  * @return A Promise that resolves with the groups table, or rejects with an error message.
  */
 export async function getGroups(): Promise<Group[]> {
-  const output = await runOsquery('SELECT * FROM groups', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const groups: Group[] = JSON.parse(output);
-  return groups;
+    const output = await runOsquery('SELECT * FROM groups', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const groups: Group[] = JSON.parse(output);
+    return groups;
 }
 
 /**
@@ -603,13 +603,13 @@ export async function getGroups(): Promise<Group[]> {
  * @return A Promise that resolves with the hash data, or rejects with an error message.
  */
 export async function getHash(): Promise<Hash[]> {
-  const output = await runOsquery('SELECT * FROM hash', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const hashes: Hash[] = JSON.parse(output);
-  return hashes;
+    const output = await runOsquery('SELECT * FROM hash', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const hashes: Hash[] = JSON.parse(output);
+    return hashes;
 }
 
 /**
@@ -618,13 +618,13 @@ export async function getHash(): Promise<Hash[]> {
  * @return A Promise that resolves with the network interface data, or rejects with an error message.
  */
 export async function getInterfaceAddresses(): Promise<InterfaceAddresses[]> {
-  const output = await runOsquery('SELECT * FROM interface_addresses', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const interfaceAddresses: InterfaceAddresses[] = JSON.parse(output);
-  return interfaceAddresses;
+    const output = await runOsquery('SELECT * FROM interface_addresses', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const interfaceAddresses: InterfaceAddresses[] = JSON.parse(output);
+    return interfaceAddresses;
 }
 
 /**
@@ -633,13 +633,13 @@ export async function getInterfaceAddresses(): Promise<InterfaceAddresses[]> {
  * @return A Promise that resolves with the network interface details, or rejects with an error message.
  */
 export async function getInterfaceDetails(): Promise<InterfaceDetails[]> {
-  const output = await runOsquery('SELECT * FROM interface_details', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const interfaceDetails: InterfaceDetails[] = JSON.parse(output);
-  return interfaceDetails;
+    const output = await runOsquery('SELECT * FROM interface_details', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const interfaceDetails: InterfaceDetails[] = JSON.parse(output);
+    return interfaceDetails;
 }
 
 /**
@@ -648,13 +648,13 @@ export async function getInterfaceDetails(): Promise<InterfaceDetails[]> {
  * @return A Promise that resolves with the kernel information, or rejects with an error message.
  */
 export async function getKernelInfo(): Promise<KernelInfo> {
-  const output = await runOsquery('SELECT * FROM kernel_info', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const kernelInfo: KernelInfo = JSON.parse(output);
-  return kernelInfo;
+    const output = await runOsquery('SELECT * FROM kernel_info', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const kernelInfo: KernelInfo = JSON.parse(output);
+    return kernelInfo;
 }
 
 /**
@@ -663,13 +663,13 @@ export async function getKernelInfo(): Promise<KernelInfo> {
  * @return A Promise that resolves with the listening ports data, or rejects with an error message.
  */
 export async function getListeningPorts(): Promise<ListeningPorts[]> {
-  const output = await runOsquery('SELECT * FROM listening_ports', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const listeningPorts: ListeningPorts[] = JSON.parse(output);
-  return listeningPorts;
+    const output = await runOsquery('SELECT * FROM listening_ports', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const listeningPorts: ListeningPorts[] = JSON.parse(output);
+    return listeningPorts;
 }
 
 /**
@@ -678,13 +678,13 @@ export async function getListeningPorts(): Promise<ListeningPorts[]> {
  * @return A Promise that resolves with the logged in users data, or rejects with an error message.
  */
 export async function getLoggedInUsers(): Promise<LoggedInUsers[]> {
-  const output = await runOsquery('SELECT * FROM logged_in_users', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const loggedInUsers: LoggedInUsers[] = JSON.parse(output);
-  return loggedInUsers;
+    const output = await runOsquery('SELECT * FROM logged_in_users', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const loggedInUsers: LoggedInUsers[] = JSON.parse(output);
+    return loggedInUsers;
 }
 
 /**
@@ -693,13 +693,13 @@ export async function getLoggedInUsers(): Promise<LoggedInUsers[]> {
  * @return A Promise that resolves with the memory devices data, or rejects with an error message.
  */
 export async function getMemoryDevices(): Promise<MemoryDevices[]> {
-  const output = await runOsquery('SELECT * FROM memory_devices', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const memoryDevices: MemoryDevices[] = JSON.parse(output);
-  return memoryDevices;
+    const output = await runOsquery('SELECT * FROM memory_devices', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const memoryDevices: MemoryDevices[] = JSON.parse(output);
+    return memoryDevices;
 }
 
 /**
@@ -708,13 +708,13 @@ export async function getMemoryDevices(): Promise<MemoryDevices[]> {
  * @return A Promise that resolves with the Npm packages data, or rejects with an error message.
  */
 export async function getNpmPackages(): Promise<NpmPackages[]> {
-  const output = await runOsquery('SELECT * FROM npm_packages', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const npmPackages: NpmPackages[] = JSON.parse(output);
-  return npmPackages;
+    const output = await runOsquery('SELECT * FROM npm_packages', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const npmPackages: NpmPackages[] = JSON.parse(output);
+    return npmPackages;
 }
 
 /**
@@ -723,13 +723,13 @@ export async function getNpmPackages(): Promise<NpmPackages[]> {
  * @return A Promise that resolves with the OS version data, or rejects with an error message.
  */
 export async function getOsVersion(): Promise<OsVersion> {
-  const output = await runOsquery('SELECT * FROM os_version', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const osVersion: OsVersion = JSON.parse(output)[0]; // Should only be one row
-  return osVersion;
+    const output = await runOsquery('SELECT * FROM os_version', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const osVersion: OsVersion = JSON.parse(output)[0]; // Should only be one row
+    return osVersion;
 }
 
 /**
@@ -738,13 +738,13 @@ export async function getOsVersion(): Promise<OsVersion> {
  * @return A Promise that resolves with the OS query events data, or rejects with an error message.
  */
 export async function getOsqueryEvents(): Promise<OsqueryEvents[]> {
-  const output = await runOsquery('SELECT * FROM osquery_events', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const osqueryEvents: OsqueryEvents[] = JSON.parse(output);
-  return osqueryEvents;
+    const output = await runOsquery('SELECT * FROM osquery_events', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const osqueryEvents: OsqueryEvents[] = JSON.parse(output);
+    return osqueryEvents;
 }
 
 /**
@@ -753,13 +753,13 @@ export async function getOsqueryEvents(): Promise<OsqueryEvents[]> {
  * @return A Promise that resolves with the OS query extensions data, or rejects with an error message.
  */
 export async function getOsqueryExtensions(): Promise<OsqueryExtensions[]> {
-  const output = await runOsquery('SELECT * FROM osquery_extensions', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const osqueryExtensions: OsqueryExtensions[] = JSON.parse(output);
-  return osqueryExtensions;
+    const output = await runOsquery('SELECT * FROM osquery_extensions', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const osqueryExtensions: OsqueryExtensions[] = JSON.parse(output);
+    return osqueryExtensions;
 }
 
 /**
@@ -768,13 +768,13 @@ export async function getOsqueryExtensions(): Promise<OsqueryExtensions[]> {
  * @return A Promise that resolves with the OS query flags data, or rejects with an error message.
  */
 export async function getOsqueryFlags(): Promise<OsqueryFlags[]> {
-  const output = await runOsquery('SELECT * FROM osquery_flags', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const osqueryFlags: OsqueryFlags[] = JSON.parse(output);
-  return osqueryFlags;
+    const output = await runOsquery('SELECT * FROM osquery_flags', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const osqueryFlags: OsqueryFlags[] = JSON.parse(output);
+    return osqueryFlags;
 }
 
 /**
@@ -783,13 +783,13 @@ export async function getOsqueryFlags(): Promise<OsqueryFlags[]> {
  * @return A Promise that resolves with the OS query info data, or rejects with an error message.
  */
 export async function getOsqueryInfo(): Promise<OsqueryInfo> {
-  const output = await runOsquery('SELECT * FROM osquery_info', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const osqueryInfo: OsqueryInfo = JSON.parse(output);
-  return osqueryInfo;
+    const output = await runOsquery('SELECT * FROM osquery_info', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const osqueryInfo: OsqueryInfo = JSON.parse(output);
+    return osqueryInfo;
 }
 
 /**
@@ -798,13 +798,13 @@ export async function getOsqueryInfo(): Promise<OsqueryInfo> {
  * @return A Promise that resolves with the osquery packs data, or rejects with an error message.
  */
 export async function getOsqueryPacks(): Promise<OsqueryPacks[]> {
-  const output = await runOsquery('SELECT * FROM osquery_packs', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const osqueryPacks: OsqueryPacks[] = JSON.parse(output);
-  return osqueryPacks;
+    const output = await runOsquery('SELECT * FROM osquery_packs', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const osqueryPacks: OsqueryPacks[] = JSON.parse(output);
+    return osqueryPacks;
 }
 
 /**
@@ -813,13 +813,13 @@ export async function getOsqueryPacks(): Promise<OsqueryPacks[]> {
  * @return A Promise that resolves with the osquery registry data, or rejects with an error message.
  */
 export async function getOsqueryRegistry(): Promise<OsqueryRegistry[]> {
-  const output = await runOsquery('SELECT * FROM osquery_registry', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const osqueryRegistry: OsqueryRegistry[] = JSON.parse(output);
-  return osqueryRegistry;
+    const output = await runOsquery('SELECT * FROM osquery_registry', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const osqueryRegistry: OsqueryRegistry[] = JSON.parse(output);
+    return osqueryRegistry;
 }
 
 /**
@@ -828,13 +828,13 @@ export async function getOsqueryRegistry(): Promise<OsqueryRegistry[]> {
  * @return A Promise that resolves with the osquery schedule data, or rejects with an error message.
  */
 export async function getOsquerySchedule(): Promise<OsquerySchedule[]> {
-  const output = await runOsquery('SELECT * FROM osquery_schedule', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const osquerySchedule: OsquerySchedule[] = JSON.parse(output);
-  return osquerySchedule;
+    const output = await runOsquery('SELECT * FROM osquery_schedule', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const osquerySchedule: OsquerySchedule[] = JSON.parse(output);
+    return osquerySchedule;
 }
 
 /**
@@ -843,13 +843,13 @@ export async function getOsquerySchedule(): Promise<OsquerySchedule[]> {
  * @return A Promise that resolves with the platform info data, or rejects with an error message.
  */
 export async function getPlatformInfo(): Promise<PlatformInfo[]> {
-  const output = await runOsquery('SELECT * FROM platform_info', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const platformInfo: PlatformInfo[] = JSON.parse(output);
-  return platformInfo;
+    const output = await runOsquery('SELECT * FROM platform_info', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const platformInfo: PlatformInfo[] = JSON.parse(output);
+    return platformInfo;
 }
 
 /**
@@ -858,13 +858,13 @@ export async function getPlatformInfo(): Promise<PlatformInfo[]> {
  * @return A Promise that resolves with the process memory map data, or rejects with an error message.
  */
 export async function getProcessMemoryMap(): Promise<ProcessMemoryMap[]> {
-  const output = await runOsquery('SELECT * FROM process_memory_map', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const processMemoryMap: ProcessMemoryMap[] = JSON.parse(output);
-  return processMemoryMap;
+    const output = await runOsquery('SELECT * FROM process_memory_map', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const processMemoryMap: ProcessMemoryMap[] = JSON.parse(output);
+    return processMemoryMap;
 }
 
 /**
@@ -873,13 +873,13 @@ export async function getProcessMemoryMap(): Promise<ProcessMemoryMap[]> {
  * @return A Promise that resolves with the process open sockets data, or rejects with an error message.
  */
 export async function getProcessOpenSockets(): Promise<ProcessOpenSockets[]> {
-  const output = await runOsquery('SELECT * FROM process_open_sockets', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const processOpenSockets: ProcessOpenSockets[] = JSON.parse(output);
-  return processOpenSockets;
+    const output = await runOsquery('SELECT * FROM process_open_sockets', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const processOpenSockets: ProcessOpenSockets[] = JSON.parse(output);
+    return processOpenSockets;
 }
 
 /**
@@ -888,13 +888,13 @@ export async function getProcessOpenSockets(): Promise<ProcessOpenSockets[]> {
  * @return A Promise that resolves with the processes data, or rejects with an error message.
  */
 export async function getProcesses(): Promise<Processes[]> {
-  const output = await runOsquery('SELECT * FROM processes', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const processes: Processes[] = JSON.parse(output);
-  return processes;
+    const output = await runOsquery('SELECT * FROM processes', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const processes: Processes[] = JSON.parse(output);
+    return processes;
 }
 
 /**
@@ -903,13 +903,13 @@ export async function getProcesses(): Promise<Processes[]> {
  * @return A Promise that resolves with the Python packages data, or rejects with an error message.
  */
 export async function getPythonPackages(): Promise<PythonPackages[]> {
-  const output = await runOsquery('SELECT * FROM python_packages', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const pythonPackages: PythonPackages[] = JSON.parse(output);
-  return pythonPackages;
+    const output = await runOsquery('SELECT * FROM python_packages', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const pythonPackages: PythonPackages[] = JSON.parse(output);
+    return pythonPackages;
 }
 
 /**
@@ -918,13 +918,13 @@ export async function getPythonPackages(): Promise<PythonPackages[]> {
  * @return A Promise that resolves with the route table data, or rejects with an error message.
  */
 export async function getRoutes(): Promise<Routes[]> {
-  const output = await runOsquery('SELECT * FROM routes', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const routes: Routes[] = JSON.parse(output);
-  return routes;
+    const output = await runOsquery('SELECT * FROM routes', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const routes: Routes[] = JSON.parse(output);
+    return routes;
 }
 
 /**
@@ -933,13 +933,13 @@ export async function getRoutes(): Promise<Routes[]> {
  * @return A Promise that resolves with the Secure Boot data, or rejects with an error message.
  */
 export async function getSecureBoot(): Promise<SecureBoot[]> {
-  const output = await runOsquery('SELECT * FROM secureboot', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const secureBoot: SecureBoot[] = JSON.parse(output);
-  return secureBoot;
+    const output = await runOsquery('SELECT * FROM secureboot', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const secureBoot: SecureBoot[] = JSON.parse(output);
+    return secureBoot;
 }
 
 /**
@@ -948,13 +948,13 @@ export async function getSecureBoot(): Promise<SecureBoot[]> {
  * @return A Promise that resolves with the SSH configurations data, or rejects with an error message.
  */
 export async function getSshConfigs(): Promise<SshConfigs[]> {
-  const output = await runOsquery('SELECT * FROM ssh_configs', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const sshConfigs: SshConfigs[] = JSON.parse(output);
-  return sshConfigs;
+    const output = await runOsquery('SELECT * FROM ssh_configs', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const sshConfigs: SshConfigs[] = JSON.parse(output);
+    return sshConfigs;
 }
 
 /**
@@ -963,13 +963,13 @@ export async function getSshConfigs(): Promise<SshConfigs[]> {
  * @return A Promise that resolves with the startup items data, or rejects with an error message.
  */
 export async function getStartupItems(): Promise<StartupItems[]> {
-  const output = await runOsquery('SELECT * FROM startup_items', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const startupItems: StartupItems[] = JSON.parse(output);
-  return startupItems;
+    const output = await runOsquery('SELECT * FROM startup_items', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const startupItems: StartupItems[] = JSON.parse(output);
+    return startupItems;
 }
 
 /**
@@ -978,13 +978,13 @@ export async function getStartupItems(): Promise<StartupItems[]> {
  * @return A Promise that resolves with the system info data, or rejects with an error message.
  */
 export async function getSystemInfo(): Promise<SystemInfo> {
-  const output = await runOsquery('SELECT * FROM system_info', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const systemInfo: SystemInfo = JSON.parse(output);
-  return systemInfo;
+    const output = await runOsquery('SELECT * FROM system_info', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const systemInfo: SystemInfo = JSON.parse(output);
+    return systemInfo;
 }
 
 /**
@@ -993,13 +993,13 @@ export async function getSystemInfo(): Promise<SystemInfo> {
  * @return A Promise that resolves with the time data, or rejects with an error message.
  */
 export async function getTime(): Promise<Time> {
-  const output = await runOsquery('SELECT * FROM time', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const time: Time = JSON.parse(output);
-  return time;
+    const output = await runOsquery('SELECT * FROM time', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const time: Time = JSON.parse(output);
+    return time;
 }
 
 /**
@@ -1008,13 +1008,13 @@ export async function getTime(): Promise<Time> {
  * @return A Promise that resolves with the uptime data, or rejects with an error message.
  */
 export async function getUptime(): Promise<Uptime> {
-  const output = await runOsquery('SELECT * FROM uptime', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const uptime: Uptime = JSON.parse(output);
-  return uptime;
+    const output = await runOsquery('SELECT * FROM uptime', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const uptime: Uptime = JSON.parse(output);
+    return uptime;
 }
 
 /**
@@ -1023,13 +1023,13 @@ export async function getUptime(): Promise<Uptime> {
  * @return A Promise that resolves with the user group data, or rejects with an error message.
  */
 export async function getUserGroups(): Promise<UserGroups[]> {
-  const output = await runOsquery('SELECT * FROM user_groups', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const userGroups: UserGroups[] = JSON.parse(output);
-  return userGroups;
+    const output = await runOsquery('SELECT * FROM user_groups', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const userGroups: UserGroups[] = JSON.parse(output);
+    return userGroups;
 }
 
 /**
@@ -1038,13 +1038,13 @@ export async function getUserGroups(): Promise<UserGroups[]> {
  * @return A Promise that resolves with the SSH key data, or rejects with an error message.
  */
 export async function getUserSshKeys(): Promise<UserSshKeys[]> {
-  const output = await runOsquery('SELECT * FROM user_ssh_keys', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const userSshKeys: UserSshKeys[] = JSON.parse(output);
-  return userSshKeys;
+    const output = await runOsquery('SELECT * FROM user_ssh_keys', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const userSshKeys: UserSshKeys[] = JSON.parse(output);
+    return userSshKeys;
 }
 
 /**
@@ -1053,13 +1053,13 @@ export async function getUserSshKeys(): Promise<UserSshKeys[]> {
  * @return A Promise that resolves with the users data, or rejects with an error message.
  */
 export async function getUsers(): Promise<Users[]> {
-  const output = await runOsquery('SELECT * FROM users', [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const users: Users[] = JSON.parse(output);
-  return users;
+    const output = await runOsquery('SELECT * FROM users', [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const users: Users[] = JSON.parse(output);
+    return users;
 }
 
 /**
@@ -1069,13 +1069,13 @@ export async function getUsers(): Promise<Users[]> {
  * @return A Promise that resolves with the YARA scanning result, or rejects with an error message.
  */
 export async function getYaraResults(path: string): Promise<Yara[]> {
-  const output = await runOsquery(`SELECT * FROM yara WHERE path='${path}'`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const yaraResults: Yara[] = JSON.parse(output);
-  return yaraResults;
+    const output = await runOsquery(`SELECT * FROM yara WHERE path='${path}'`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const yaraResults: Yara[] = JSON.parse(output);
+    return yaraResults;
 }
 
 /**
@@ -1084,13 +1084,13 @@ export async function getYaraResults(path: string): Promise<Yara[]> {
  * @return A Promise that resolves with the YARA scanning event results, or rejects with an error message.
  */
 export async function getYaraEventResults(): Promise<YaraEvents[]> {
-  const output = await runOsquery(`SELECT * FROM yara_events`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const yaraEvents: YaraEvents[] = JSON.parse(output);
-  return yaraEvents;
+    const output = await runOsquery(`SELECT * FROM yara_events`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const yaraEvents: YaraEvents[] = JSON.parse(output);
+    return yaraEvents;
 }
 
 /**
@@ -1099,15 +1099,15 @@ export async function getYaraEventResults(): Promise<YaraEvents[]> {
  * @return A Promise that resolves with the Yandex.Cloud instance metadata, or rejects with an error message.
  */
 export async function getYCloudInstanceMetadata(): Promise<
-  YCloudInstanceMetadata[]
+    YCloudInstanceMetadata[]
 > {
-  const output = await runOsquery(`SELECT * FROM ycloud_instance_metadata`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-    OsType.WINDOWS_NT,
-  ]);
-  const yCloudInstanceMetadata: YCloudInstanceMetadata[] = JSON.parse(output);
-  return yCloudInstanceMetadata;
+    const output = await runOsquery(`SELECT * FROM ycloud_instance_metadata`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+        OsType.WINDOWS_NT,
+    ]);
+    const yCloudInstanceMetadata: YCloudInstanceMetadata[] = JSON.parse(output);
+    return yCloudInstanceMetadata;
 }
 
 // 🪟
@@ -1118,11 +1118,11 @@ export async function getYCloudInstanceMetadata(): Promise<
  * @return A Promise that resolves with the Application Compatibility shims information, or rejects with an error message.
  */
 export async function getAppCompatShims(): Promise<AppCompatShims[]> {
-  const output = await runOsquery(`SELECT * FROM appcompat_shims`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const appCompatShims: AppCompatShims[] = JSON.parse(output);
-  return appCompatShims;
+    const output = await runOsquery(`SELECT * FROM appcompat_shims`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const appCompatShims: AppCompatShims[] = JSON.parse(output);
+    return appCompatShims;
 }
 
 /**
@@ -1132,12 +1132,12 @@ export async function getAppCompatShims(): Promise<AppCompatShims[]> {
  * @return A Promise that resolves with the code signing status of the file, or rejects with an error message.
  */
 export async function getAuthenticode(path: string): Promise<Authenticode[]> {
-  const output = await runOsquery(
-    `SELECT * FROM authenticode WHERE path='${path}'`,
-    [OsType.WINDOWS_NT],
-  );
-  const authenticode: Authenticode[] = JSON.parse(output);
-  return authenticode;
+    const output = await runOsquery(
+        `SELECT * FROM authenticode WHERE path='${path}'`,
+        [OsType.WINDOWS_NT],
+    );
+    const authenticode: Authenticode[] = JSON.parse(output);
+    return authenticode;
 }
 
 /**
@@ -1146,11 +1146,11 @@ export async function getAuthenticode(path: string): Promise<Authenticode[]> {
  * @return A Promise that resolves with the autoexec items, or rejects with an error message.
  */
 export async function getAutoexec(): Promise<Autoexec[]> {
-  const output = await runOsquery(`SELECT * FROM autoexec`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const autoexec: Autoexec[] = JSON.parse(output);
-  return autoexec;
+    const output = await runOsquery(`SELECT * FROM autoexec`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const autoexec: Autoexec[] = JSON.parse(output);
+    return autoexec;
 }
 
 /**
@@ -1159,15 +1159,15 @@ export async function getAutoexec(): Promise<Autoexec[]> {
  * @return A Promise that resolves with the BAM tracked applications, or rejects with an error message.
  */
 export async function getBackgroundActivitiesModerator(): Promise<
-  BackgroundActivitiesModerator[]
+    BackgroundActivitiesModerator[]
 > {
-  const output = await runOsquery(
-    `SELECT * FROM background_activities_moderator`,
-    [OsType.WINDOWS_NT],
-  );
-  const backgroundActivitiesModerator: BackgroundActivitiesModerator[] =
-    JSON.parse(output);
-  return backgroundActivitiesModerator;
+    const output = await runOsquery(
+        `SELECT * FROM background_activities_moderator`,
+        [OsType.WINDOWS_NT],
+    );
+    const backgroundActivitiesModerator: BackgroundActivitiesModerator[] =
+        JSON.parse(output);
+    return backgroundActivitiesModerator;
 }
 
 /**
@@ -1176,11 +1176,11 @@ export async function getBackgroundActivitiesModerator(): Promise<
  * @return A Promise that resolves with the BitLocker status, or rejects with an error message.
  */
 export async function getBitlockerInfo(): Promise<BitlockerInfo[]> {
-  const output = await runOsquery(`SELECT * FROM bitlocker_info`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const bitlockerInfo: BitlockerInfo[] = JSON.parse(output);
-  return bitlockerInfo;
+    const output = await runOsquery(`SELECT * FROM bitlocker_info`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const bitlockerInfo: BitlockerInfo[] = JSON.parse(output);
+    return bitlockerInfo;
 }
 
 /**
@@ -1189,11 +1189,11 @@ export async function getBitlockerInfo(): Promise<BitlockerInfo[]> {
  * @return A Promise that resolves with the chassis information, or rejects with an error message.
  */
 export async function getChassisInfo(): Promise<ChassisInfo[]> {
-  const output = await runOsquery(`SELECT * FROM chassis_info`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const chassisInfo: ChassisInfo[] = JSON.parse(output);
-  return chassisInfo;
+    const output = await runOsquery(`SELECT * FROM chassis_info`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const chassisInfo: ChassisInfo[] = JSON.parse(output);
+    return chassisInfo;
 }
 
 /**
@@ -1202,11 +1202,11 @@ export async function getChassisInfo(): Promise<ChassisInfo[]> {
  * @return A Promise that resolves with the Chocolatey packages information, or rejects with an error message.
  */
 export async function getChocolateyPackages(): Promise<ChocolateyPackages[]> {
-  const output = await runOsquery(`SELECT * FROM chocolatey_packages`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const chocolateyPackages: ChocolateyPackages[] = JSON.parse(output);
-  return chocolateyPackages;
+    const output = await runOsquery(`SELECT * FROM chocolatey_packages`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const chocolateyPackages: ChocolateyPackages[] = JSON.parse(output);
+    return chocolateyPackages;
 }
 
 /**
@@ -1215,11 +1215,11 @@ export async function getChocolateyPackages(): Promise<ChocolateyPackages[]> {
  * @return A Promise that resolves with the system's network state, or rejects with an error message.
  */
 export async function getConnectivity(): Promise<Connectivity> {
-  const output = await runOsquery(`SELECT * FROM connectivity`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const connectivity: Connectivity = JSON.parse(output);
-  return connectivity;
+    const output = await runOsquery(`SELECT * FROM connectivity`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const connectivity: Connectivity = JSON.parse(output);
+    return connectivity;
 }
 
 /**
@@ -1228,11 +1228,11 @@ export async function getConnectivity(): Promise<Connectivity> {
  * @return A Promise that resolves with the environment variables and their values, or rejects with an error message.
  */
 export async function getDefaultEnvironment(): Promise<DefaultEnvironment[]> {
-  const output = await runOsquery(`SELECT * FROM default_environment`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const defaultEnvironment: DefaultEnvironment[] = JSON.parse(output);
-  return defaultEnvironment;
+    const output = await runOsquery(`SELECT * FROM default_environment`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const defaultEnvironment: DefaultEnvironment[] = JSON.parse(output);
+    return defaultEnvironment;
 }
 
 /**
@@ -1241,11 +1241,11 @@ export async function getDefaultEnvironment(): Promise<DefaultEnvironment[]> {
  * @return A Promise that resolves with the information about the physical disks, or rejects with an error message.
  */
 export async function getDiskInfo(): Promise<DiskInfo[]> {
-  const output = await runOsquery(`SELECT * FROM disk_info`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const diskInfo: DiskInfo[] = JSON.parse(output);
-  return diskInfo;
+    const output = await runOsquery(`SELECT * FROM disk_info`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const diskInfo: DiskInfo[] = JSON.parse(output);
+    return diskInfo;
 }
 
 /**
@@ -1254,11 +1254,11 @@ export async function getDiskInfo(): Promise<DiskInfo[]> {
  * @return A Promise that resolves with the DNS cache data, or rejects with an error message.
  */
 export async function getDnsCache(): Promise<DnsCache[]> {
-  const output = await runOsquery(`SELECT * FROM dns_cache`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const dnsCache: DnsCache[] = JSON.parse(output);
-  return dnsCache;
+    const output = await runOsquery(`SELECT * FROM dns_cache`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const dnsCache: DnsCache[] = JSON.parse(output);
+    return dnsCache;
 }
 
 /**
@@ -1267,9 +1267,9 @@ export async function getDnsCache(): Promise<DnsCache[]> {
  * @return A Promise that resolves with the device drivers data, or rejects with an error message.
  */
 export async function getDrivers(): Promise<Drivers[]> {
-  const output = await runOsquery(`SELECT * FROM drivers`, [OsType.WINDOWS_NT]);
-  const drivers: Drivers[] = JSON.parse(output);
-  return drivers;
+    const output = await runOsquery(`SELECT * FROM drivers`, [OsType.WINDOWS_NT]);
+    const drivers: Drivers[] = JSON.parse(output);
+    return drivers;
 }
 
 /**
@@ -1278,11 +1278,11 @@ export async function getDrivers(): Promise<Drivers[]> {
  * @return A Promise that resolves with the HVCI status data, or rejects with an error message.
  */
 export async function getHvciStatus(): Promise<HvciStatus[]> {
-  const output = await runOsquery(`SELECT * FROM hvci_status`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const hvciStatus: HvciStatus[] = JSON.parse(output);
-  return hvciStatus;
+    const output = await runOsquery(`SELECT * FROM hvci_status`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const hvciStatus: HvciStatus[] = JSON.parse(output);
+    return hvciStatus;
 }
 
 /**
@@ -1291,11 +1291,11 @@ export async function getHvciStatus(): Promise<HvciStatus[]> {
  * @return A Promise that resolves with the IE extensions data, or rejects with an error message.
  */
 export async function getIeExtensions(): Promise<IeExtensions[]> {
-  const output = await runOsquery(`SELECT * FROM ie_extensions`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const ieExtensions: IeExtensions[] = JSON.parse(output);
-  return ieExtensions;
+    const output = await runOsquery(`SELECT * FROM ie_extensions`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const ieExtensions: IeExtensions[] = JSON.parse(output);
+    return ieExtensions;
 }
 
 /**
@@ -1304,11 +1304,11 @@ export async function getIeExtensions(): Promise<IeExtensions[]> {
  * @return A Promise that resolves with the kernel virtual address and speculative execution information, or rejects with an error message.
  */
 export async function getKvaSpeculativeInfo(): Promise<KvaSpeculativeInfo[]> {
-  const output = await runOsquery(`SELECT * FROM kva_speculative_info`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const kvaSpeculativeInfo: KvaSpeculativeInfo[] = JSON.parse(output);
-  return kvaSpeculativeInfo;
+    const output = await runOsquery(`SELECT * FROM kva_speculative_info`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const kvaSpeculativeInfo: KvaSpeculativeInfo[] = JSON.parse(output);
+    return kvaSpeculativeInfo;
 }
 
 /**
@@ -1317,11 +1317,11 @@ export async function getKvaSpeculativeInfo(): Promise<KvaSpeculativeInfo[]> {
  * @return A Promise that resolves with the logical drives details, or rejects with an error message.
  */
 export async function getLogicalDrives(): Promise<LogicalDrives[]> {
-  const output = await runOsquery(`SELECT * FROM logical_drives`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const logicalDrives: LogicalDrives[] = JSON.parse(output);
-  return logicalDrives;
+    const output = await runOsquery(`SELECT * FROM logical_drives`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const logicalDrives: LogicalDrives[] = JSON.parse(output);
+    return logicalDrives;
 }
 
 /**
@@ -1330,11 +1330,11 @@ export async function getLogicalDrives(): Promise<LogicalDrives[]> {
  * @return A Promise that resolves with the logon sessions details, or rejects with an error message.
  */
 export async function getLogonSessions(): Promise<LogonSessions[]> {
-  const output = await runOsquery(`SELECT * FROM logon_sessions`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const logonSessions: LogonSessions[] = JSON.parse(output);
-  return logonSessions;
+    const output = await runOsquery(`SELECT * FROM logon_sessions`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const logonSessions: LogonSessions[] = JSON.parse(output);
+    return logonSessions;
 }
 
 /**
@@ -1343,11 +1343,11 @@ export async function getLogonSessions(): Promise<LogonSessions[]> {
  * @return A Promise that resolves with the NT domain details, or rejects with an error message.
  */
 export async function getNTDomains(): Promise<NTDomains[]> {
-  const output = await runOsquery(`SELECT * FROM ntdomains`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const ntdomains: NTDomains[] = JSON.parse(output);
-  return ntdomains;
+    const output = await runOsquery(`SELECT * FROM ntdomains`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const ntdomains: NTDomains[] = JSON.parse(output);
+    return ntdomains;
 }
 
 /**
@@ -1356,11 +1356,11 @@ export async function getNTDomains(): Promise<NTDomains[]> {
  * @return A Promise that resolves with the NTFS ACL permissions, or rejects with an error message.
  */
 export async function getNTFSACLPermissions(): Promise<NTFSACLPermissions[]> {
-  const output = await runOsquery(`SELECT * FROM ntfs_acl_permissions`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const ntfsAclPermissions: NTFSACLPermissions[] = JSON.parse(output);
-  return ntfsAclPermissions;
+    const output = await runOsquery(`SELECT * FROM ntfs_acl_permissions`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const ntfsAclPermissions: NTFSACLPermissions[] = JSON.parse(output);
+    return ntfsAclPermissions;
 }
 
 /**
@@ -1369,11 +1369,11 @@ export async function getNTFSACLPermissions(): Promise<NTFSACLPermissions[]> {
  * @return A Promise that resolves with the NTFS journal events, or rejects with an error message.
  */
 export async function getNTFSJournalEvents(): Promise<NTFSJournalEvents[]> {
-  const output = await runOsquery(`SELECT * FROM ntfs_journal_events`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const ntfsJournalEvents: NTFSJournalEvents[] = JSON.parse(output);
-  return ntfsJournalEvents;
+    const output = await runOsquery(`SELECT * FROM ntfs_journal_events`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const ntfsJournalEvents: NTFSJournalEvents[] = JSON.parse(output);
+    return ntfsJournalEvents;
 }
 
 /**
@@ -1382,11 +1382,11 @@ export async function getNTFSJournalEvents(): Promise<NTFSJournalEvents[]> {
  * @return A Promise that resolves with the Office MRU entries, or rejects with an error message.
  */
 export async function getOfficeMRU(): Promise<OfficeMRU[]> {
-  const output = await runOsquery(`SELECT * FROM office_mru`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const officeMRU: OfficeMRU[] = JSON.parse(output);
-  return officeMRU;
+    const output = await runOsquery(`SELECT * FROM office_mru`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const officeMRU: OfficeMRU[] = JSON.parse(output);
+    return officeMRU;
 }
 
 /**
@@ -1395,9 +1395,9 @@ export async function getOfficeMRU(): Promise<OfficeMRU[]> {
  * @return A Promise that resolves with the patches applied, or rejects with an error message.
  */
 export async function getPatches(): Promise<Patches[]> {
-  const output = await runOsquery(`SELECT * FROM patches`, [OsType.WINDOWS_NT]);
-  const patches: Patches[] = JSON.parse(output);
-  return patches;
+    const output = await runOsquery(`SELECT * FROM patches`, [OsType.WINDOWS_NT]);
+    const patches: Patches[] = JSON.parse(output);
+    return patches;
 }
 
 /**
@@ -1406,13 +1406,13 @@ export async function getPatches(): Promise<Patches[]> {
  * @return A Promise that resolves with the disk performance data, or rejects with an error message.
  */
 export async function getPhysicalDiskPerformance(): Promise<
-  PhysicalDiskPerformance[]
+    PhysicalDiskPerformance[]
 > {
-  const output = await runOsquery(`SELECT * FROM physical_disk_performance`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const physicalDiskPerformance: PhysicalDiskPerformance[] = JSON.parse(output);
-  return physicalDiskPerformance;
+    const output = await runOsquery(`SELECT * FROM physical_disk_performance`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const physicalDiskPerformance: PhysicalDiskPerformance[] = JSON.parse(output);
+    return physicalDiskPerformance;
 }
 
 /**
@@ -1421,9 +1421,9 @@ export async function getPhysicalDiskPerformance(): Promise<
  * @return A Promise that resolves with the pipes data, or rejects with an error message.
  */
 export async function getPipes(): Promise<Pipes[]> {
-  const output = await runOsquery(`SELECT * FROM pipes`, [OsType.WINDOWS_NT]);
-  const pipes: Pipes[] = JSON.parse(output);
-  return pipes;
+    const output = await runOsquery(`SELECT * FROM pipes`, [OsType.WINDOWS_NT]);
+    const pipes: Pipes[] = JSON.parse(output);
+    return pipes;
 }
 
 /**
@@ -1433,11 +1433,11 @@ export async function getPipes(): Promise<Pipes[]> {
  * @return A Promise that resolves with the Powershell events data, or rejects with an error message.
  */
 export async function getPowershellEvents(): Promise<PowershellEvents[]> {
-  const output = await runOsquery(`SELECT * FROM powershell_events`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const powershellEvents: PowershellEvents[] = JSON.parse(output);
-  return powershellEvents;
+    const output = await runOsquery(`SELECT * FROM powershell_events`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const powershellEvents: PowershellEvents[] = JSON.parse(output);
+    return powershellEvents;
 }
 
 /**
@@ -1446,11 +1446,11 @@ export async function getPowershellEvents(): Promise<PowershellEvents[]> {
  * @return A Promise that resolves with the prefetch files data, or rejects with an error message.
  */
 export async function getPrefetchFiles(): Promise<Prefetch[]> {
-  const output = await runOsquery(`SELECT * FROM prefetch`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const prefetchFiles: Prefetch[] = JSON.parse(output);
-  return prefetchFiles;
+    const output = await runOsquery(`SELECT * FROM prefetch`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const prefetchFiles: Prefetch[] = JSON.parse(output);
+    return prefetchFiles;
 }
 
 /**
@@ -1459,11 +1459,11 @@ export async function getPrefetchFiles(): Promise<Prefetch[]> {
  * @return A Promise that resolves with the process execution events data, or rejects with an error message.
  */
 export async function getProcessEtwEvents(): Promise<ProcessEtwEvents[]> {
-  const output = await runOsquery(`SELECT * FROM process_etw_events`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const processEtwEvents: ProcessEtwEvents[] = JSON.parse(output);
-  return processEtwEvents;
+    const output = await runOsquery(`SELECT * FROM process_etw_events`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const processEtwEvents: ProcessEtwEvents[] = JSON.parse(output);
+    return processEtwEvents;
 }
 
 /**
@@ -1472,11 +1472,11 @@ export async function getProcessEtwEvents(): Promise<ProcessEtwEvents[]> {
  * @return A Promise that resolves with the installed product's data, or rejects with an error message.
  */
 export async function getPrograms(): Promise<Programs[]> {
-  const output = await runOsquery(`SELECT * FROM programs`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const programs: Programs[] = JSON.parse(output);
-  return programs;
+    const output = await runOsquery(`SELECT * FROM programs`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const programs: Programs[] = JSON.parse(output);
+    return programs;
 }
 
 /**
@@ -1485,11 +1485,11 @@ export async function getPrograms(): Promise<Programs[]> {
  * @return A Promise that resolves with the registry data, or rejects with an error message.
  */
 export async function getRegistry(): Promise<Registry[]> {
-  const output = await runOsquery(`SELECT * FROM registry`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const registry: Registry[] = JSON.parse(output);
-  return registry;
+    const output = await runOsquery(`SELECT * FROM registry`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const registry: Registry[] = JSON.parse(output);
+    return registry;
 }
 
 /**
@@ -1498,11 +1498,11 @@ export async function getRegistry(): Promise<Registry[]> {
  * @return A Promise that resolves with the scheduled task data, or rejects with an error message.
  */
 export async function getScheduledTasks(): Promise<ScheduledTask[]> {
-  const output = await runOsquery(`SELECT * FROM scheduled_tasks`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const scheduledTasks: ScheduledTask[] = JSON.parse(output);
-  return scheduledTasks;
+    const output = await runOsquery(`SELECT * FROM scheduled_tasks`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const scheduledTasks: ScheduledTask[] = JSON.parse(output);
+    return scheduledTasks;
 }
 
 /**
@@ -1511,11 +1511,11 @@ export async function getScheduledTasks(): Promise<ScheduledTask[]> {
  * @return A Promise that resolves with the security profile info data, or rejects with an error message.
  */
 export async function getSecurityProfileInfo(): Promise<SecurityProfileInfo[]> {
-  const output = await runOsquery(`SELECT * FROM security_profile_info`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const securityProfileInfos: SecurityProfileInfo[] = JSON.parse(output);
-  return securityProfileInfos;
+    const output = await runOsquery(`SELECT * FROM security_profile_info`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const securityProfileInfos: SecurityProfileInfo[] = JSON.parse(output);
+    return securityProfileInfos;
 }
 
 /**
@@ -1524,11 +1524,11 @@ export async function getSecurityProfileInfo(): Promise<SecurityProfileInfo[]> {
  * @return A Promise that resolves with the services data, or rejects with an error message.
  */
 export async function getServices(): Promise<Services[]> {
-  const output = await runOsquery(`SELECT * FROM services`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const services: Services[] = JSON.parse(output);
-  return services;
+    const output = await runOsquery(`SELECT * FROM services`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const services: Services[] = JSON.parse(output);
+    return services;
 }
 
 /**
@@ -1537,11 +1537,11 @@ export async function getServices(): Promise<Services[]> {
  * @return A Promise that resolves with the shared resources data, or rejects with an error message.
  */
 export async function getSharedResources(): Promise<SharedResources[]> {
-  const output = await runOsquery(`SELECT * FROM shared_resources`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const sharedResources: SharedResources[] = JSON.parse(output);
-  return sharedResources;
+    const output = await runOsquery(`SELECT * FROM shared_resources`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const sharedResources: SharedResources[] = JSON.parse(output);
+    return sharedResources;
 }
 
 /**
@@ -1550,11 +1550,11 @@ export async function getSharedResources(): Promise<SharedResources[]> {
  * @return A Promise that resolves with the shellbags data, or rejects with an error message.
  */
 export async function getShellbags(): Promise<Shellbags[]> {
-  const output = await runOsquery(`SELECT * FROM shellbags`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const shellbags: Shellbags[] = JSON.parse(output);
-  return shellbags;
+    const output = await runOsquery(`SELECT * FROM shellbags`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const shellbags: Shellbags[] = JSON.parse(output);
+    return shellbags;
 }
 
 /**
@@ -1563,11 +1563,11 @@ export async function getShellbags(): Promise<Shellbags[]> {
  * @return A Promise that resolves with the shimcache data, or rejects with an error message.
  */
 export async function getShimcache(): Promise<Shimcache[]> {
-  const output = await runOsquery(`SELECT * FROM shimcache`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const shimcache: Shimcache[] = JSON.parse(output);
-  return shimcache;
+    const output = await runOsquery(`SELECT * FROM shimcache`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const shimcache: Shimcache[] = JSON.parse(output);
+    return shimcache;
 }
 
 /**
@@ -1576,11 +1576,11 @@ export async function getShimcache(): Promise<Shimcache[]> {
  * @return A Promise that resolves with the TPM information, or rejects with an error message.
  */
 export async function getTpmInfo(): Promise<TpmInfo[]> {
-  const output = await runOsquery(`SELECT * FROM tpm_info`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const tpmInfo: TpmInfo[] = JSON.parse(output);
-  return tpmInfo;
+    const output = await runOsquery(`SELECT * FROM tpm_info`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const tpmInfo: TpmInfo[] = JSON.parse(output);
+    return tpmInfo;
 }
 
 /**
@@ -1589,11 +1589,11 @@ export async function getTpmInfo(): Promise<TpmInfo[]> {
  * @return A Promise that resolves with the UserAssist data, or rejects with an error message.
  */
 export async function getUserAssist(): Promise<UserAssist[]> {
-  const output = await runOsquery(`SELECT * FROM userassist`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const userAssist: UserAssist[] = JSON.parse(output);
-  return userAssist;
+    const output = await runOsquery(`SELECT * FROM userassist`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const userAssist: UserAssist[] = JSON.parse(output);
+    return userAssist;
 }
 
 /**
@@ -1602,11 +1602,11 @@ export async function getUserAssist(): Promise<UserAssist[]> {
  * @return A Promise that resolves with the video card information, or rejects with an error message.
  */
 export async function getVideoInfo(): Promise<VideoInfo[]> {
-  const output = await runOsquery(`SELECT * FROM video_info`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const videoInfo: VideoInfo[] = JSON.parse(output);
-  return videoInfo;
+    const output = await runOsquery(`SELECT * FROM video_info`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const videoInfo: VideoInfo[] = JSON.parse(output);
+    return videoInfo;
 }
 
 /**
@@ -1615,11 +1615,11 @@ export async function getVideoInfo(): Promise<VideoInfo[]> {
  * @return A Promise that resolves with the named Windows objects, or rejects with an error message.
  */
 export async function getWinBaseObj(): Promise<WinBaseObj[]> {
-  const output = await runOsquery(`SELECT * FROM winbaseobj`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const winBaseObj: WinBaseObj[] = JSON.parse(output);
-  return winBaseObj;
+    const output = await runOsquery(`SELECT * FROM winbaseobj`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const winBaseObj: WinBaseObj[] = JSON.parse(output);
+    return winBaseObj;
 }
 
 /**
@@ -1628,11 +1628,11 @@ export async function getWinBaseObj(): Promise<WinBaseObj[]> {
  * @return A Promise that resolves with the crash logs information, or rejects with an error message.
  */
 export async function getWindowsCrashes(): Promise<WindowsCrashes[]> {
-  const output = await runOsquery(`SELECT * FROM windows_crashes`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const windowsCrashes: WindowsCrashes[] = JSON.parse(output);
-  return windowsCrashes;
+    const output = await runOsquery(`SELECT * FROM windows_crashes`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const windowsCrashes: WindowsCrashes[] = JSON.parse(output);
+    return windowsCrashes;
 }
 
 /**
@@ -1641,11 +1641,11 @@ export async function getWindowsCrashes(): Promise<WindowsCrashes[]> {
  * @return A Promise that resolves with the Windows event logs information, or rejects with an error message.
  */
 export async function getWindowsEventlog(): Promise<WindowsEventlog[]> {
-  const output = await runOsquery(`SELECT * FROM windows_eventlog`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const windowsEventlog: WindowsEventlog[] = JSON.parse(output);
-  return windowsEventlog;
+    const output = await runOsquery(`SELECT * FROM windows_eventlog`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const windowsEventlog: WindowsEventlog[] = JSON.parse(output);
+    return windowsEventlog;
 }
 
 /**
@@ -1654,11 +1654,11 @@ export async function getWindowsEventlog(): Promise<WindowsEventlog[]> {
  * @return A Promise that resolves with the Windows event logs information, or rejects with an error message.
  */
 export async function getWindowsEvents(): Promise<WindowsEvents[]> {
-  const output = await runOsquery(`SELECT * FROM windows_events`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const windowsEvents: WindowsEvents[] = JSON.parse(output);
-  return windowsEvents;
+    const output = await runOsquery(`SELECT * FROM windows_events`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const windowsEvents: WindowsEvents[] = JSON.parse(output);
+    return windowsEvents;
 }
 
 /**
@@ -1667,13 +1667,13 @@ export async function getWindowsEvents(): Promise<WindowsEvents[]> {
  * @return A Promise that resolves with the Windows firewall rules information, or rejects with an error message.
  */
 export async function getWindowsFirewallRules(): Promise<
-  WindowsFirewallRules[]
+    WindowsFirewallRules[]
 > {
-  const output = await runOsquery(`SELECT * FROM windows_firewall_rules`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const windowsFirewallRules: WindowsFirewallRules[] = JSON.parse(output);
-  return windowsFirewallRules;
+    const output = await runOsquery(`SELECT * FROM windows_firewall_rules`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const windowsFirewallRules: WindowsFirewallRules[] = JSON.parse(output);
+    return windowsFirewallRules;
 }
 
 /**
@@ -1682,13 +1682,13 @@ export async function getWindowsFirewallRules(): Promise<
  * @return A Promise that resolves with the windows features information, or rejects with an error message.
  */
 export async function getWindowsOptionalFeatures(): Promise<
-  WindowsOptionalFeatures[]
+    WindowsOptionalFeatures[]
 > {
-  const output = await runOsquery(`SELECT * FROM windows_optional_features`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const windowsOptionalFeatures: WindowsOptionalFeatures[] = JSON.parse(output);
-  return windowsOptionalFeatures;
+    const output = await runOsquery(`SELECT * FROM windows_optional_features`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const windowsOptionalFeatures: WindowsOptionalFeatures[] = JSON.parse(output);
+    return windowsOptionalFeatures;
 }
 
 /**
@@ -1697,13 +1697,13 @@ export async function getWindowsOptionalFeatures(): Promise<
  * @return A Promise that resolves with the health status of Window Security features, or rejects with an error message.
  */
 export async function getWindowsSecurityCenter(): Promise<
-  WindowsSecurityCenter[]
+    WindowsSecurityCenter[]
 > {
-  const output = await runOsquery(`SELECT * FROM windows_security_center`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const windowsSecurityCenter: WindowsSecurityCenter[] = JSON.parse(output);
-  return windowsSecurityCenter;
+    const output = await runOsquery(`SELECT * FROM windows_security_center`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const windowsSecurityCenter: WindowsSecurityCenter[] = JSON.parse(output);
+    return windowsSecurityCenter;
 }
 
 /**
@@ -1712,13 +1712,13 @@ export async function getWindowsSecurityCenter(): Promise<
  * @return A Promise that resolves with the registered Windows security products, or rejects with an error message.
  */
 export async function getWindowsSecurityProducts(): Promise<
-  WindowsSecurityProducts[]
+    WindowsSecurityProducts[]
 > {
-  const output = await runOsquery(`SELECT * FROM windows_security_products`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const windowsSecurityProducts: WindowsSecurityProducts[] = JSON.parse(output);
-  return windowsSecurityProducts;
+    const output = await runOsquery(`SELECT * FROM windows_security_products`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const windowsSecurityProducts: WindowsSecurityProducts[] = JSON.parse(output);
+    return windowsSecurityProducts;
 }
 
 /**
@@ -1727,13 +1727,13 @@ export async function getWindowsSecurityProducts(): Promise<
  * @return A Promise that resolves with the history of the windows update events, or rejects with an error message.
  */
 export async function getWindowsUpdateHistory(): Promise<
-  WindowsUpdateHistory[]
+    WindowsUpdateHistory[]
 > {
-  const output = await runOsquery(`SELECT * FROM windows_update_history`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const windowsUpdateHistory: WindowsUpdateHistory[] = JSON.parse(output);
-  return windowsUpdateHistory;
+    const output = await runOsquery(`SELECT * FROM windows_update_history`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const windowsUpdateHistory: WindowsUpdateHistory[] = JSON.parse(output);
+    return windowsUpdateHistory;
 }
 
 /**
@@ -1742,11 +1742,11 @@ export async function getWindowsUpdateHistory(): Promise<
  * @return A Promise that resolves with the information from the system bios, or rejects with an error message.
  */
 export async function getWmiBiosInfo(): Promise<WmiBiosInfo[]> {
-  const output = await runOsquery(`SELECT * FROM wmi_bios_info`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const wmiBiosInfo: WmiBiosInfo[] = JSON.parse(output);
-  return wmiBiosInfo;
+    const output = await runOsquery(`SELECT * FROM wmi_bios_info`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const wmiBiosInfo: WmiBiosInfo[] = JSON.parse(output);
+    return wmiBiosInfo;
 }
 
 /**
@@ -1755,13 +1755,13 @@ export async function getWmiBiosInfo(): Promise<WmiBiosInfo[]> {
  * @return A Promise that resolves with the WMI CommandLineEventConsumer data, or rejects with an error message.
  */
 export async function getWmiCliEventConsumers(): Promise<
-  WmiCliEventConsumers[]
+    WmiCliEventConsumers[]
 > {
-  const output = await runOsquery(`SELECT * FROM wmi_cli_event_consumers`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const wmiCliEventConsumers: WmiCliEventConsumers[] = JSON.parse(output);
-  return wmiCliEventConsumers;
+    const output = await runOsquery(`SELECT * FROM wmi_cli_event_consumers`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const wmiCliEventConsumers: WmiCliEventConsumers[] = JSON.parse(output);
+    return wmiCliEventConsumers;
 }
 
 /**
@@ -1770,11 +1770,11 @@ export async function getWmiCliEventConsumers(): Promise<
  * @return A Promise that resolves with the WMI event filters data, or rejects with an error message.
  */
 export async function getWmiEventFilters(): Promise<WmiEventFilters[]> {
-  const output = await runOsquery(`SELECT * FROM wmi_event_filters`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const wmiEventFilters: WmiEventFilters[] = JSON.parse(output);
-  return wmiEventFilters;
+    const output = await runOsquery(`SELECT * FROM wmi_event_filters`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const wmiEventFilters: WmiEventFilters[] = JSON.parse(output);
+    return wmiEventFilters;
 }
 
 /**
@@ -1783,14 +1783,14 @@ export async function getWmiEventFilters(): Promise<WmiEventFilters[]> {
  * @return A Promise that resolves with the WMI filter consumer binding data, or rejects with an error message.
  */
 export async function getWmiFilterConsumerBinding(): Promise<
-  WmiFilterConsumerBinding[]
+    WmiFilterConsumerBinding[]
 > {
-  const output = await runOsquery(`SELECT * FROM wmi_filter_consumer_binding`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const wmiFilterConsumerBinding: WmiFilterConsumerBinding[] =
-    JSON.parse(output);
-  return wmiFilterConsumerBinding;
+    const output = await runOsquery(`SELECT * FROM wmi_filter_consumer_binding`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const wmiFilterConsumerBinding: WmiFilterConsumerBinding[] =
+        JSON.parse(output);
+    return wmiFilterConsumerBinding;
 }
 
 /**
@@ -1799,13 +1799,13 @@ export async function getWmiFilterConsumerBinding(): Promise<
  * @return A Promise that resolves with the WMI script event consumers data, or rejects with an error message.
  */
 export async function getWmiScriptEventConsumers(): Promise<
-  WmiScriptEventConsumers[]
+    WmiScriptEventConsumers[]
 > {
-  const output = await runOsquery(`SELECT * FROM wmi_script_event_consumers`, [
-    OsType.WINDOWS_NT,
-  ]);
-  const wmiScriptEventConsumers: WmiScriptEventConsumers[] = JSON.parse(output);
-  return wmiScriptEventConsumers;
+    const output = await runOsquery(`SELECT * FROM wmi_script_event_consumers`, [
+        OsType.WINDOWS_NT,
+    ]);
+    const wmiScriptEventConsumers: WmiScriptEventConsumers[] = JSON.parse(output);
+    return wmiScriptEventConsumers;
 }
 
 // 🪟🐧
@@ -1816,12 +1816,12 @@ export async function getWmiScriptEventConsumers(): Promise<
  * @return A Promise that resolves with the Intel ME/CSE info data, or rejects with an error message.
  */
 export async function getIntelMeInfo(): Promise<IntelMeInfo[]> {
-  const output = await runOsquery(`SELECT * FROM intel_me_info`, [
-    OsType.LINUX,
-    OsType.WINDOWS_NT,
-  ]);
-  const intelMeInfo: IntelMeInfo[] = JSON.parse(output);
-  return intelMeInfo;
+    const output = await runOsquery(`SELECT * FROM intel_me_info`, [
+        OsType.LINUX,
+        OsType.WINDOWS_NT,
+    ]);
+    const intelMeInfo: IntelMeInfo[] = JSON.parse(output);
+    return intelMeInfo;
 }
 
 // 🍎🐧
@@ -1832,12 +1832,12 @@ export async function getIntelMeInfo(): Promise<IntelMeInfo[]> {
  * @return A Promise that resolves with the ACPI tables data, or rejects with an error message.
  */
 export async function getAcpiTables(): Promise<AcpiTables[]> {
-  const output = await runOsquery(`SELECT * FROM acpi_tables`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const acpiTables: AcpiTables[] = JSON.parse(output);
-  return acpiTables;
+    const output = await runOsquery(`SELECT * FROM acpi_tables`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const acpiTables: AcpiTables[] = JSON.parse(output);
+    return acpiTables;
 }
 
 /**
@@ -1846,12 +1846,12 @@ export async function getAcpiTables(): Promise<AcpiTables[]> {
  * @return A Promise that resolves with the configuration files data, or rejects with an error message.
  */
 export async function getAugeas(): Promise<Augeas[]> {
-  const output = await runOsquery(`SELECT * FROM augeas`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const augeas: Augeas[] = JSON.parse(output);
-  return augeas;
+    const output = await runOsquery(`SELECT * FROM augeas`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const augeas: Augeas[] = JSON.parse(output);
+    return augeas;
 }
 
 /**
@@ -1860,12 +1860,12 @@ export async function getAugeas(): Promise<Augeas[]> {
  * @return A Promise that resolves with the authorized_keys data, or rejects with an error message.
  */
 export async function getAuthorizedKeys(): Promise<AuthorizedKeys[]> {
-  const output = await runOsquery(`SELECT * FROM authorized_keys`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const authorizedKeys: AuthorizedKeys[] = JSON.parse(output);
-  return authorizedKeys;
+    const output = await runOsquery(`SELECT * FROM authorized_keys`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const authorizedKeys: AuthorizedKeys[] = JSON.parse(output);
+    return authorizedKeys;
 }
 
 /**
@@ -1874,12 +1874,12 @@ export async function getAuthorizedKeys(): Promise<AuthorizedKeys[]> {
  * @return A Promise that resolves with the block device data, or rejects with an error message.
  */
 export async function getBlockDevices(): Promise<BlockDevices[]> {
-  const output = await runOsquery(`SELECT * FROM block_devices`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const blockDevices: BlockDevices[] = JSON.parse(output);
-  return blockDevices;
+    const output = await runOsquery(`SELECT * FROM block_devices`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const blockDevices: BlockDevices[] = JSON.parse(output);
+    return blockDevices;
 }
 
 /**
@@ -1888,12 +1888,12 @@ export async function getBlockDevices(): Promise<BlockDevices[]> {
  * @return A Promise that resolves with the cpu time data, or rejects with an error message.
  */
 export async function getCpuTime(): Promise<CpuTime[]> {
-  const output = await runOsquery(`SELECT * FROM cpu_time`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const cpuTimes: CpuTime[] = JSON.parse(output);
-  return cpuTimes;
+    const output = await runOsquery(`SELECT * FROM cpu_time`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const cpuTimes: CpuTime[] = JSON.parse(output);
+    return cpuTimes;
 }
 
 /**
@@ -1902,12 +1902,12 @@ export async function getCpuTime(): Promise<CpuTime[]> {
  * @return A Promise that resolves with the crontab data, or rejects with an error message.
  */
 export async function getCrontab(): Promise<Crontab[]> {
-  const output = await runOsquery(`SELECT * FROM crontab`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const crontabs: Crontab[] = JSON.parse(output);
-  return crontabs;
+    const output = await runOsquery(`SELECT * FROM crontab`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const crontabs: Crontab[] = JSON.parse(output);
+    return crontabs;
 }
 
 /**
@@ -1916,12 +1916,12 @@ export async function getCrontab(): Promise<Crontab[]> {
  * @return A Promise that resolves with the device file data, or rejects with an error message.
  */
 export async function getDeviceFile(): Promise<DeviceFile[]> {
-  const output = await runOsquery(`SELECT * FROM device_file`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const deviceFiles: DeviceFile[] = JSON.parse(output);
-  return deviceFiles;
+    const output = await runOsquery(`SELECT * FROM device_file`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const deviceFiles: DeviceFile[] = JSON.parse(output);
+    return deviceFiles;
 }
 
 /**
@@ -1930,12 +1930,12 @@ export async function getDeviceFile(): Promise<DeviceFile[]> {
  * @return A Promise that resolves with the device hash data, or rejects with an error message.
  */
 export async function getDeviceHash(): Promise<DeviceHash[]> {
-  const output = await runOsquery(`SELECT * FROM device_hash`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const deviceHashes: DeviceHash[] = JSON.parse(output);
-  return deviceHashes;
+    const output = await runOsquery(`SELECT * FROM device_hash`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const deviceHashes: DeviceHash[] = JSON.parse(output);
+    return deviceHashes;
 }
 
 /**
@@ -1944,12 +1944,12 @@ export async function getDeviceHash(): Promise<DeviceHash[]> {
  * @return A Promise that resolves with the device partitions data, or rejects with an error message.
  */
 export async function getDevicePartitions(): Promise<DevicePartitions[]> {
-  const output = await runOsquery(`SELECT * FROM device_partitions`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const devicePartitions: DevicePartitions[] = JSON.parse(output);
-  return devicePartitions;
+    const output = await runOsquery(`SELECT * FROM device_partitions`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const devicePartitions: DevicePartitions[] = JSON.parse(output);
+    return devicePartitions;
 }
 
 /**
@@ -1958,12 +1958,12 @@ export async function getDevicePartitions(): Promise<DevicePartitions[]> {
  * @return A Promise that resolves with the disk encryption data, or rejects with an error message.
  */
 export async function getDiskEncryption(): Promise<DiskEncryption[]> {
-  const output = await runOsquery(`SELECT * FROM disk_encryption`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const diskEncryption: DiskEncryption[] = JSON.parse(output);
-  return diskEncryption;
+    const output = await runOsquery(`SELECT * FROM disk_encryption`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const diskEncryption: DiskEncryption[] = JSON.parse(output);
+    return diskEncryption;
 }
 
 /**
@@ -1972,12 +1972,12 @@ export async function getDiskEncryption(): Promise<DiskEncryption[]> {
  * @return A Promise that resolves with the DNS resolvers data, or rejects with an error message.
  */
 export async function getDnsResolvers(): Promise<DnsResolvers[]> {
-  const output = await runOsquery(`SELECT * FROM dns_resolvers`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dnsResolvers: DnsResolvers[] = JSON.parse(output);
-  return dnsResolvers;
+    const output = await runOsquery(`SELECT * FROM dns_resolvers`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dnsResolvers: DnsResolvers[] = JSON.parse(output);
+    return dnsResolvers;
 }
 
 /**
@@ -1986,12 +1986,12 @@ export async function getDnsResolvers(): Promise<DnsResolvers[]> {
  * @return A Promise that resolves with the Docker container environment variable data, or rejects with an error message.
  */
 export async function getDockerContainerEnvs(): Promise<DockerContainerEnvs[]> {
-  const output = await runOsquery(`SELECT * FROM docker_container_envs`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerContainerEnvs: DockerContainerEnvs[] = JSON.parse(output);
-  return dockerContainerEnvs;
+    const output = await runOsquery(`SELECT * FROM docker_container_envs`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerContainerEnvs: DockerContainerEnvs[] = JSON.parse(output);
+    return dockerContainerEnvs;
 }
 
 /**
@@ -2000,15 +2000,15 @@ export async function getDockerContainerEnvs(): Promise<DockerContainerEnvs[]> {
  * @return A Promise that resolves with the Docker container file system change data, or rejects with an error message.
  */
 export async function getDockerContainerFsChanges(): Promise<
-  DockerContainerFsChanges[]
+    DockerContainerFsChanges[]
 > {
-  const output = await runOsquery(`SELECT * FROM docker_container_fs_changes`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerContainerFsChanges: DockerContainerFsChanges[] =
-    JSON.parse(output);
-  return dockerContainerFsChanges;
+    const output = await runOsquery(`SELECT * FROM docker_container_fs_changes`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerContainerFsChanges: DockerContainerFsChanges[] =
+        JSON.parse(output);
+    return dockerContainerFsChanges;
 }
 
 /**
@@ -2017,14 +2017,14 @@ export async function getDockerContainerFsChanges(): Promise<
  * @return A Promise that resolves with the Docker container label data, or rejects with an error message.
  */
 export async function getDockerContainerLabels(): Promise<
-  DockerContainerLabels[]
+    DockerContainerLabels[]
 > {
-  const output = await runOsquery(`SELECT * FROM docker_container_labels`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerContainerLabels: DockerContainerLabels[] = JSON.parse(output);
-  return dockerContainerLabels;
+    const output = await runOsquery(`SELECT * FROM docker_container_labels`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerContainerLabels: DockerContainerLabels[] = JSON.parse(output);
+    return dockerContainerLabels;
 }
 
 /**
@@ -2033,14 +2033,14 @@ export async function getDockerContainerLabels(): Promise<
  * @return A Promise that resolves with the Docker container mount data, or rejects with an error message.
  */
 export async function getDockerContainerMounts(): Promise<
-  DockerContainerMounts[]
+    DockerContainerMounts[]
 > {
-  const output = await runOsquery(`SELECT * FROM docker_container_mounts`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerContainerMounts: DockerContainerMounts[] = JSON.parse(output);
-  return dockerContainerMounts;
+    const output = await runOsquery(`SELECT * FROM docker_container_mounts`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerContainerMounts: DockerContainerMounts[] = JSON.parse(output);
+    return dockerContainerMounts;
 }
 
 /**
@@ -2049,14 +2049,14 @@ export async function getDockerContainerMounts(): Promise<
  * @return A Promise that resolves with the Docker container network data, or rejects with an error message.
  */
 export async function getDockerContainerNetworks(): Promise<
-  DockerContainerNetworks[]
+    DockerContainerNetworks[]
 > {
-  const output = await runOsquery(`SELECT * FROM docker_container_networks`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerContainerNetworks: DockerContainerNetworks[] = JSON.parse(output);
-  return dockerContainerNetworks;
+    const output = await runOsquery(`SELECT * FROM docker_container_networks`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerContainerNetworks: DockerContainerNetworks[] = JSON.parse(output);
+    return dockerContainerNetworks;
 }
 
 /**
@@ -2065,14 +2065,14 @@ export async function getDockerContainerNetworks(): Promise<
  * @return A Promise that resolves with the Docker container port data, or rejects with an error message.
  */
 export async function getDockerContainerPorts(): Promise<
-  DockerContainerPorts[]
+    DockerContainerPorts[]
 > {
-  const output = await runOsquery(`SELECT * FROM docker_container_ports`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerContainerPorts: DockerContainerPorts[] = JSON.parse(output);
-  return dockerContainerPorts;
+    const output = await runOsquery(`SELECT * FROM docker_container_ports`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerContainerPorts: DockerContainerPorts[] = JSON.parse(output);
+    return dockerContainerPorts;
 }
 
 /**
@@ -2081,15 +2081,15 @@ export async function getDockerContainerPorts(): Promise<
  * @return A Promise that resolves with the Docker container process data, or rejects with an error message.
  */
 export async function getDockerContainerProcesses(): Promise<
-  DockerContainerProcesses[]
+    DockerContainerProcesses[]
 > {
-  const output = await runOsquery(`SELECT * FROM docker_container_processes`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerContainerProcesses: DockerContainerProcesses[] =
-    JSON.parse(output);
-  return dockerContainerProcesses;
+    const output = await runOsquery(`SELECT * FROM docker_container_processes`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerContainerProcesses: DockerContainerProcesses[] =
+        JSON.parse(output);
+    return dockerContainerProcesses;
 }
 
 /**
@@ -2098,14 +2098,14 @@ export async function getDockerContainerProcesses(): Promise<
  * @return A Promise that resolves with the Docker container statistics data, or rejects with an error message.
  */
 export async function getDockerContainerStats(): Promise<
-  DockerContainerStats[]
+    DockerContainerStats[]
 > {
-  const output = await runOsquery(`SELECT * FROM docker_container_stats`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerContainerStats: DockerContainerStats[] = JSON.parse(output);
-  return dockerContainerStats;
+    const output = await runOsquery(`SELECT * FROM docker_container_stats`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerContainerStats: DockerContainerStats[] = JSON.parse(output);
+    return dockerContainerStats;
 }
 
 /**
@@ -2114,12 +2114,12 @@ export async function getDockerContainerStats(): Promise<
  * @return A Promise that resolves with the Docker containers data, or rejects with an error message.
  */
 export async function getDockerContainers(): Promise<DockerContainers[]> {
-  const output = await runOsquery(`SELECT * FROM docker_containers`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerContainers: DockerContainers[] = JSON.parse(output);
-  return dockerContainers;
+    const output = await runOsquery(`SELECT * FROM docker_containers`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerContainers: DockerContainers[] = JSON.parse(output);
+    return dockerContainers;
 }
 
 /**
@@ -2128,12 +2128,12 @@ export async function getDockerContainers(): Promise<DockerContainers[]> {
  * @return A Promise that resolves with the Docker images history data, or rejects with an error message.
  */
 export async function getDockerImageHistory(): Promise<DockerImageHistory[]> {
-  const output = await runOsquery(`SELECT * FROM docker_image_history`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerImageHistory: DockerImageHistory[] = JSON.parse(output);
-  return dockerImageHistory;
+    const output = await runOsquery(`SELECT * FROM docker_image_history`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerImageHistory: DockerImageHistory[] = JSON.parse(output);
+    return dockerImageHistory;
 }
 
 /**
@@ -2142,12 +2142,12 @@ export async function getDockerImageHistory(): Promise<DockerImageHistory[]> {
  * @return A Promise that resolves with the Docker image labels data, or rejects with an error message.
  */
 export async function getDockerImageLabels(): Promise<DockerImageLabels[]> {
-  const output = await runOsquery(`SELECT * FROM docker_image_labels`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerImageLabels: DockerImageLabels[] = JSON.parse(output);
-  return dockerImageLabels;
+    const output = await runOsquery(`SELECT * FROM docker_image_labels`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerImageLabels: DockerImageLabels[] = JSON.parse(output);
+    return dockerImageLabels;
 }
 
 /**
@@ -2156,12 +2156,12 @@ export async function getDockerImageLabels(): Promise<DockerImageLabels[]> {
  * @return A Promise that resolves with the Docker image layers data, or rejects with an error message.
  */
 export async function getDockerImageLayers(): Promise<DockerImageLayers[]> {
-  const output = await runOsquery(`SELECT * FROM docker_image_layers`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerImageLayers: DockerImageLayers[] = JSON.parse(output);
-  return dockerImageLayers;
+    const output = await runOsquery(`SELECT * FROM docker_image_layers`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerImageLayers: DockerImageLayers[] = JSON.parse(output);
+    return dockerImageLayers;
 }
 
 /**
@@ -2170,12 +2170,12 @@ export async function getDockerImageLayers(): Promise<DockerImageLayers[]> {
  * @return A Promise that resolves with the Docker images data, or rejects with an error message.
  */
 export async function getDockerImages(): Promise<DockerImages[]> {
-  const output = await runOsquery(`SELECT * FROM docker_images`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerImages: DockerImages[] = JSON.parse(output);
-  return dockerImages;
+    const output = await runOsquery(`SELECT * FROM docker_images`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerImages: DockerImages[] = JSON.parse(output);
+    return dockerImages;
 }
 
 /**
@@ -2184,12 +2184,12 @@ export async function getDockerImages(): Promise<DockerImages[]> {
  * @return A Promise that resolves with the Docker system information, or rejects with an error message.
  */
 export async function getDockerInfo(): Promise<DockerInfo> {
-  const output = await runOsquery(`SELECT * FROM docker_info`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerInfo: DockerInfo = JSON.parse(output);
-  return dockerInfo;
+    const output = await runOsquery(`SELECT * FROM docker_info`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerInfo: DockerInfo = JSON.parse(output);
+    return dockerInfo;
 }
 
 /**
@@ -2198,12 +2198,12 @@ export async function getDockerInfo(): Promise<DockerInfo> {
  * @return A Promise that resolves with the Docker network labels, or rejects with an error message.
  */
 export async function getDockerNetworkLabels(): Promise<DockerNetworkLabels[]> {
-  const output = await runOsquery(`SELECT * FROM docker_network_labels`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerNetworkLabels: DockerNetworkLabels[] = JSON.parse(output);
-  return dockerNetworkLabels;
+    const output = await runOsquery(`SELECT * FROM docker_network_labels`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerNetworkLabels: DockerNetworkLabels[] = JSON.parse(output);
+    return dockerNetworkLabels;
 }
 
 /**
@@ -2212,12 +2212,12 @@ export async function getDockerNetworkLabels(): Promise<DockerNetworkLabels[]> {
  * @return A Promise that resolves with the Docker networks information, or rejects with an error message.
  */
 export async function getDockerNetworks(): Promise<DockerNetworks[]> {
-  const output = await runOsquery(`SELECT * FROM docker_networks`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerNetworks: DockerNetworks[] = JSON.parse(output);
-  return dockerNetworks;
+    const output = await runOsquery(`SELECT * FROM docker_networks`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerNetworks: DockerNetworks[] = JSON.parse(output);
+    return dockerNetworks;
 }
 
 /**
@@ -2226,12 +2226,12 @@ export async function getDockerNetworks(): Promise<DockerNetworks[]> {
  * @return A Promise that resolves with the Docker version information, or rejects with an error message.
  */
 export async function getDockerVersion(): Promise<DockerVersion> {
-  const output = await runOsquery(`SELECT * FROM docker_version LIMIT 1`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerVersion: DockerVersion = JSON.parse(output)[0];
-  return dockerVersion;
+    const output = await runOsquery(`SELECT * FROM docker_version LIMIT 1`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerVersion: DockerVersion = JSON.parse(output)[0];
+    return dockerVersion;
 }
 
 /**
@@ -2240,12 +2240,12 @@ export async function getDockerVersion(): Promise<DockerVersion> {
  * @return A Promise that resolves with the Docker volume labels, or rejects with an error message.
  */
 export async function getDockerVolumeLabels(): Promise<DockerVolumeLabels[]> {
-  const output = await runOsquery(`SELECT * FROM docker_volume_labels`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerVolumeLabels: DockerVolumeLabels[] = JSON.parse(output);
-  return dockerVolumeLabels;
+    const output = await runOsquery(`SELECT * FROM docker_volume_labels`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerVolumeLabels: DockerVolumeLabels[] = JSON.parse(output);
+    return dockerVolumeLabels;
 }
 
 /**
@@ -2254,12 +2254,12 @@ export async function getDockerVolumeLabels(): Promise<DockerVolumeLabels[]> {
  * @return A Promise that resolves with the Docker volumes information, or rejects with an error message.
  */
 export async function getDockerVolumes(): Promise<DockerVolumes[]> {
-  const output = await runOsquery(`SELECT * FROM docker_volumes`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const dockerVolumes: DockerVolumes[] = JSON.parse(output);
-  return dockerVolumes;
+    const output = await runOsquery(`SELECT * FROM docker_volumes`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const dockerVolumes: DockerVolumes[] = JSON.parse(output);
+    return dockerVolumes;
 }
 
 /**
@@ -2268,12 +2268,12 @@ export async function getDockerVolumes(): Promise<DockerVolumes[]> {
  * @return A Promise that resolves with the extended attributes for files, or rejects with an error message.
  */
 export async function getExtendedAttributes(): Promise<ExtendedAttributes[]> {
-  const output = await runOsquery(`SELECT * FROM extended_attributes`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const extendedAttributes: ExtendedAttributes[] = JSON.parse(output);
-  return extendedAttributes;
+    const output = await runOsquery(`SELECT * FROM extended_attributes`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const extendedAttributes: ExtendedAttributes[] = JSON.parse(output);
+    return extendedAttributes;
 }
 
 /**
@@ -2282,12 +2282,12 @@ export async function getExtendedAttributes(): Promise<ExtendedAttributes[]> {
  * @return A Promise that resolves with the time/action changes to files, or rejects with an error message.
  */
 export async function getFileEvents(): Promise<FileEvents[]> {
-  const output = await runOsquery(`SELECT * FROM file_events`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const fileEvents: FileEvents[] = JSON.parse(output);
-  return fileEvents;
+    const output = await runOsquery(`SELECT * FROM file_events`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const fileEvents: FileEvents[] = JSON.parse(output);
+    return fileEvents;
 }
 
 /**
@@ -2296,12 +2296,12 @@ export async function getFileEvents(): Promise<FileEvents[]> {
  * @return A Promise that resolves with the hardware events, or rejects with an error message.
  */
 export async function getHardwareEvents(): Promise<HardwareEvents[]> {
-  const output = await runOsquery(`SELECT * FROM hardware_events`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const hardwareEvents: HardwareEvents[] = JSON.parse(output);
-  return hardwareEvents;
+    const output = await runOsquery(`SELECT * FROM hardware_events`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const hardwareEvents: HardwareEvents[] = JSON.parse(output);
+    return hardwareEvents;
 }
 
 /**
@@ -2310,12 +2310,12 @@ export async function getHardwareEvents(): Promise<HardwareEvents[]> {
  * @return A Promise that resolves with the network interfaces' IPv6 configuration, or rejects with an error message.
  */
 export async function getInterfaceIpv6(): Promise<InterfaceIpv6[]> {
-  const output = await runOsquery(`SELECT * FROM interface_ipv6`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const interfaceIpv6: InterfaceIpv6[] = JSON.parse(output);
-  return interfaceIpv6;
+    const output = await runOsquery(`SELECT * FROM interface_ipv6`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const interfaceIpv6: InterfaceIpv6[] = JSON.parse(output);
+    return interfaceIpv6;
 }
 
 /**
@@ -2324,12 +2324,12 @@ export async function getInterfaceIpv6(): Promise<InterfaceIpv6[]> {
  * @return A Promise that resolves with the known_hosts data, or rejects with an error message.
  */
 export async function getKnownHosts(): Promise<KnownHosts[]> {
-  const output = await runOsquery(`SELECT * FROM known_hosts`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const knownHosts: KnownHosts[] = JSON.parse(output);
-  return knownHosts;
+    const output = await runOsquery(`SELECT * FROM known_hosts`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const knownHosts: KnownHosts[] = JSON.parse(output);
+    return knownHosts;
 }
 
 /**
@@ -2338,12 +2338,12 @@ export async function getKnownHosts(): Promise<KnownHosts[]> {
  * @return A Promise that resolves with the login and logout data, or rejects with an error message.
  */
 export async function getLast(): Promise<Last[]> {
-  const output = await runOsquery(`SELECT * FROM last`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const last: Last[] = JSON.parse(output);
-  return last;
+    const output = await runOsquery(`SELECT * FROM last`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const last: Last[] = JSON.parse(output);
+    return last;
 }
 
 /**
@@ -2352,12 +2352,12 @@ export async function getLast(): Promise<Last[]> {
  * @return A Promise that resolves with the load averages data, or rejects with an error message.
  */
 export async function getLoadAverage(): Promise<LoadAverage[]> {
-  const output = await runOsquery(`SELECT * FROM load_average`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const loadAverage: LoadAverage[] = JSON.parse(output);
-  return loadAverage;
+    const output = await runOsquery(`SELECT * FROM load_average`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const loadAverage: LoadAverage[] = JSON.parse(output);
+    return loadAverage;
 }
 
 /**
@@ -2366,12 +2366,12 @@ export async function getLoadAverage(): Promise<LoadAverage[]> {
  * @return A Promise that resolves with the magic data, or rejects with an error message.
  */
 export async function getMagic(): Promise<Magic[]> {
-  const output = await runOsquery(`SELECT * FROM magic`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const magic: Magic[] = JSON.parse(output);
-  return magic;
+    const output = await runOsquery(`SELECT * FROM magic`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const magic: Magic[] = JSON.parse(output);
+    return magic;
 }
 
 /**
@@ -2380,15 +2380,15 @@ export async function getMagic(): Promise<Magic[]> {
  * @return A Promise that resolves with the memory array mapped addresses data, or rejects with an error message.
  */
 export async function getMemoryArrayMappedAddresses(): Promise<
-  MemoryArrayMappedAddresses[]
+    MemoryArrayMappedAddresses[]
 > {
-  const output = await runOsquery(
-    `SELECT * FROM memory_array_mapped_addresses`,
-    [OsType.LINUX, OsType.DARWIN],
-  );
-  const memoryArrayMappedAddresses: MemoryArrayMappedAddresses[] =
-    JSON.parse(output);
-  return memoryArrayMappedAddresses;
+    const output = await runOsquery(
+        `SELECT * FROM memory_array_mapped_addresses`,
+        [OsType.LINUX, OsType.DARWIN],
+    );
+    const memoryArrayMappedAddresses: MemoryArrayMappedAddresses[] =
+        JSON.parse(output);
+    return memoryArrayMappedAddresses;
 }
 
 /**
@@ -2397,12 +2397,12 @@ export async function getMemoryArrayMappedAddresses(): Promise<
  * @return A Promise that resolves with the memory arrays data, or rejects with an error message.
  */
 export async function getMemoryArrays(): Promise<MemoryArrays[]> {
-  const output = await runOsquery(`SELECT * FROM memory_arrays`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const memoryArrays: MemoryArrays[] = JSON.parse(output);
-  return memoryArrays;
+    const output = await runOsquery(`SELECT * FROM memory_arrays`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const memoryArrays: MemoryArrays[] = JSON.parse(output);
+    return memoryArrays;
 }
 
 /**
@@ -2411,15 +2411,15 @@ export async function getMemoryArrays(): Promise<MemoryArrays[]> {
  * @return A Promise that resolves with the memory device mapped addresses data, or rejects with an error message.
  */
 export async function getMemoryDeviceMappedAddresses(): Promise<
-  MemoryDeviceMappedAddresses[]
+    MemoryDeviceMappedAddresses[]
 > {
-  const output = await runOsquery(
-    `SELECT * FROM memory_device_mapped_addresses`,
-    [OsType.LINUX, OsType.DARWIN],
-  );
-  const memoryDeviceMappedAddresses: MemoryDeviceMappedAddresses[] =
-    JSON.parse(output);
-  return memoryDeviceMappedAddresses;
+    const output = await runOsquery(
+        `SELECT * FROM memory_device_mapped_addresses`,
+        [OsType.LINUX, OsType.DARWIN],
+    );
+    const memoryDeviceMappedAddresses: MemoryDeviceMappedAddresses[] =
+        JSON.parse(output);
+    return memoryDeviceMappedAddresses;
 }
 
 /**
@@ -2428,12 +2428,12 @@ export async function getMemoryDeviceMappedAddresses(): Promise<
  * @return A Promise that resolves with the memory error info data, or rejects with an error message.
  */
 export async function getMemoryErrorInfo(): Promise<MemoryErrorInfo[]> {
-  const output = await runOsquery(`SELECT * FROM memory_error_info`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const memoryErrorInfo: MemoryErrorInfo[] = JSON.parse(output);
-  return memoryErrorInfo;
+    const output = await runOsquery(`SELECT * FROM memory_error_info`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const memoryErrorInfo: MemoryErrorInfo[] = JSON.parse(output);
+    return memoryErrorInfo;
 }
 
 /**
@@ -2442,12 +2442,12 @@ export async function getMemoryErrorInfo(): Promise<MemoryErrorInfo[]> {
  * @return A Promise that resolves with the mounted devices and filesystems data, or rejects with an error message.
  */
 export async function getMounts(): Promise<Mounts[]> {
-  const output = await runOsquery(`SELECT * FROM mounts`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const mounts: Mounts[] = JSON.parse(output);
-  return mounts;
+    const output = await runOsquery(`SELECT * FROM mounts`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const mounts: Mounts[] = JSON.parse(output);
+    return mounts;
 }
 
 /**
@@ -2456,12 +2456,12 @@ export async function getMounts(): Promise<Mounts[]> {
  * @return A Promise that resolves with the OEM strings data, or rejects with an error message.
  */
 export async function getOemStrings(): Promise<OemStrings[]> {
-  const output = await runOsquery(`SELECT * FROM oem_strings`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const oemStrings: OemStrings[] = JSON.parse(output);
-  return oemStrings;
+    const output = await runOsquery(`SELECT * FROM oem_strings`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const oemStrings: OemStrings[] = JSON.parse(output);
+    return oemStrings;
 }
 
 /**
@@ -2470,12 +2470,12 @@ export async function getOemStrings(): Promise<OemStrings[]> {
  * @return A Promise that resolves with the PCI devices data, or rejects with an error message.
  */
 export async function getPciDevices(): Promise<PciDevices[]> {
-  const output = await runOsquery(`SELECT * FROM pci_devices`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const pciDevices: PciDevices[] = JSON.parse(output);
-  return pciDevices;
+    const output = await runOsquery(`SELECT * FROM pci_devices`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const pciDevices: PciDevices[] = JSON.parse(output);
+    return pciDevices;
 }
 
 /**
@@ -2484,12 +2484,12 @@ export async function getPciDevices(): Promise<PciDevices[]> {
  * @return A Promise that resolves with the process environment variables data, or rejects with an error message.
  */
 export async function getProcessEnvs(): Promise<ProcessEnvs[]> {
-  const output = await runOsquery(`SELECT * FROM process_envs`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const processEnvs: ProcessEnvs[] = JSON.parse(output);
-  return processEnvs;
+    const output = await runOsquery(`SELECT * FROM process_envs`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const processEnvs: ProcessEnvs[] = JSON.parse(output);
+    return processEnvs;
 }
 
 /**
@@ -2498,12 +2498,12 @@ export async function getProcessEnvs(): Promise<ProcessEnvs[]> {
  * @return A Promise that resolves with the process events data, or rejects with an error message.
  */
 export async function getProcessEvents(): Promise<ProcessEvents[]> {
-  const output = await runOsquery(`SELECT * FROM process_events`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const processEvents: ProcessEvents[] = JSON.parse(output);
-  return processEvents;
+    const output = await runOsquery(`SELECT * FROM process_events`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const processEvents: ProcessEvents[] = JSON.parse(output);
+    return processEvents;
 }
 
 /**
@@ -2512,12 +2512,12 @@ export async function getProcessEvents(): Promise<ProcessEvents[]> {
  * @return A Promise that resolves with the process file descriptors data, or rejects with an error message.
  */
 export async function getProcessOpenFiles(): Promise<ProcessOpenFiles[]> {
-  const output = await runOsquery(`SELECT * FROM process_open_files`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const processOpenFiles: ProcessOpenFiles[] = JSON.parse(output);
-  return processOpenFiles;
+    const output = await runOsquery(`SELECT * FROM process_open_files`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const processOpenFiles: ProcessOpenFiles[] = JSON.parse(output);
+    return processOpenFiles;
 }
 
 /**
@@ -2526,12 +2526,12 @@ export async function getProcessOpenFiles(): Promise<ProcessOpenFiles[]> {
  * @return A Promise that resolves with the Prometheus metrics data, or rejects with an error message.
  */
 export async function getPrometheusMetrics(): Promise<PrometheusMetrics[]> {
-  const output = await runOsquery(`SELECT * FROM prometheus_metrics`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const prometheusMetrics: PrometheusMetrics[] = JSON.parse(output);
-  return prometheusMetrics;
+    const output = await runOsquery(`SELECT * FROM prometheus_metrics`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const prometheusMetrics: PrometheusMetrics[] = JSON.parse(output);
+    return prometheusMetrics;
 }
 
 /**
@@ -2540,12 +2540,12 @@ export async function getPrometheusMetrics(): Promise<PrometheusMetrics[]> {
  * @return A Promise that resolves with the shell history data, or rejects with an error message.
  */
 export async function getShellHistory(): Promise<ShellHistory[]> {
-  const output = await runOsquery(`SELECT * FROM shell_history`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const shellHistory: ShellHistory[] = JSON.parse(output);
-  return shellHistory;
+    const output = await runOsquery(`SELECT * FROM shell_history`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const shellHistory: ShellHistory[] = JSON.parse(output);
+    return shellHistory;
 }
 
 /**
@@ -2554,12 +2554,12 @@ export async function getShellHistory(): Promise<ShellHistory[]> {
  * @return A Promise that resolves with the BIOS structure details and content, or rejects with an error message.
  */
 export async function getSmbiosTables(): Promise<SmbiosTables[]> {
-  const output = await runOsquery(`SELECT * FROM smbios_tables`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const smbiosTables: SmbiosTables[] = JSON.parse(output);
-  return smbiosTables;
+    const output = await runOsquery(`SELECT * FROM smbios_tables`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const smbiosTables: SmbiosTables[] = JSON.parse(output);
+    return smbiosTables;
 }
 
 /**
@@ -2568,12 +2568,12 @@ export async function getSmbiosTables(): Promise<SmbiosTables[]> {
  * @return A Promise that resolves with the socket events, or rejects with an error message.
  */
 export async function getSocketEvents(): Promise<SocketEvents[]> {
-  const output = await runOsquery(`SELECT * FROM socket_events`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const socketEvents: SocketEvents[] = JSON.parse(output);
-  return socketEvents;
+    const output = await runOsquery(`SELECT * FROM socket_events`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const socketEvents: SocketEvents[] = JSON.parse(output);
+    return socketEvents;
 }
 
 /**
@@ -2582,12 +2582,12 @@ export async function getSocketEvents(): Promise<SocketEvents[]> {
  * @return A Promise that resolves with the sudoers rules, or rejects with an error message.
  */
 export async function getSudoers(): Promise<Sudoers[]> {
-  const output = await runOsquery(`SELECT * FROM sudoers`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const sudoers: Sudoers[] = JSON.parse(output);
-  return sudoers;
+    const output = await runOsquery(`SELECT * FROM sudoers`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const sudoers: Sudoers[] = JSON.parse(output);
+    return sudoers;
 }
 
 /**
@@ -2596,12 +2596,12 @@ export async function getSudoers(): Promise<Sudoers[]> {
  * @return A Promise that resolves with the suid binaries information, or rejects with an error message.
  */
 export async function getSuidBin(): Promise<SuidBin[]> {
-  const output = await runOsquery(`SELECT * FROM suid_bin`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const suidBin: SuidBin[] = JSON.parse(output);
-  return suidBin;
+    const output = await runOsquery(`SELECT * FROM suid_bin`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const suidBin: SuidBin[] = JSON.parse(output);
+    return suidBin;
 }
 
 /**
@@ -2610,12 +2610,12 @@ export async function getSuidBin(): Promise<SuidBin[]> {
  * @return A Promise that resolves with the sysctl names, values, and settings information, or rejects with an error message.
  */
 export async function getSystemControls(): Promise<SystemControls[]> {
-  const output = await runOsquery(`SELECT * FROM system_controls`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const systemControls: SystemControls[] = JSON.parse(output);
-  return systemControls;
+    const output = await runOsquery(`SELECT * FROM system_controls`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const systemControls: SystemControls[] = JSON.parse(output);
+    return systemControls;
 }
 
 /**
@@ -2624,12 +2624,12 @@ export async function getSystemControls(): Promise<SystemControls[]> {
  * @return A Promise that resolves with the system resource usage limits, or rejects with an error message.
  */
 export async function getUlimitInfo(): Promise<UlimitInfo[]> {
-  const output = await runOsquery(`SELECT * FROM ulimit_info`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const ulimitInfo: UlimitInfo[] = JSON.parse(output);
-  return ulimitInfo;
+    const output = await runOsquery(`SELECT * FROM ulimit_info`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const ulimitInfo: UlimitInfo[] = JSON.parse(output);
+    return ulimitInfo;
 }
 
 /**
@@ -2638,12 +2638,12 @@ export async function getUlimitInfo(): Promise<UlimitInfo[]> {
  * @return A Promise that resolves with the USB devices, or rejects with an error message.
  */
 export async function getUsbDevices(): Promise<UsbDevices[]> {
-  const output = await runOsquery(`SELECT * FROM usb_devices`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const usbDevices: UsbDevices[] = JSON.parse(output);
-  return usbDevices;
+    const output = await runOsquery(`SELECT * FROM usb_devices`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const usbDevices: UsbDevices[] = JSON.parse(output);
+    return usbDevices;
 }
 
 /**
@@ -2652,12 +2652,12 @@ export async function getUsbDevices(): Promise<UsbDevices[]> {
  * @return A Promise that resolves with the user events, or rejects with an error message.
  */
 export async function getUserEvents(): Promise<UserEvents[]> {
-  const output = await runOsquery(`SELECT * FROM user_events`, [
-    OsType.LINUX,
-    OsType.DARWIN,
-  ]);
-  const userEvents: UserEvents[] = JSON.parse(output);
-  return userEvents;
+    const output = await runOsquery(`SELECT * FROM user_events`, [
+        OsType.LINUX,
+        OsType.DARWIN,
+    ]);
+    const userEvents: UserEvents[] = JSON.parse(output);
+    return userEvents;
 }
 
 // 🐧
@@ -2668,11 +2668,11 @@ export async function getUserEvents(): Promise<UserEvents[]> {
  * @return A Promise that resolves with the AppArmor events, or rejects with an error message.
  */
 export async function getApparmorEvents(): Promise<ApparmorEvents[]> {
-  const output = await runOsquery(`SELECT * FROM apparmor_events`, [
-    OsType.LINUX,
-  ]);
-  const apparmorEvents: ApparmorEvents[] = JSON.parse(output);
-  return apparmorEvents;
+    const output = await runOsquery(`SELECT * FROM apparmor_events`, [
+        OsType.LINUX,
+    ]);
+    const apparmorEvents: ApparmorEvents[] = JSON.parse(output);
+    return apparmorEvents;
 }
 
 /**
@@ -2681,11 +2681,11 @@ export async function getApparmorEvents(): Promise<ApparmorEvents[]> {
  * @return A Promise that resolves with the active AppArmor profiles, or rejects with an error message.
  */
 export async function getApparmorProfiles(): Promise<ApparmorProfiles[]> {
-  const output = await runOsquery(`SELECT * FROM apparmor_profiles`, [
-    OsType.LINUX,
-  ]);
-  const apparmorProfiles: ApparmorProfiles[] = JSON.parse(output);
-  return apparmorProfiles;
+    const output = await runOsquery(`SELECT * FROM apparmor_profiles`, [
+        OsType.LINUX,
+    ]);
+    const apparmorProfiles: ApparmorProfiles[] = JSON.parse(output);
+    return apparmorProfiles;
 }
 
 /**
@@ -2694,9 +2694,9 @@ export async function getApparmorProfiles(): Promise<ApparmorProfiles[]> {
  * @return A Promise that resolves with the list of APT repositories, or rejects with an error message.
  */
 export async function getAptSources(): Promise<AptSources[]> {
-  const output = await runOsquery(`SELECT * FROM apt_sources`, [OsType.LINUX]);
-  const aptSources: AptSources[] = JSON.parse(output);
-  return aptSources;
+    const output = await runOsquery(`SELECT * FROM apt_sources`, [OsType.LINUX]);
+    const aptSources: AptSources[] = JSON.parse(output);
+    return aptSources;
 }
 
 /**
@@ -2705,11 +2705,11 @@ export async function getAptSources(): Promise<AptSources[]> {
  * @return A Promise that resolves with the list of BPF process events, or rejects with an error message.
  */
 export async function getBpfProcessEvents(): Promise<BpfProcessEvents[]> {
-  const output = await runOsquery(`SELECT * FROM bpf_process_events`, [
-    OsType.LINUX,
-  ]);
-  const bpfProcessEvents: BpfProcessEvents[] = JSON.parse(output);
-  return bpfProcessEvents;
+    const output = await runOsquery(`SELECT * FROM bpf_process_events`, [
+        OsType.LINUX,
+    ]);
+    const bpfProcessEvents: BpfProcessEvents[] = JSON.parse(output);
+    return bpfProcessEvents;
 }
 
 /**
@@ -2718,11 +2718,11 @@ export async function getBpfProcessEvents(): Promise<BpfProcessEvents[]> {
  * @return A Promise that resolves with the list of BPF socket events, or rejects with an error message.
  */
 export async function getBpfSocketEvents(): Promise<BpfSocketEvents[]> {
-  const output = await runOsquery(`SELECT * FROM bpf_socket_events`, [
-    OsType.LINUX,
-  ]);
-  const bpfSocketEvents: BpfSocketEvents[] = JSON.parse(output);
-  return bpfSocketEvents;
+    const output = await runOsquery(`SELECT * FROM bpf_socket_events`, [
+        OsType.LINUX,
+    ]);
+    const bpfSocketEvents: BpfSocketEvents[] = JSON.parse(output);
+    return bpfSocketEvents;
 }
 
 /**
@@ -2731,9 +2731,9 @@ export async function getBpfSocketEvents(): Promise<BpfSocketEvents[]> {
  * @return A Promise that resolves with the list of DEB packages, or rejects with an error message.
  */
 export async function getDebPackages(): Promise<DebPackages[]> {
-  const output = await runOsquery(`SELECT * FROM deb_packages`, [OsType.LINUX]);
-  const debPackages: DebPackages[] = JSON.parse(output);
-  return debPackages;
+    const output = await runOsquery(`SELECT * FROM deb_packages`, [OsType.LINUX]);
+    const debPackages: DebPackages[] = JSON.parse(output);
+    return debPackages;
 }
 
 /**
@@ -2742,9 +2742,9 @@ export async function getDebPackages(): Promise<DebPackages[]> {
  * @return A Promise that resolves with the list of iptables rules, or rejects with an error message.
  */
 export async function getIptables(): Promise<Iptables[]> {
-  const output = await runOsquery(`SELECT * FROM iptables`, [OsType.LINUX]);
-  const iptables: Iptables[] = JSON.parse(output);
-  return iptables;
+    const output = await runOsquery(`SELECT * FROM iptables`, [OsType.LINUX]);
+    const iptables: Iptables[] = JSON.parse(output);
+    return iptables;
 }
 
 /**
@@ -2753,9 +2753,9 @@ export async function getIptables(): Promise<Iptables[]> {
  * @return A Promise that resolves with the list of kernel keys, or rejects with an error message.
  */
 export async function getKernelKeys(): Promise<KernelKeys[]> {
-  const output = await runOsquery(`SELECT * FROM kernel_keys`, [OsType.LINUX]);
-  const kernelKeys: KernelKeys[] = JSON.parse(output);
-  return kernelKeys;
+    const output = await runOsquery(`SELECT * FROM kernel_keys`, [OsType.LINUX]);
+    const kernelKeys: KernelKeys[] = JSON.parse(output);
+    return kernelKeys;
 }
 
 /**
@@ -2764,11 +2764,11 @@ export async function getKernelKeys(): Promise<KernelKeys[]> {
  * @return A Promise that resolves with the list of kernel modules, or rejects with an error message.
  */
 export async function getKernelModules(): Promise<KernelModules[]> {
-  const output = await runOsquery(`SELECT * FROM kernel_modules`, [
-    OsType.LINUX,
-  ]);
-  const kernelModules: KernelModules[] = JSON.parse(output);
-  return kernelModules;
+    const output = await runOsquery(`SELECT * FROM kernel_modules`, [
+        OsType.LINUX,
+    ]);
+    const kernelModules: KernelModules[] = JSON.parse(output);
+    return kernelModules;
 }
 
 /**
@@ -2777,11 +2777,11 @@ export async function getKernelModules(): Promise<KernelModules[]> {
  * @return A Promise that resolves with the list of LXD certificates, or rejects with an error message.
  */
 export async function getLxdCertificates(): Promise<LxdCertificates[]> {
-  const output = await runOsquery(`SELECT * FROM lxd_certificates`, [
-    OsType.LINUX,
-  ]);
-  const lxdCertificates: LxdCertificates[] = JSON.parse(output);
-  return lxdCertificates;
+    const output = await runOsquery(`SELECT * FROM lxd_certificates`, [
+        OsType.LINUX,
+    ]);
+    const lxdCertificates: LxdCertificates[] = JSON.parse(output);
+    return lxdCertificates;
 }
 
 /**
@@ -2790,9 +2790,9 @@ export async function getLxdCertificates(): Promise<LxdCertificates[]> {
  * @return A Promise that resolves with the LXD cluster information, or rejects with an error message.
  */
 export async function getLxdCluster(): Promise<LxdCluster[]> {
-  const output = await runOsquery(`SELECT * FROM lxd_cluster`, [OsType.LINUX]);
-  const lxdCluster: LxdCluster[] = JSON.parse(output);
-  return lxdCluster;
+    const output = await runOsquery(`SELECT * FROM lxd_cluster`, [OsType.LINUX]);
+    const lxdCluster: LxdCluster[] = JSON.parse(output);
+    return lxdCluster;
 }
 
 /**
@@ -2801,11 +2801,11 @@ export async function getLxdCluster(): Promise<LxdCluster[]> {
  * @return A Promise that resolves with the LXD cluster members information, or rejects with an error message.
  */
 export async function getLxdClusterMembers(): Promise<LxdClusterMembers[]> {
-  const output = await runOsquery(`SELECT * FROM lxd_cluster_members`, [
-    OsType.LINUX,
-  ]);
-  const lxdClusterMembers: LxdClusterMembers[] = JSON.parse(output);
-  return lxdClusterMembers;
+    const output = await runOsquery(`SELECT * FROM lxd_cluster_members`, [
+        OsType.LINUX,
+    ]);
+    const lxdClusterMembers: LxdClusterMembers[] = JSON.parse(output);
+    return lxdClusterMembers;
 }
 
 /**
@@ -2814,9 +2814,9 @@ export async function getLxdClusterMembers(): Promise<LxdClusterMembers[]> {
  * @return A Promise that resolves with the LXD images information, or rejects with an error message.
  */
 export async function getLxdImages(): Promise<LxdImages[]> {
-  const output = await runOsquery(`SELECT * FROM lxd_images`, [OsType.LINUX]);
-  const lxdImages: LxdImages[] = JSON.parse(output);
-  return lxdImages;
+    const output = await runOsquery(`SELECT * FROM lxd_images`, [OsType.LINUX]);
+    const lxdImages: LxdImages[] = JSON.parse(output);
+    return lxdImages;
 }
 
 /**
@@ -2825,11 +2825,11 @@ export async function getLxdImages(): Promise<LxdImages[]> {
  * @return A Promise that resolves with the LXD instance configuration information, or rejects with an error message.
  */
 export async function getLxdInstanceConfig(): Promise<LxdInstanceConfig[]> {
-  const output = await runOsquery(`SELECT * FROM lxd_instance_config`, [
-    OsType.LINUX,
-  ]);
-  const lxdInstanceConfig: LxdInstanceConfig[] = JSON.parse(output);
-  return lxdInstanceConfig;
+    const output = await runOsquery(`SELECT * FROM lxd_instance_config`, [
+        OsType.LINUX,
+    ]);
+    const lxdInstanceConfig: LxdInstanceConfig[] = JSON.parse(output);
+    return lxdInstanceConfig;
 }
 
 /**
@@ -2838,11 +2838,11 @@ export async function getLxdInstanceConfig(): Promise<LxdInstanceConfig[]> {
  * @return A Promise that resolves with the LXD instance devices information, or rejects with an error message.
  */
 export async function getLxdInstanceDevices(): Promise<LxdInstanceDevices[]> {
-  const output = await runOsquery(`SELECT * FROM lxd_instance_devices`, [
-    OsType.LINUX,
-  ]);
-  const lxdInstanceDevices: LxdInstanceDevices[] = JSON.parse(output);
-  return lxdInstanceDevices;
+    const output = await runOsquery(`SELECT * FROM lxd_instance_devices`, [
+        OsType.LINUX,
+    ]);
+    const lxdInstanceDevices: LxdInstanceDevices[] = JSON.parse(output);
+    return lxdInstanceDevices;
 }
 
 /**
@@ -2851,11 +2851,11 @@ export async function getLxdInstanceDevices(): Promise<LxdInstanceDevices[]> {
  * @return A Promise that resolves with the LXD instances information, or rejects with an error message.
  */
 export async function getLxdInstances(): Promise<LxdInstances[]> {
-  const output = await runOsquery(`SELECT * FROM lxd_instances`, [
-    OsType.LINUX,
-  ]);
-  const lxdInstances: LxdInstances[] = JSON.parse(output);
-  return lxdInstances;
+    const output = await runOsquery(`SELECT * FROM lxd_instances`, [
+        OsType.LINUX,
+    ]);
+    const lxdInstances: LxdInstances[] = JSON.parse(output);
+    return lxdInstances;
 }
 
 /**
@@ -2864,9 +2864,9 @@ export async function getLxdInstances(): Promise<LxdInstances[]> {
  * @return A Promise that resolves with the LXD network information, or rejects with an error message.
  */
 export async function getLxdNetworks(): Promise<LxdNetworks[]> {
-  const output = await runOsquery(`SELECT * FROM lxd_networks`, [OsType.LINUX]);
-  const lxdNetworks: LxdNetworks[] = JSON.parse(output);
-  return lxdNetworks;
+    const output = await runOsquery(`SELECT * FROM lxd_networks`, [OsType.LINUX]);
+    const lxdNetworks: LxdNetworks[] = JSON.parse(output);
+    return lxdNetworks;
 }
 
 /**
@@ -2875,11 +2875,11 @@ export async function getLxdNetworks(): Promise<LxdNetworks[]> {
  * @return A Promise that resolves with the LXD storage pool information, or rejects with an error message.
  */
 export async function getLxdStoragePools(): Promise<LxdStoragePools[]> {
-  const output = await runOsquery(`SELECT * FROM lxd_storage_pools`, [
-    OsType.LINUX,
-  ]);
-  const lxdStoragePools: LxdStoragePools[] = JSON.parse(output);
-  return lxdStoragePools;
+    const output = await runOsquery(`SELECT * FROM lxd_storage_pools`, [
+        OsType.LINUX,
+    ]);
+    const lxdStoragePools: LxdStoragePools[] = JSON.parse(output);
+    return lxdStoragePools;
 }
 
 /**
@@ -2888,9 +2888,9 @@ export async function getLxdStoragePools(): Promise<LxdStoragePools[]> {
  * @return A Promise that resolves with the Software RAID array settings, or rejects with an error message.
  */
 export async function getMdDevices(): Promise<MdDevices[]> {
-  const output = await runOsquery(`SELECT * FROM md_devices`, [OsType.LINUX]);
-  const mdDevices: MdDevices[] = JSON.parse(output);
-  return mdDevices;
+    const output = await runOsquery(`SELECT * FROM md_devices`, [OsType.LINUX]);
+    const mdDevices: MdDevices[] = JSON.parse(output);
+    return mdDevices;
 }
 
 /**
@@ -2899,9 +2899,9 @@ export async function getMdDevices(): Promise<MdDevices[]> {
  * @return A Promise that resolves with the drive devices, or rejects with an error message.
  */
 export async function getMdDrives(): Promise<MdDrives[]> {
-  const output = await runOsquery(`SELECT * FROM md_drives`, [OsType.LINUX]);
-  const mdDrives: MdDrives[] = JSON.parse(output);
-  return mdDrives;
+    const output = await runOsquery(`SELECT * FROM md_drives`, [OsType.LINUX]);
+    const mdDrives: MdDrives[] = JSON.parse(output);
+    return mdDrives;
 }
 
 /**
@@ -2910,11 +2910,11 @@ export async function getMdDrives(): Promise<MdDrives[]> {
  * @return A Promise that resolves with the RAID settings, or rejects with an error message.
  */
 export async function getMdPersonalities(): Promise<MdPersonalities[]> {
-  const output = await runOsquery(`SELECT * FROM md_personalities`, [
-    OsType.LINUX,
-  ]);
-  const mdPersonalities: MdPersonalities[] = JSON.parse(output);
-  return mdPersonalities;
+    const output = await runOsquery(`SELECT * FROM md_personalities`, [
+        OsType.LINUX,
+    ]);
+    const mdPersonalities: MdPersonalities[] = JSON.parse(output);
+    return mdPersonalities;
 }
 
 /**
@@ -2923,9 +2923,9 @@ export async function getMdPersonalities(): Promise<MdPersonalities[]> {
  * @return A Promise that resolves with the memory information, or rejects with an error message.
  */
 export async function getMemoryInfo(): Promise<MemoryInfo[]> {
-  const output = await runOsquery(`SELECT * FROM memory_info`, [OsType.LINUX]);
-  const memoryInfo: MemoryInfo[] = JSON.parse(output);
-  return memoryInfo;
+    const output = await runOsquery(`SELECT * FROM memory_info`, [OsType.LINUX]);
+    const memoryInfo: MemoryInfo[] = JSON.parse(output);
+    return memoryInfo;
 }
 
 /**
@@ -2934,9 +2934,9 @@ export async function getMemoryInfo(): Promise<MemoryInfo[]> {
  * @return A Promise that resolves with the memory map information, or rejects with an error message.
  */
 export async function getMemoryMap(): Promise<MemoryMap[]> {
-  const output = await runOsquery(`SELECT * FROM memory_map`, [OsType.LINUX]);
-  const memoryMap: MemoryMap[] = JSON.parse(output);
-  return memoryMap;
+    const output = await runOsquery(`SELECT * FROM memory_map`, [OsType.LINUX]);
+    const memoryMap: MemoryMap[] = JSON.parse(output);
+    return memoryMap;
 }
 
 /**
@@ -2946,9 +2946,9 @@ export async function getMemoryMap(): Promise<MemoryMap[]> {
  * @return A Promise that resolves with the MSR data, or rejects with an error message.
  */
 export async function getMsr(): Promise<Msr[]> {
-  const output = await runOsquery(`SELECT * FROM msr`, [OsType.LINUX]);
-  const msr: Msr[] = JSON.parse(output);
-  return msr;
+    const output = await runOsquery(`SELECT * FROM msr`, [OsType.LINUX]);
+    const msr: Msr[] = JSON.parse(output);
+    return msr;
 }
 
 /**
@@ -2957,11 +2957,11 @@ export async function getMsr(): Promise<Msr[]> {
  * @return A Promise that resolves with the portage keywords data, or rejects with an error message.
  */
 export async function getPortageKeywords(): Promise<PortageKeywords[]> {
-  const output = await runOsquery(`SELECT * FROM portage_keywords`, [
-    OsType.LINUX,
-  ]);
-  const portageKeywords: PortageKeywords[] = JSON.parse(output);
-  return portageKeywords;
+    const output = await runOsquery(`SELECT * FROM portage_keywords`, [
+        OsType.LINUX,
+    ]);
+    const portageKeywords: PortageKeywords[] = JSON.parse(output);
+    return portageKeywords;
 }
 
 /**
@@ -2970,11 +2970,11 @@ export async function getPortageKeywords(): Promise<PortageKeywords[]> {
  * @return A Promise that resolves with the portage packages data, or rejects with an error message.
  */
 export async function getPortagePackages(): Promise<PortagePackages[]> {
-  const output = await runOsquery(`SELECT * FROM portage_packages`, [
-    OsType.LINUX,
-  ]);
-  const portagePackages: PortagePackages[] = JSON.parse(output);
-  return portagePackages;
+    const output = await runOsquery(`SELECT * FROM portage_packages`, [
+        OsType.LINUX,
+    ]);
+    const portagePackages: PortagePackages[] = JSON.parse(output);
+    return portagePackages;
 }
 
 /**
@@ -2983,9 +2983,9 @@ export async function getPortagePackages(): Promise<PortagePackages[]> {
  * @return A Promise that resolves with the portage use data, or rejects with an error message.
  */
 export async function getPortageUse(): Promise<PortageUse[]> {
-  const output = await runOsquery(`SELECT * FROM portage_use`, [OsType.LINUX]);
-  const portageUse: PortageUse[] = JSON.parse(output);
-  return portageUse;
+    const output = await runOsquery(`SELECT * FROM portage_use`, [OsType.LINUX]);
+    const portageUse: PortageUse[] = JSON.parse(output);
+    return portageUse;
 }
 
 /**
@@ -2994,11 +2994,11 @@ export async function getPortageUse(): Promise<PortageUse[]> {
  * @return A Promise that resolves with the process file events data, or rejects with an error message.
  */
 export async function getProcessFileEvents(): Promise<ProcessFileEvents[]> {
-  const output = await runOsquery(`SELECT * FROM process_file_events`, [
-    OsType.LINUX,
-  ]);
-  const processFileEvents: ProcessFileEvents[] = JSON.parse(output);
-  return processFileEvents;
+    const output = await runOsquery(`SELECT * FROM process_file_events`, [
+        OsType.LINUX,
+    ]);
+    const processFileEvents: ProcessFileEvents[] = JSON.parse(output);
+    return processFileEvents;
 }
 
 /**
@@ -3007,11 +3007,11 @@ export async function getProcessFileEvents(): Promise<ProcessFileEvents[]> {
  * @return A Promise that resolves with the process namespaces data, or rejects with an error message.
  */
 export async function getProcessNamespaces(): Promise<ProcessNamespaces[]> {
-  const output = await runOsquery(`SELECT * FROM process_namespaces`, [
-    OsType.LINUX,
-  ]);
-  const processNamespaces: ProcessNamespaces[] = JSON.parse(output);
-  return processNamespaces;
+    const output = await runOsquery(`SELECT * FROM process_namespaces`, [
+        OsType.LINUX,
+    ]);
+    const processNamespaces: ProcessNamespaces[] = JSON.parse(output);
+    return processNamespaces;
 }
 
 /**
@@ -3020,11 +3020,11 @@ export async function getProcessNamespaces(): Promise<ProcessNamespaces[]> {
  * @return A Promise that resolves with the process open pipes data, or rejects with an error message.
  */
 export async function getProcessOpenPipes(): Promise<ProcessOpenPipes[]> {
-  const output = await runOsquery(`SELECT * FROM process_open_pipes`, [
-    OsType.LINUX,
-  ]);
-  const processOpenPipes: ProcessOpenPipes[] = JSON.parse(output);
-  return processOpenPipes;
+    const output = await runOsquery(`SELECT * FROM process_open_pipes`, [
+        OsType.LINUX,
+    ]);
+    const processOpenPipes: ProcessOpenPipes[] = JSON.parse(output);
+    return processOpenPipes;
 }
 
 /**
@@ -3033,11 +3033,11 @@ export async function getProcessOpenPipes(): Promise<ProcessOpenPipes[]> {
  * @return A Promise that resolves with the RPM package files data, or rejects with an error message.
  */
 export async function getRpmPackageFiles(): Promise<RpmPackageFiles[]> {
-  const output = await runOsquery(`SELECT * FROM rpm_package_files`, [
-    OsType.LINUX,
-  ]);
-  const rpmPackageFiles: RpmPackageFiles[] = JSON.parse(output);
-  return rpmPackageFiles;
+    const output = await runOsquery(`SELECT * FROM rpm_package_files`, [
+        OsType.LINUX,
+    ]);
+    const rpmPackageFiles: RpmPackageFiles[] = JSON.parse(output);
+    return rpmPackageFiles;
 }
 
 /**
@@ -3046,9 +3046,9 @@ export async function getRpmPackageFiles(): Promise<RpmPackageFiles[]> {
  * @return A Promise that resolves with the RPM packages data, or rejects with an error message.
  */
 export async function getRpmPackages(): Promise<RpmPackages[]> {
-  const output = await runOsquery(`SELECT * FROM rpm_packages`, [OsType.LINUX]);
-  const rpmPackages: RpmPackages[] = JSON.parse(output);
-  return rpmPackages;
+    const output = await runOsquery(`SELECT * FROM rpm_packages`, [OsType.LINUX]);
+    const rpmPackages: RpmPackages[] = JSON.parse(output);
+    return rpmPackages;
 }
 
 /**
@@ -3057,11 +3057,11 @@ export async function getRpmPackages(): Promise<RpmPackages[]> {
  * @return A Promise that resolves with the seccomp events data, or rejects with an error message.
  */
 export async function getSeccompEvents(): Promise<SeccompEvents[]> {
-  const output = await runOsquery(`SELECT * FROM seccomp_events`, [
-    OsType.LINUX,
-  ]);
-  const seccompEvents: SeccompEvents[] = JSON.parse(output);
-  return seccompEvents;
+    const output = await runOsquery(`SELECT * FROM seccomp_events`, [
+        OsType.LINUX,
+    ]);
+    const seccompEvents: SeccompEvents[] = JSON.parse(output);
+    return seccompEvents;
 }
 
 /**
@@ -3070,11 +3070,11 @@ export async function getSeccompEvents(): Promise<SeccompEvents[]> {
  * @return A Promise that resolves with the SELinux events data, or rejects with an error message.
  */
 export async function getSelinuxEvents(): Promise<SelinuxEvents[]> {
-  const output = await runOsquery(`SELECT * FROM selinux_events`, [
-    OsType.LINUX,
-  ]);
-  const selinuxEvents: SelinuxEvents[] = JSON.parse(output);
-  return selinuxEvents;
+    const output = await runOsquery(`SELECT * FROM selinux_events`, [
+        OsType.LINUX,
+    ]);
+    const selinuxEvents: SelinuxEvents[] = JSON.parse(output);
+    return selinuxEvents;
 }
 
 /**
@@ -3083,11 +3083,11 @@ export async function getSelinuxEvents(): Promise<SelinuxEvents[]> {
  * @return A Promise that resolves with the SELinux settings data, or rejects with an error message.
  */
 export async function getSelinuxSettings(): Promise<SelinuxSettings[]> {
-  const output = await runOsquery(`SELECT * FROM selinux_settings`, [
-    OsType.LINUX,
-  ]);
-  const selinuxSettings: SelinuxSettings[] = JSON.parse(output);
-  return selinuxSettings;
+    const output = await runOsquery(`SELECT * FROM selinux_settings`, [
+        OsType.LINUX,
+    ]);
+    const selinuxSettings: SelinuxSettings[] = JSON.parse(output);
+    return selinuxSettings;
 }
 
 /**
@@ -3096,9 +3096,9 @@ export async function getSelinuxSettings(): Promise<SelinuxSettings[]> {
  * @return A Promise that resolves with the users data, or rejects with an error message.
  */
 export async function getShadow(): Promise<Shadow[]> {
-  const output = await runOsquery(`SELECT * FROM shadow`, [OsType.LINUX]);
-  const shadow: Shadow[] = JSON.parse(output);
-  return shadow;
+    const output = await runOsquery(`SELECT * FROM shadow`, [OsType.LINUX]);
+    const shadow: Shadow[] = JSON.parse(output);
+    return shadow;
 }
 
 /**
@@ -3107,11 +3107,11 @@ export async function getShadow(): Promise<Shadow[]> {
  * @return A Promise that resolves with the shared memory regions data, or rejects with an error message.
  */
 export async function getSharedMemory(): Promise<SharedMemory[]> {
-  const output = await runOsquery(`SELECT * FROM shared_memory`, [
-    OsType.LINUX,
-  ]);
-  const sharedMemory: SharedMemory[] = JSON.parse(output);
-  return sharedMemory;
+    const output = await runOsquery(`SELECT * FROM shared_memory`, [
+        OsType.LINUX,
+    ]);
+    const sharedMemory: SharedMemory[] = JSON.parse(output);
+    return sharedMemory;
 }
 
 /**
@@ -3120,11 +3120,11 @@ export async function getSharedMemory(): Promise<SharedMemory[]> {
  * @return A Promise that resolves with the syslog events data, or rejects with an error message.
  */
 export async function getSyslogEvents(): Promise<SyslogEvent[]> {
-  const output = await runOsquery(`SELECT * FROM syslog_events`, [
-    OsType.LINUX,
-  ]);
-  const syslogEvents: SyslogEvent[] = JSON.parse(output);
-  return syslogEvents;
+    const output = await runOsquery(`SELECT * FROM syslog_events`, [
+        OsType.LINUX,
+    ]);
+    const syslogEvents: SyslogEvent[] = JSON.parse(output);
+    return syslogEvents;
 }
 
 /**
@@ -3133,11 +3133,11 @@ export async function getSyslogEvents(): Promise<SyslogEvent[]> {
  * @return A Promise that resolves with the systemd units data, or rejects with an error message.
  */
 export async function getSystemdUnits(): Promise<SystemdUnit[]> {
-  const output = await runOsquery(`SELECT * FROM systemd_units`, [
-    OsType.LINUX,
-  ]);
-  const systemdUnits: SystemdUnit[] = JSON.parse(output);
-  return systemdUnits;
+    const output = await runOsquery(`SELECT * FROM systemd_units`, [
+        OsType.LINUX,
+    ]);
+    const systemdUnits: SystemdUnit[] = JSON.parse(output);
+    return systemdUnits;
 }
 
 /**
@@ -3146,9 +3146,9 @@ export async function getSystemdUnits(): Promise<SystemdUnit[]> {
  * @return A Promise that resolves with the Yum sources data, or rejects with an error message.
  */
 export async function getYumSources(): Promise<YumSource[]> {
-  const output = await runOsquery(`SELECT * FROM yum_sources`, [OsType.LINUX]);
-  const yumSources: YumSource[] = JSON.parse(output);
-  return yumSources;
+    const output = await runOsquery(`SELECT * FROM yum_sources`, [OsType.LINUX]);
+    const yumSources: YumSource[] = JSON.parse(output);
+    return yumSources;
 }
 
 // 🍎
@@ -3159,11 +3159,11 @@ export async function getYumSources(): Promise<YumSource[]> {
  * @return A Promise that resolves with the Account Policy Data, or rejects with an error message.
  */
 export async function getAccountPolicyData(): Promise<AccountPolicyData[]> {
-  const output = await runOsquery(`SELECT * FROM account_policy_data`, [
-    OsType.DARWIN,
-  ]);
-  const accountPolicyData: AccountPolicyData[] = JSON.parse(output);
-  return accountPolicyData;
+    const output = await runOsquery(`SELECT * FROM account_policy_data`, [
+        OsType.DARWIN,
+    ]);
+    const accountPolicyData: AccountPolicyData[] = JSON.parse(output);
+    return accountPolicyData;
 }
 
 /**
@@ -3172,9 +3172,9 @@ export async function getAccountPolicyData(): Promise<AccountPolicyData[]> {
  * @return A Promise that resolves with the Active Directory Configuration, or rejects with an error message.
  */
 export async function getAdConfig(): Promise<AdConfig[]> {
-  const output = await runOsquery(`SELECT * FROM ad_config`, [OsType.DARWIN]);
-  const adConfig: AdConfig[] = JSON.parse(output);
-  return adConfig;
+    const output = await runOsquery(`SELECT * FROM ad_config`, [OsType.DARWIN]);
+    const adConfig: AdConfig[] = JSON.parse(output);
+    return adConfig;
 }
 
 /**
@@ -3183,9 +3183,9 @@ export async function getAdConfig(): Promise<AdConfig[]> {
  * @return A Promise that resolves with the ALF details, or rejects with an error message.
  */
 export async function getAlfDetails(): Promise<Alf[]> {
-  const output = await runOsquery(`SELECT * FROM alf`, [OsType.DARWIN]);
-  const alfDetails: Alf[] = JSON.parse(output);
-  return alfDetails;
+    const output = await runOsquery(`SELECT * FROM alf`, [OsType.DARWIN]);
+    const alfDetails: Alf[] = JSON.parse(output);
+    return alfDetails;
 }
 
 /**
@@ -3194,11 +3194,11 @@ export async function getAlfDetails(): Promise<Alf[]> {
  * @return A Promise that resolves with the ALF exceptions, or rejects with an error message.
  */
 export async function getAlfExceptions(): Promise<AlfExceptions[]> {
-  const output = await runOsquery(`SELECT * FROM alf_exceptions`, [
-    OsType.DARWIN,
-  ]);
-  const alfExceptions: AlfExceptions[] = JSON.parse(output);
-  return alfExceptions;
+    const output = await runOsquery(`SELECT * FROM alf_exceptions`, [
+        OsType.DARWIN,
+    ]);
+    const alfExceptions: AlfExceptions[] = JSON.parse(output);
+    return alfExceptions;
 }
 
 /**
@@ -3207,11 +3207,11 @@ export async function getAlfExceptions(): Promise<AlfExceptions[]> {
  * @return A Promise that resolves with the ALF explicit authorizations, or rejects with an error message.
  */
 export async function getAlfExplicitAuths(): Promise<AlfExplicitAuths[]> {
-  const output = await runOsquery(`SELECT * FROM alf_explicit_auths`, [
-    OsType.DARWIN,
-  ]);
-  const alfExplicitAuths: AlfExplicitAuths[] = JSON.parse(output);
-  return alfExplicitAuths;
+    const output = await runOsquery(`SELECT * FROM alf_explicit_auths`, [
+        OsType.DARWIN,
+    ]);
+    const alfExplicitAuths: AlfExplicitAuths[] = JSON.parse(output);
+    return alfExplicitAuths;
 }
 
 /**
@@ -3220,9 +3220,9 @@ export async function getAlfExplicitAuths(): Promise<AlfExplicitAuths[]> {
  * @return A Promise that resolves with the application schemes and handlers, or rejects with an error message.
  */
 export async function getAppSchemes(): Promise<AppSchemes[]> {
-  const output = await runOsquery(`SELECT * FROM app_schemes`, [OsType.DARWIN]);
-  const appSchemes: AppSchemes[] = JSON.parse(output);
-  return appSchemes;
+    const output = await runOsquery(`SELECT * FROM app_schemes`, [OsType.DARWIN]);
+    const appSchemes: AppSchemes[] = JSON.parse(output);
+    return appSchemes;
 }
 
 /**
@@ -3231,9 +3231,9 @@ export async function getAppSchemes(): Promise<AppSchemes[]> {
  * @return A Promise that resolves with the application information, or rejects with an error message.
  */
 export async function getApps(): Promise<Apps[]> {
-  const output = await runOsquery(`SELECT * FROM apps`, [OsType.DARWIN]);
-  const apps: Apps[] = JSON.parse(output);
-  return apps;
+    const output = await runOsquery(`SELECT * FROM apps`, [OsType.DARWIN]);
+    const apps: Apps[] = JSON.parse(output);
+    return apps;
 }
 
 /**
@@ -3242,9 +3242,9 @@ export async function getApps(): Promise<Apps[]> {
  * @return A Promise that resolves with the system event information, or rejects with an error message.
  */
 export async function getAsl(): Promise<Asl[]> {
-  const output = await runOsquery(`SELECT * FROM asl`, [OsType.DARWIN]);
-  const asl: Asl[] = JSON.parse(output);
-  return asl;
+    const output = await runOsquery(`SELECT * FROM asl`, [OsType.DARWIN]);
+    const asl: Asl[] = JSON.parse(output);
+    return asl;
 }
 
 /**
@@ -3253,13 +3253,13 @@ export async function getAsl(): Promise<Asl[]> {
  * @return A Promise that resolves with the authorization mechanisms information, or rejects with an error message.
  */
 export async function getAuthorizationMechanisms(): Promise<
-  AuthorizationMechanisms[]
+    AuthorizationMechanisms[]
 > {
-  const output = await runOsquery(`SELECT * FROM authorization_mechanisms`, [
-    OsType.DARWIN,
-  ]);
-  const authorizationMechanisms: AuthorizationMechanisms[] = JSON.parse(output);
-  return authorizationMechanisms;
+    const output = await runOsquery(`SELECT * FROM authorization_mechanisms`, [
+        OsType.DARWIN,
+    ]);
+    const authorizationMechanisms: AuthorizationMechanisms[] = JSON.parse(output);
+    return authorizationMechanisms;
 }
 
 /**
@@ -3268,11 +3268,11 @@ export async function getAuthorizationMechanisms(): Promise<
  * @return A Promise that resolves with the authorizations information, or rejects with an error message.
  */
 export async function getAuthorizations(): Promise<Authorizations[]> {
-  const output = await runOsquery(`SELECT * FROM authorizations`, [
-    OsType.DARWIN,
-  ]);
-  const authorizations: Authorizations[] = JSON.parse(output);
-  return authorizations;
+    const output = await runOsquery(`SELECT * FROM authorizations`, [
+        OsType.DARWIN,
+    ]);
+    const authorizations: Authorizations[] = JSON.parse(output);
+    return authorizations;
 }
 
 /**
@@ -3281,9 +3281,9 @@ export async function getAuthorizations(): Promise<Authorizations[]> {
  * @return A Promise that resolves with the battery information, or rejects with an error message.
  */
 export async function getBatteryInfo(): Promise<Battery[]> {
-  const output = await runOsquery(`SELECT * FROM battery`, [OsType.DARWIN]);
-  const batteryInfo: Battery[] = JSON.parse(output);
-  return batteryInfo;
+    const output = await runOsquery(`SELECT * FROM battery`, [OsType.DARWIN]);
+    const batteryInfo: Battery[] = JSON.parse(output);
+    return batteryInfo;
 }
 
 /**
@@ -3292,11 +3292,11 @@ export async function getBatteryInfo(): Promise<Battery[]> {
  * @return A Promise that resolves with the browser plugin information, or rejects with an error message.
  */
 export async function getBrowserPluginInfo(): Promise<BrowserPlugins[]> {
-  const output = await runOsquery(`SELECT * FROM browser_plugins`, [
-    OsType.DARWIN,
-  ]);
-  const browserPluginInfo: BrowserPlugins[] = JSON.parse(output);
-  return browserPluginInfo;
+    const output = await runOsquery(`SELECT * FROM browser_plugins`, [
+        OsType.DARWIN,
+    ]);
+    const browserPluginInfo: BrowserPlugins[] = JSON.parse(output);
+    return browserPluginInfo;
 }
 
 /**
@@ -3305,9 +3305,9 @@ export async function getBrowserPluginInfo(): Promise<BrowserPlugins[]> {
  * @return A Promise that resolves with the crash logs information, or rejects with an error message.
  */
 export async function getCrashLogsInfo(): Promise<Crashes[]> {
-  const output = await runOsquery(`SELECT * FROM crashes`, [OsType.DARWIN]);
-  const crashLogsInfo: Crashes[] = JSON.parse(output);
-  return crashLogsInfo;
+    const output = await runOsquery(`SELECT * FROM crashes`, [OsType.DARWIN]);
+    const crashLogsInfo: Crashes[] = JSON.parse(output);
+    return crashLogsInfo;
 }
 
 /**
@@ -3316,11 +3316,11 @@ export async function getCrashLogsInfo(): Promise<Crashes[]> {
  * @return A Promise that resolves with the printers information, or rejects with an error message.
  */
 export async function getConfiguredPrinters(): Promise<CupsDestinations[]> {
-  const output = await runOsquery(`SELECT * FROM cups_destinations`, [
-    OsType.DARWIN,
-  ]);
-  const printersInfo: CupsDestinations[] = JSON.parse(output);
-  return printersInfo;
+    const output = await runOsquery(`SELECT * FROM cups_destinations`, [
+        OsType.DARWIN,
+    ]);
+    const printersInfo: CupsDestinations[] = JSON.parse(output);
+    return printersInfo;
 }
 
 /**
@@ -3329,9 +3329,9 @@ export async function getConfiguredPrinters(): Promise<CupsDestinations[]> {
  * @return A Promise that resolves with the print jobs information, or rejects with an error message.
  */
 export async function getCompletedPrintJobs(): Promise<CupsJobs[]> {
-  const output = await runOsquery(`SELECT * FROM cups_jobs`, [OsType.DARWIN]);
-  const printJobsInfo: CupsJobs[] = JSON.parse(output);
-  return printJobsInfo;
+    const output = await runOsquery(`SELECT * FROM cups_jobs`, [OsType.DARWIN]);
+    const printJobsInfo: CupsJobs[] = JSON.parse(output);
+    return printJobsInfo;
 }
 
 /**
@@ -3340,11 +3340,11 @@ export async function getCompletedPrintJobs(): Promise<CupsJobs[]> {
  * @return A Promise that resolves with the firmware versions information, or rejects with an error message.
  */
 export async function getFirmwareVersions(): Promise<DeviceFirmware[]> {
-  const output = await runOsquery(`SELECT * FROM device_firmware`, [
-    OsType.DARWIN,
-  ]);
-  const firmwareInfo: DeviceFirmware[] = JSON.parse(output);
-  return firmwareInfo;
+    const output = await runOsquery(`SELECT * FROM device_firmware`, [
+        OsType.DARWIN,
+    ]);
+    const firmwareInfo: DeviceFirmware[] = JSON.parse(output);
+    return firmwareInfo;
 }
 
 /**
@@ -3353,9 +3353,9 @@ export async function getFirmwareVersions(): Promise<DeviceFirmware[]> {
  * @return A Promise that resolves with the disk events information, or rejects with an error message.
  */
 export async function getDiskEvents(): Promise<DiskEvent[]> {
-  const output = await runOsquery(`SELECT * FROM disk_events`, [OsType.DARWIN]);
-  const diskEvents: DiskEvent[] = JSON.parse(output);
-  return diskEvents;
+    const output = await runOsquery(`SELECT * FROM disk_events`, [OsType.DARWIN]);
+    const diskEvents: DiskEvent[] = JSON.parse(output);
+    return diskEvents;
 }
 
 /**
@@ -3364,11 +3364,11 @@ export async function getDiskEvents(): Promise<DiskEvent[]> {
  * @return A Promise that resolves with the process execution events information, or rejects with an error message.
  */
 export async function getEsProcessEvents(): Promise<EsProcessEvent[]> {
-  const output = await runOsquery(`SELECT * FROM es_process_events`, [
-    OsType.DARWIN,
-  ]);
-  const esProcessEvents: EsProcessEvent[] = JSON.parse(output);
-  return esProcessEvents;
+    const output = await runOsquery(`SELECT * FROM es_process_events`, [
+        OsType.DARWIN,
+    ]);
+    const esProcessEvents: EsProcessEvent[] = JSON.parse(output);
+    return esProcessEvents;
 }
 
 /**
@@ -3377,11 +3377,11 @@ export async function getEsProcessEvents(): Promise<EsProcessEvent[]> {
  * @return A Promise that resolves with the process execution file events information, or rejects with an error message.
  */
 export async function getEsProcessFileEvents(): Promise<EsProcessFileEvent[]> {
-  const output = await runOsquery(`SELECT * FROM es_process_file_events`, [
-    OsType.DARWIN,
-  ]);
-  const esProcessFileEvents: EsProcessFileEvent[] = JSON.parse(output);
-  return esProcessFileEvents;
+    const output = await runOsquery(`SELECT * FROM es_process_file_events`, [
+        OsType.DARWIN,
+    ]);
+    const esProcessFileEvents: EsProcessFileEvent[] = JSON.parse(output);
+    return esProcessFileEvents;
 }
 
 /**
@@ -3390,9 +3390,9 @@ export async function getEsProcessFileEvents(): Promise<EsProcessFileEvent[]> {
  * @return A Promise that resolves with the event taps information, or rejects with an error message.
  */
 export async function getEventTaps(): Promise<EventTap[]> {
-  const output = await runOsquery(`SELECT * FROM event_taps`, [OsType.DARWIN]);
-  const eventTaps: EventTap[] = JSON.parse(output);
-  return eventTaps;
+    const output = await runOsquery(`SELECT * FROM event_taps`, [OsType.DARWIN]);
+    const eventTaps: EventTap[] = JSON.parse(output);
+    return eventTaps;
 }
 
 /**
@@ -3401,11 +3401,11 @@ export async function getEventTaps(): Promise<EventTap[]> {
  * @return A Promise that resolves with the fan speeds information, or rejects with an error message.
  */
 export async function getFanSpeedSensors(): Promise<FanSpeedSensor[]> {
-  const output = await runOsquery(`SELECT * FROM fan_speed_sensors`, [
-    OsType.DARWIN,
-  ]);
-  const fanSpeedSensors: FanSpeedSensor[] = JSON.parse(output);
-  return fanSpeedSensors;
+    const output = await runOsquery(`SELECT * FROM fan_speed_sensors`, [
+        OsType.DARWIN,
+    ]);
+    const fanSpeedSensors: FanSpeedSensor[] = JSON.parse(output);
+    return fanSpeedSensors;
 }
 
 /**
@@ -3414,9 +3414,9 @@ export async function getFanSpeedSensors(): Promise<FanSpeedSensor[]> {
  * @return A Promise that resolves with the Gatekeeper information, or rejects with an error message.
  */
 export async function getGatekeeperInfo(): Promise<Gatekeeper> {
-  const output = await runOsquery(`SELECT * FROM gatekeeper`, [OsType.DARWIN]);
-  const gatekeeperInfo: Gatekeeper = JSON.parse(output)[0];
-  return gatekeeperInfo;
+    const output = await runOsquery(`SELECT * FROM gatekeeper`, [OsType.DARWIN]);
+    const gatekeeperInfo: Gatekeeper = JSON.parse(output)[0];
+    return gatekeeperInfo;
 }
 
 /**
@@ -3425,13 +3425,13 @@ export async function getGatekeeperInfo(): Promise<Gatekeeper> {
  * @return A Promise that resolves with an array of GatekeeperApprovedApps, or rejects with an error message.
  */
 export async function getGatekeeperApprovedApps(): Promise<
-  GatekeeperApprovedApps[]
+    GatekeeperApprovedApps[]
 > {
-  const output = await runOsquery(`SELECT * FROM gatekeeper_approved_apps`, [
-    OsType.DARWIN,
-  ]);
-  const gatekeeperApprovedApps: GatekeeperApprovedApps[] = JSON.parse(output);
-  return gatekeeperApprovedApps;
+    const output = await runOsquery(`SELECT * FROM gatekeeper_approved_apps`, [
+        OsType.DARWIN,
+    ]);
+    const gatekeeperApprovedApps: GatekeeperApprovedApps[] = JSON.parse(output);
+    return gatekeeperApprovedApps;
 }
 
 /**
@@ -3440,11 +3440,11 @@ export async function getGatekeeperApprovedApps(): Promise<
  * @return A Promise that resolves with an array of HomebrewPackages, or rejects with an error message.
  */
 export async function getHomebrewPackages(): Promise<HomebrewPackages[]> {
-  const output = await runOsquery(`SELECT * FROM homebrew_packages`, [
-    OsType.DARWIN,
-  ]);
-  const homebrewPackages: HomebrewPackages[] = JSON.parse(output);
-  return homebrewPackages;
+    const output = await runOsquery(`SELECT * FROM homebrew_packages`, [
+        OsType.DARWIN,
+    ]);
+    const homebrewPackages: HomebrewPackages[] = JSON.parse(output);
+    return homebrewPackages;
 }
 
 /**
@@ -3453,11 +3453,11 @@ export async function getHomebrewPackages(): Promise<HomebrewPackages[]> {
  * @return A Promise that resolves with an object of IBridgeInfo, or rejects with an error message.
  */
 export async function getIBridgeInfo(): Promise<IBridgeInfo> {
-  const output = await runOsquery(`SELECT * FROM ibridge_info`, [
-    OsType.DARWIN,
-  ]);
-  const ibridgeInfo: IBridgeInfo = JSON.parse(output)[0];
-  return ibridgeInfo;
+    const output = await runOsquery(`SELECT * FROM ibridge_info`, [
+        OsType.DARWIN,
+    ]);
+    const ibridgeInfo: IBridgeInfo = JSON.parse(output)[0];
+    return ibridgeInfo;
 }
 
 /**
@@ -3466,11 +3466,11 @@ export async function getIBridgeInfo(): Promise<IBridgeInfo> {
  * @return A Promise that resolves with an array of IOKitDeviceTree objects, or rejects with an error message.
  */
 export async function getIOKitDeviceTree(): Promise<IOKitDeviceTree[]> {
-  const output = await runOsquery(`SELECT * FROM iokit_devicetree`, [
-    OsType.DARWIN,
-  ]);
-  const iokitDeviceTree: IOKitDeviceTree[] = JSON.parse(output);
-  return iokitDeviceTree;
+    const output = await runOsquery(`SELECT * FROM iokit_devicetree`, [
+        OsType.DARWIN,
+    ]);
+    const iokitDeviceTree: IOKitDeviceTree[] = JSON.parse(output);
+    return iokitDeviceTree;
 }
 
 /**
@@ -3479,11 +3479,11 @@ export async function getIOKitDeviceTree(): Promise<IOKitDeviceTree[]> {
  * @return A Promise that resolves with an array of IOKitRegistry objects, or rejects with an error message.
  */
 export async function getIOKitRegistry(): Promise<IOKitRegistry[]> {
-  const output = await runOsquery(`SELECT * FROM iokit_registry`, [
-    OsType.DARWIN,
-  ]);
-  const iokitRegistry: IOKitRegistry[] = JSON.parse(output);
-  return iokitRegistry;
+    const output = await runOsquery(`SELECT * FROM iokit_registry`, [
+        OsType.DARWIN,
+    ]);
+    const iokitRegistry: IOKitRegistry[] = JSON.parse(output);
+    return iokitRegistry;
 }
 
 /**
@@ -3492,11 +3492,11 @@ export async function getIOKitRegistry(): Promise<IOKitRegistry[]> {
  * @return A Promise that resolves with an array of KernelExtensions objects, or rejects with an error message.
  */
 export async function getKernelExtensions(): Promise<KernelExtensions[]> {
-  const output = await runOsquery(`SELECT * FROM kernel_extensions`, [
-    OsType.DARWIN,
-  ]);
-  const kernelExtensions: KernelExtensions[] = JSON.parse(output);
-  return kernelExtensions;
+    const output = await runOsquery(`SELECT * FROM kernel_extensions`, [
+        OsType.DARWIN,
+    ]);
+    const kernelExtensions: KernelExtensions[] = JSON.parse(output);
+    return kernelExtensions;
 }
 
 /**
@@ -3505,11 +3505,11 @@ export async function getKernelExtensions(): Promise<KernelExtensions[]> {
  * @return A Promise that resolves with an array of KernelPanics objects, or rejects with an error message.
  */
 export async function getKernelPanics(): Promise<KernelPanics[]> {
-  const output = await runOsquery(`SELECT * FROM kernel_panics`, [
-    OsType.DARWIN,
-  ]);
-  const kernelPanics: KernelPanics[] = JSON.parse(output);
-  return kernelPanics;
+    const output = await runOsquery(`SELECT * FROM kernel_panics`, [
+        OsType.DARWIN,
+    ]);
+    const kernelPanics: KernelPanics[] = JSON.parse(output);
+    return kernelPanics;
 }
 
 /**
@@ -3518,11 +3518,11 @@ export async function getKernelPanics(): Promise<KernelPanics[]> {
  * @return A Promise that resolves with an array of KeychainAcls objects, or rejects with an error message.
  */
 export async function getKeychainAcls(): Promise<KeychainAcls[]> {
-  const output = await runOsquery(`SELECT * FROM keychain_acls`, [
-    OsType.DARWIN,
-  ]);
-  const keychainAcls: KeychainAcls[] = JSON.parse(output);
-  return keychainAcls;
+    const output = await runOsquery(`SELECT * FROM keychain_acls`, [
+        OsType.DARWIN,
+    ]);
+    const keychainAcls: KeychainAcls[] = JSON.parse(output);
+    return keychainAcls;
 }
 
 /**
@@ -3531,11 +3531,11 @@ export async function getKeychainAcls(): Promise<KeychainAcls[]> {
  * @return A Promise that resolves with an array of KeychainItems objects, or rejects with an error message.
  */
 export async function getKeychainItems(): Promise<KeychainItems[]> {
-  const output = await runOsquery(`SELECT * FROM keychain_items`, [
-    OsType.DARWIN,
-  ]);
-  const keychainItems: KeychainItems[] = JSON.parse(output);
-  return keychainItems;
+    const output = await runOsquery(`SELECT * FROM keychain_items`, [
+        OsType.DARWIN,
+    ]);
+    const keychainItems: KeychainItems[] = JSON.parse(output);
+    return keychainItems;
 }
 
 /**
@@ -3544,9 +3544,9 @@ export async function getKeychainItems(): Promise<KeychainItems[]> {
  * @return A Promise that resolves with an array of Launchd objects, or rejects with an error message.
  */
 export async function getLaunchd(): Promise<Launchd[]> {
-  const output = await runOsquery(`SELECT * FROM launchd`, [OsType.DARWIN]);
-  const launchd: Launchd[] = JSON.parse(output);
-  return launchd;
+    const output = await runOsquery(`SELECT * FROM launchd`, [OsType.DARWIN]);
+    const launchd: Launchd[] = JSON.parse(output);
+    return launchd;
 }
 
 /**
@@ -3555,11 +3555,11 @@ export async function getLaunchd(): Promise<Launchd[]> {
  * @return A Promise that resolves with an array of LaunchdOverrides objects, or rejects with an error message.
  */
 export async function getLaunchdOverrides(): Promise<LaunchdOverrides[]> {
-  const output = await runOsquery(`SELECT * FROM launchd_overrides`, [
-    OsType.DARWIN,
-  ]);
-  const launchdOverrides: LaunchdOverrides[] = JSON.parse(output);
-  return launchdOverrides;
+    const output = await runOsquery(`SELECT * FROM launchd_overrides`, [
+        OsType.DARWIN,
+    ]);
+    const launchdOverrides: LaunchdOverrides[] = JSON.parse(output);
+    return launchdOverrides;
 }
 
 /**
@@ -3568,11 +3568,11 @@ export async function getLaunchdOverrides(): Promise<LaunchdOverrides[]> {
  * @return A Promise that resolves with a LocationServices object, or rejects with an error message.
  */
 export async function getLocationServices(): Promise<LocationServices> {
-  const output = await runOsquery(`SELECT * FROM location_services`, [
-    OsType.DARWIN,
-  ]);
-  const locationServices: LocationServices = JSON.parse(output);
-  return locationServices;
+    const output = await runOsquery(`SELECT * FROM location_services`, [
+        OsType.DARWIN,
+    ]);
+    const locationServices: LocationServices = JSON.parse(output);
+    return locationServices;
 }
 
 /**
@@ -3581,11 +3581,11 @@ export async function getLocationServices(): Promise<LocationServices> {
  * @return A Promise that resolves with an array of ManagedPolicies objects, or rejects with an error message.
  */
 export async function getManagedPolicies(): Promise<ManagedPolicies[]> {
-  const output = await runOsquery(`SELECT * FROM managed_policies`, [
-    OsType.DARWIN,
-  ]);
-  const managedPolicies: ManagedPolicies[] = JSON.parse(output);
-  return managedPolicies;
+    const output = await runOsquery(`SELECT * FROM managed_policies`, [
+        OsType.DARWIN,
+    ]);
+    const managedPolicies: ManagedPolicies[] = JSON.parse(output);
+    return managedPolicies;
 }
 
 /**
@@ -3595,12 +3595,12 @@ export async function getManagedPolicies(): Promise<ManagedPolicies[]> {
  * @return A Promise that resolves with an array of Mdfind objects, or rejects with an error message.
  */
 export async function getMdfindResults(query: string): Promise<Mdfind[]> {
-  const output = await runOsquery(
-    `SELECT * FROM mdfind WHERE query='${query}'`,
-    [OsType.DARWIN],
-  );
-  const mdfindResults: Mdfind[] = JSON.parse(output);
-  return mdfindResults;
+    const output = await runOsquery(
+        `SELECT * FROM mdfind WHERE query='${query}'`,
+        [OsType.DARWIN],
+    );
+    const mdfindResults: Mdfind[] = JSON.parse(output);
+    return mdfindResults;
 }
 
 /**
@@ -3610,11 +3610,11 @@ export async function getMdfindResults(query: string): Promise<Mdfind[]> {
  * @return A Promise that resolves with an array of Mdls objects, or rejects with an error message.
  */
 export async function getMdlsResults(path: string): Promise<Mdls[]> {
-  const output = await runOsquery(`SELECT * FROM mdls WHERE path='${path}'`, [
-    OsType.DARWIN,
-  ]);
-  const mdlsResults: Mdls[] = JSON.parse(output);
-  return mdlsResults;
+    const output = await runOsquery(`SELECT * FROM mdls WHERE path='${path}'`, [
+        OsType.DARWIN,
+    ]);
+    const mdlsResults: Mdls[] = JSON.parse(output);
+    return mdlsResults;
 }
 
 /**
@@ -3623,9 +3623,9 @@ export async function getMdlsResults(path: string): Promise<Mdls[]> {
  * @return A Promise that resolves with an array of NfsShares objects, or rejects with an error message.
  */
 export async function getNfsSharesResults(): Promise<NfsShares[]> {
-  const output = await runOsquery(`SELECT * FROM nfs_shares`, [OsType.DARWIN]);
-  const nfsSharesResults: NfsShares[] = JSON.parse(output);
-  return nfsSharesResults;
+    const output = await runOsquery(`SELECT * FROM nfs_shares`, [OsType.DARWIN]);
+    const nfsSharesResults: NfsShares[] = JSON.parse(output);
+    return nfsSharesResults;
 }
 
 /**
@@ -3634,9 +3634,9 @@ export async function getNfsSharesResults(): Promise<NfsShares[]> {
  * @return A Promise that resolves with an array of Nvram objects, or rejects with an error message.
  */
 export async function getNvramResults(): Promise<Nvram[]> {
-  const output = await runOsquery(`SELECT * FROM nvram`, [OsType.DARWIN]);
-  const nvramResults: Nvram[] = JSON.parse(output);
-  return nvramResults;
+    const output = await runOsquery(`SELECT * FROM nvram`, [OsType.DARWIN]);
+    const nvramResults: Nvram[] = JSON.parse(output);
+    return nvramResults;
 }
 
 /**
@@ -3645,9 +3645,9 @@ export async function getNvramResults(): Promise<Nvram[]> {
  * @return A Promise that resolves with an array of PackageBom objects, or rejects with an error message.
  * */
 export async function getPackageBomResults(): Promise<PackageBom[]> {
-  const output = await runOsquery(`SELECT * FROM package_bom`, [OsType.DARWIN]);
-  const packageBomResults: PackageBom[] = JSON.parse(output);
-  return packageBomResults;
+    const output = await runOsquery(`SELECT * FROM package_bom`, [OsType.DARWIN]);
+    const packageBomResults: PackageBom[] = JSON.parse(output);
+    return packageBomResults;
 }
 
 /**
@@ -3656,13 +3656,13 @@ export async function getPackageBomResults(): Promise<PackageBom[]> {
  * @return A Promise that resolves with an array of PackageInstallHistory objects, or rejects with an error message.
  * */
 export async function getPackageInstallHistory(): Promise<
-  PackageInstallHistory[]
+    PackageInstallHistory[]
 > {
-  const output = await runOsquery(`SELECT * FROM package_install_history`, [
-    OsType.DARWIN,
-  ]);
-  const packageInstallHistory: PackageInstallHistory[] = JSON.parse(output);
-  return packageInstallHistory;
+    const output = await runOsquery(`SELECT * FROM package_install_history`, [
+        OsType.DARWIN,
+    ]);
+    const packageInstallHistory: PackageInstallHistory[] = JSON.parse(output);
+    return packageInstallHistory;
 }
 
 /**
@@ -3671,11 +3671,11 @@ export async function getPackageInstallHistory(): Promise<
  * @return A Promise that resolves with an array of PackageReceipt objects, or rejects with an error message.
  * */
 export async function getPackageReceipts(): Promise<PackageReceipt[]> {
-  const output = await runOsquery(`SELECT * FROM package_receipts`, [
-    OsType.DARWIN,
-  ]);
-  const packageReceipts: PackageReceipt[] = JSON.parse(output);
-  return packageReceipts;
+    const output = await runOsquery(`SELECT * FROM package_receipts`, [
+        OsType.DARWIN,
+    ]);
+    const packageReceipts: PackageReceipt[] = JSON.parse(output);
+    return packageReceipts;
 }
 
 /**
@@ -3684,11 +3684,11 @@ export async function getPackageReceipts(): Promise<PackageReceipt[]> {
  * @return A Promise that resolves with an array of PasswordPolicy objects, or rejects with an error message.
  */
 export async function getPasswordPolicies(): Promise<PasswordPolicy[]> {
-  const output = await runOsquery(`SELECT * FROM password_policy`, [
-    OsType.DARWIN,
-  ]);
-  const passwordPolicies: PasswordPolicy[] = JSON.parse(output);
-  return passwordPolicies;
+    const output = await runOsquery(`SELECT * FROM password_policy`, [
+        OsType.DARWIN,
+    ]);
+    const passwordPolicies: PasswordPolicy[] = JSON.parse(output);
+    return passwordPolicies;
 }
 
 /**
@@ -3698,12 +3698,12 @@ export async function getPasswordPolicies(): Promise<PasswordPolicy[]> {
  * @return A Promise that resolves with an array of PlistEntry objects, or rejects with an error message.
  */
 export async function getPlist(path: string): Promise<PlistEntry[]> {
-  const output = await runOsquery(
-    `SELECT * FROM plist WHERE path = '${path}'`,
-    [OsType.DARWIN],
-  );
-  const plistEntries: PlistEntry[] = JSON.parse(output);
-  return plistEntries;
+    const output = await runOsquery(
+        `SELECT * FROM plist WHERE path = '${path}'`,
+        [OsType.DARWIN],
+    );
+    const plistEntries: PlistEntry[] = JSON.parse(output);
+    return plistEntries;
 }
 
 /**
@@ -3712,11 +3712,11 @@ export async function getPlist(path: string): Promise<PlistEntry[]> {
  * @returns A Promise that resolves with an array of PowerSensor objects, or rejects with an error message.
  */
 export async function getPowerSensors(): Promise<PowerSensor[]> {
-  const output = await runOsquery(`SELECT * FROM power_sensors`, [
-    OsType.DARWIN,
-  ]);
-  const powerSensors: PowerSensor[] = JSON.parse(output);
-  return powerSensors;
+    const output = await runOsquery(`SELECT * FROM power_sensors`, [
+        OsType.DARWIN,
+    ]);
+    const powerSensors: PowerSensor[] = JSON.parse(output);
+    return powerSensors;
 }
 
 /**
@@ -3725,9 +3725,9 @@ export async function getPowerSensors(): Promise<PowerSensor[]> {
  * @returns A Promise that resolves with Preferences, or rejects with an error message.
  */
 export async function getPreferences(): Promise<Preferences> {
-  const output = await runOsquery(`SELECT * FROM preferences`, [OsType.DARWIN]);
-  const preferences: Preferences = JSON.parse(output);
-  return preferences;
+    const output = await runOsquery(`SELECT * FROM preferences`, [OsType.DARWIN]);
+    const preferences: Preferences = JSON.parse(output);
+    return preferences;
 }
 
 /**
@@ -3736,11 +3736,11 @@ export async function getPreferences(): Promise<Preferences> {
  * @returns A Promise that resolves with an array of QuickLookCache objects, or rejects with an error message.
  */
 export async function getQuickLookCache(): Promise<QuickLookCache[]> {
-  const output = await runOsquery(`SELECT * FROM quicklook_cache`, [
-    OsType.DARWIN,
-  ]);
-  const quickLookCache: QuickLookCache[] = JSON.parse(output);
-  return quickLookCache;
+    const output = await runOsquery(`SELECT * FROM quicklook_cache`, [
+        OsType.DARWIN,
+    ]);
+    const quickLookCache: QuickLookCache[] = JSON.parse(output);
+    return quickLookCache;
 }
 
 /**
@@ -3749,11 +3749,11 @@ export async function getQuickLookCache(): Promise<QuickLookCache[]> {
  * @returns A Promise that resolves with an array of RunningApps objects, or rejects with an error message.
  */
 export async function getRunningApps(): Promise<RunningApps[]> {
-  const output = await runOsquery(`SELECT * FROM running_apps`, [
-    OsType.DARWIN,
-  ]);
-  const runningApps: RunningApps[] = JSON.parse(output);
-  return runningApps;
+    const output = await runOsquery(`SELECT * FROM running_apps`, [
+        OsType.DARWIN,
+    ]);
+    const runningApps: RunningApps[] = JSON.parse(output);
+    return runningApps;
 }
 
 /**
@@ -3762,11 +3762,11 @@ export async function getRunningApps(): Promise<RunningApps[]> {
  * @returns A Promise that resolves with an array of SafariExtensions objects, or rejects with an error message.
  */
 export async function getSafariExtensions(): Promise<SafariExtensions[]> {
-  const output = await runOsquery(`SELECT * FROM safari_extensions`, [
-    OsType.DARWIN,
-  ]);
-  const safariExtensions: SafariExtensions[] = JSON.parse(output);
-  return safariExtensions;
+    const output = await runOsquery(`SELECT * FROM safari_extensions`, [
+        OsType.DARWIN,
+    ]);
+    const safariExtensions: SafariExtensions[] = JSON.parse(output);
+    return safariExtensions;
 }
 
 /**
@@ -3775,9 +3775,9 @@ export async function getSafariExtensions(): Promise<SafariExtensions[]> {
  * @returns A Promise that resolves with an array of Sandboxes objects, or rejects with an error message.
  */
 export async function getSandboxes(): Promise<Sandboxes[]> {
-  const output = await runOsquery(`SELECT * FROM sandboxes`, [OsType.DARWIN]);
-  const sandboxes: Sandboxes[] = JSON.parse(output);
-  return sandboxes;
+    const output = await runOsquery(`SELECT * FROM sandboxes`, [OsType.DARWIN]);
+    const sandboxes: Sandboxes[] = JSON.parse(output);
+    return sandboxes;
 }
 
 /**
@@ -3786,9 +3786,9 @@ export async function getSandboxes(): Promise<Sandboxes[]> {
  * @returns A Promise that resolves with the ScreenLock object, or rejects with an error message.
  */
 export async function getScreenlock(): Promise<ScreenLock> {
-  const output = await runOsquery(`SELECT * FROM screen_lock`, [OsType.DARWIN]);
-  const screenLock: ScreenLock = JSON.parse(output);
-  return screenLock;
+    const output = await runOsquery(`SELECT * FROM screen_lock`, [OsType.DARWIN]);
+    const screenLock: ScreenLock = JSON.parse(output);
+    return screenLock;
 }
 
 /**
@@ -3797,11 +3797,11 @@ export async function getScreenlock(): Promise<ScreenLock> {
  * @returns A Promise that resolves with an array of SharedFolder objects, or rejects with an error message.
  */
 export async function getSharedFolders(): Promise<SharedFolder[]> {
-  const output = await runOsquery(`SELECT * FROM shared_folders`, [
-    OsType.DARWIN,
-  ]);
-  const sharedFolders: SharedFolder[] = JSON.parse(output);
-  return sharedFolders;
+    const output = await runOsquery(`SELECT * FROM shared_folders`, [
+        OsType.DARWIN,
+    ]);
+    const sharedFolders: SharedFolder[] = JSON.parse(output);
+    return sharedFolders;
 }
 
 /**
@@ -3810,11 +3810,11 @@ export async function getSharedFolders(): Promise<SharedFolder[]> {
  * @returns A Promise that resolves with a SharingPreferences object, or rejects with an error message.
  */
 export async function getSharingPreferences(): Promise<SharingPreferences> {
-  const output = await runOsquery(`SELECT * FROM sharing_preferences`, [
-    OsType.DARWIN,
-  ]);
-  const sharingPreferences: SharingPreferences = JSON.parse(output);
-  return sharingPreferences;
+    const output = await runOsquery(`SELECT * FROM sharing_preferences`, [
+        OsType.DARWIN,
+    ]);
+    const sharingPreferences: SharingPreferences = JSON.parse(output);
+    return sharingPreferences;
 }
 
 /**
@@ -3823,9 +3823,9 @@ export async function getSharingPreferences(): Promise<SharingPreferences> {
  * @returns A Promise that resolves with an array of Signature objects, or rejects with an error message.
  */
 export async function getSignature(): Promise<Signature[]> {
-  const output = await runOsquery(`SELECT * FROM signature`, [OsType.DARWIN]);
-  const signature: Signature[] = JSON.parse(output);
-  return signature;
+    const output = await runOsquery(`SELECT * FROM signature`, [OsType.DARWIN]);
+    const signature: Signature[] = JSON.parse(output);
+    return signature;
 }
 
 /**
@@ -3834,9 +3834,9 @@ export async function getSignature(): Promise<Signature[]> {
  * @returns A Promise that resolves with the SipConfig object, or rejects with an error message.
  */
 export async function getSipConfig(): Promise<SipConfig> {
-  const output = await runOsquery(`SELECT * FROM sip_config`, [OsType.DARWIN]);
-  const sipConfig: SipConfig = JSON.parse(output);
-  return sipConfig;
+    const output = await runOsquery(`SELECT * FROM sip_config`, [OsType.DARWIN]);
+    const sipConfig: SipConfig = JSON.parse(output);
+    return sipConfig;
 }
 
 /**
@@ -3845,9 +3845,9 @@ export async function getSipConfig(): Promise<SipConfig> {
  * @returns A Promise that resolves with an array of SmcKeys objects, or rejects with an error message.
  */
 export async function getSMCKeys(): Promise<SmcKeys[]> {
-  const output = await runOsquery(`SELECT * FROM smc_keys`, [OsType.DARWIN]);
-  const smcKeys: SmcKeys[] = JSON.parse(output);
-  return smcKeys;
+    const output = await runOsquery(`SELECT * FROM smc_keys`, [OsType.DARWIN]);
+    const smcKeys: SmcKeys[] = JSON.parse(output);
+    return smcKeys;
 }
 
 /**
@@ -3856,11 +3856,11 @@ export async function getSMCKeys(): Promise<SmcKeys[]> {
  * @returns A Promise that resolves with an array of SystemExtensions objects, or rejects with an error message.
  */
 export async function getSystemExtensions(): Promise<SystemExtensions[]> {
-  const output = await runOsquery(`SELECT * FROM system_extensions`, [
-    OsType.DARWIN,
-  ]);
-  const systemExtensions: SystemExtensions[] = JSON.parse(output);
-  return systemExtensions;
+    const output = await runOsquery(`SELECT * FROM system_extensions`, [
+        OsType.DARWIN,
+    ]);
+    const systemExtensions: SystemExtensions[] = JSON.parse(output);
+    return systemExtensions;
 }
 
 /**
@@ -3869,11 +3869,11 @@ export async function getSystemExtensions(): Promise<SystemExtensions[]> {
  * @returns A Promise that resolves with an array of TemperatureSensor objects, or rejects with an error message.
  */
 export async function getTemperatureSensors(): Promise<TemperatureSensor[]> {
-  const output = await runOsquery(`SELECT * FROM temperature_sensors`, [
-    OsType.DARWIN,
-  ]);
-  const temperatureSensors: TemperatureSensor[] = JSON.parse(output);
-  return temperatureSensors;
+    const output = await runOsquery(`SELECT * FROM temperature_sensors`, [
+        OsType.DARWIN,
+    ]);
+    const temperatureSensors: TemperatureSensor[] = JSON.parse(output);
+    return temperatureSensors;
 }
 
 /**
@@ -3882,11 +3882,11 @@ export async function getTemperatureSensors(): Promise<TemperatureSensor[]> {
  * @returns A Promise that resolves with an array of TimeMachineBackup objects, or rejects with an error message.
  */
 export async function getTimeMachineBackups(): Promise<TimeMachineBackup[]> {
-  const output = await runOsquery(`SELECT * FROM time_machine_backups`, [
-    OsType.DARWIN,
-  ]);
-  const timeMachineBackups: TimeMachineBackup[] = JSON.parse(output);
-  return timeMachineBackups;
+    const output = await runOsquery(`SELECT * FROM time_machine_backups`, [
+        OsType.DARWIN,
+    ]);
+    const timeMachineBackups: TimeMachineBackup[] = JSON.parse(output);
+    return timeMachineBackups;
 }
 
 /**
@@ -3895,13 +3895,13 @@ export async function getTimeMachineBackups(): Promise<TimeMachineBackup[]> {
  * @returns A Promise that resolves with an array of TimeMachineDestinations objects, or rejects with an error message.
  */
 export async function getTimeMachineDestinations(): Promise<
-  TimeMachineDestinations[]
+    TimeMachineDestinations[]
 > {
-  const output = await runOsquery(`SELECT * FROM time_machine_destinations`, [
-    OsType.DARWIN,
-  ]);
-  const timeMachineDestinations: TimeMachineDestinations[] = JSON.parse(output);
-  return timeMachineDestinations;
+    const output = await runOsquery(`SELECT * FROM time_machine_destinations`, [
+        OsType.DARWIN,
+    ]);
+    const timeMachineDestinations: TimeMachineDestinations[] = JSON.parse(output);
+    return timeMachineDestinations;
 }
 
 /**
@@ -3910,9 +3910,9 @@ export async function getTimeMachineDestinations(): Promise<
  * @returns A Promise that resolves with an array of UnifiedLog objects, or rejects with an error message.
  */
 export async function getUnifiedLog(): Promise<UnifiedLog[]> {
-  const output = await runOsquery(`SELECT * FROM unified_log`, [OsType.DARWIN]);
-  const unifiedLog: UnifiedLog[] = JSON.parse(output);
-  return unifiedLog;
+    const output = await runOsquery(`SELECT * FROM unified_log`, [OsType.DARWIN]);
+    const unifiedLog: UnifiedLog[] = JSON.parse(output);
+    return unifiedLog;
 }
 
 /**
@@ -3921,13 +3921,13 @@ export async function getUnifiedLog(): Promise<UnifiedLog[]> {
  * @returns A Promise that resolves with an array of UserInteractionEvents objects, or rejects with an error message.
  */
 export async function getUserInteractionEvents(): Promise<
-  UserInteractionEvents[]
+    UserInteractionEvents[]
 > {
-  const output = await runOsquery(`SELECT * FROM user_interaction_events`, [
-    OsType.DARWIN,
-  ]);
-  const userInteractionEvents: UserInteractionEvents[] = JSON.parse(output);
-  return userInteractionEvents;
+    const output = await runOsquery(`SELECT * FROM user_interaction_events`, [
+        OsType.DARWIN,
+    ]);
+    const userInteractionEvents: UserInteractionEvents[] = JSON.parse(output);
+    return userInteractionEvents;
 }
 
 /**
@@ -3936,11 +3936,11 @@ export async function getUserInteractionEvents(): Promise<
  * @returns A Promise that resolves with VirtualMemoryInfo object, or rejects with an error message.
  */
 export async function getVirtualMemoryInfo(): Promise<VirtualMemoryInfo> {
-  const output = await runOsquery(`SELECT * FROM virtual_memory_info`, [
-    OsType.DARWIN,
-  ]);
-  const virtualMemoryInfo: VirtualMemoryInfo = JSON.parse(output);
-  return virtualMemoryInfo;
+    const output = await runOsquery(`SELECT * FROM virtual_memory_info`, [
+        OsType.DARWIN,
+    ]);
+    const virtualMemoryInfo: VirtualMemoryInfo = JSON.parse(output);
+    return virtualMemoryInfo;
 }
 
 /**
@@ -3949,11 +3949,11 @@ export async function getVirtualMemoryInfo(): Promise<VirtualMemoryInfo> {
  * @returns A Promise that resolves with an array of WifiNetworks objects, or rejects with an error message.
  */
 export async function getWifiNetworks(): Promise<WifiNetworks[]> {
-  const output = await runOsquery(`SELECT * FROM wifi_networks`, [
-    OsType.DARWIN,
-  ]);
-  const wifiNetworks: WifiNetworks[] = JSON.parse(output);
-  return wifiNetworks;
+    const output = await runOsquery(`SELECT * FROM wifi_networks`, [
+        OsType.DARWIN,
+    ]);
+    const wifiNetworks: WifiNetworks[] = JSON.parse(output);
+    return wifiNetworks;
 }
 
 /**
@@ -3962,9 +3962,9 @@ export async function getWifiNetworks(): Promise<WifiNetworks[]> {
  * @returns A Promise that resolves with WifiStatus, or rejects with an error message.
  */
 export async function getWifiStatus(): Promise<WifiStatus> {
-  const output = await runOsquery(`SELECT * FROM wifi_status`, [OsType.DARWIN]);
-  const wifiStatus: WifiStatus = JSON.parse(output);
-  return wifiStatus;
+    const output = await runOsquery(`SELECT * FROM wifi_status`, [OsType.DARWIN]);
+    const wifiStatus: WifiStatus = JSON.parse(output);
+    return wifiStatus;
 }
 
 /**
@@ -3973,9 +3973,9 @@ export async function getWifiStatus(): Promise<WifiStatus> {
  * @returns A Promise that resolves with an array of WifiSurvey objects, or rejects with an error message.
  */
 export async function getWifiSurvey(): Promise<WifiSurvey[]> {
-  const output = await runOsquery(`SELECT * FROM wifi_survey`, [OsType.DARWIN]);
-  const wifiSurvey: WifiSurvey[] = JSON.parse(output);
-  return wifiSurvey;
+    const output = await runOsquery(`SELECT * FROM wifi_survey`, [OsType.DARWIN]);
+    const wifiSurvey: WifiSurvey[] = JSON.parse(output);
+    return wifiSurvey;
 }
 
 /**
@@ -3984,11 +3984,11 @@ export async function getWifiSurvey(): Promise<WifiSurvey[]> {
  * @returns A Promise that resolves with an array of XProtectEntries objects, or rejects with an error message.
  */
 export async function getXProtectEntries(): Promise<XProtectEntries[]> {
-  const output = await runOsquery(`SELECT * FROM xprotect_entries`, [
-    OsType.DARWIN,
-  ]);
-  const xProtectEntries: XProtectEntries[] = JSON.parse(output);
-  return xProtectEntries;
+    const output = await runOsquery(`SELECT * FROM xprotect_entries`, [
+        OsType.DARWIN,
+    ]);
+    const xProtectEntries: XProtectEntries[] = JSON.parse(output);
+    return xProtectEntries;
 }
 
 /**
@@ -3997,11 +3997,11 @@ export async function getXProtectEntries(): Promise<XProtectEntries[]> {
  * @returns A Promise that resolves with an array of XProtectMeta objects, or rejects with an error message.
  */
 export async function getXProtectMeta(): Promise<XProtectMeta[]> {
-  const output = await runOsquery(`SELECT * FROM xprotect_meta`, [
-    OsType.DARWIN,
-  ]);
-  const xProtectMeta: XProtectMeta[] = JSON.parse(output);
-  return xProtectMeta;
+    const output = await runOsquery(`SELECT * FROM xprotect_meta`, [
+        OsType.DARWIN,
+    ]);
+    const xProtectMeta: XProtectMeta[] = JSON.parse(output);
+    return xProtectMeta;
 }
 
 /**
@@ -4010,9 +4010,9 @@ export async function getXProtectMeta(): Promise<XProtectMeta[]> {
  * @returns A Promise that resolves with an array of XProtectReports objects, or rejects with an error message.
  */
 export async function getXProtectReports(): Promise<XProtectReports[]> {
-  const output = await runOsquery(`SELECT * FROM xprotect_reports`, [
-    OsType.DARWIN,
-  ]);
-  const xProtectReports: XProtectReports[] = JSON.parse(output);
-  return xProtectReports;
+    const output = await runOsquery(`SELECT * FROM xprotect_reports`, [
+        OsType.DARWIN,
+    ]);
+    const xProtectReports: XProtectReports[] = JSON.parse(output);
+    return xProtectReports;
 }

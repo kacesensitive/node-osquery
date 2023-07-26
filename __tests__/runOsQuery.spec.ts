@@ -1,5 +1,5 @@
 import * as os from 'os';
-import { runOsquery, OsType } from '../src/runOSQuery';
+import { runOsquery, OsType } from '../src/runOsquery';
 import { run } from 'node:test';
 
 // Mock child_process.exec
