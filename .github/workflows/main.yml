@@ -28,8 +28,3 @@ jobs:
 
       - name: Tests
         run: yarn test:badges
-
-      - name: Generating coverage badges
-        uses: ./
-        with:
-          branches: '*'
