@@ -1,7 +1,7 @@
 import { getAtomPackages } from '../../src/getters';
 import { runOsquery, OsType } from '../../src/runOsquery';
 
-jest.mock('../../src/runOSQuery', () => ({
+jest.mock('../../src/runOsquery', () => ({
   runOsquery: jest.fn(),
   OsType: {
     LINUX: 'linux',
