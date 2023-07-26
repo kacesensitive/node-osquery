@@ -1,0 +1,32 @@
+{
+  "name": "node-osquery",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "osquery"
+  ],
+  "author": "KC Haley",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/repository.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "doc": "tsdoc --json dist/tsdoc-metadata.json --out dist/api-docs",
+    "prepublish": "yarn run build && yarn run doc"
+  },
+  "dependencies": {
+    "@types/jest": "^29.5.3",
+    "jest": "^29.6.1",
+    "ts-jest": "^29.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "tsdoc": "^0.0.4",
+    "typescript": "^5.1.6"
+  }
+}
