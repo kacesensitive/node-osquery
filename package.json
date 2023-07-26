@@ -18,7 +18,8 @@
     "test": "jest",
     "doc": "tsdoc --json dist/tsdoc-metadata.json --out dist/api-docs",
     "format": "prettier --write \"./**/*.ts\"",
-    "prepublish": "yarn run build && yarn run doc"
+    "prepublish": "yarn run build && yarn run doc",
+    "test-ci": "jest --ci --coverage"
   },
   "dependencies": {
     "@types/jest": "^29.5.3",
