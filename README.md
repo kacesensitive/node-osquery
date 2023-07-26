@@ -5,7 +5,11 @@
 ![Badge Lines](./coverage/badge-lines.svg)
 ![Badge Statements](./coverage/badge-statements.svg)
 
-This is a Node.js module providing convenient access to OSQuery data.
+`node-osquery` is a Node.js module that provides a convenient interface for interacting with [OSQuery](https://osquery.io/). This allows for easy access to system data exposed by OSQuery, all within a JavaScript environment.
+
+## Prerequisites
+
+To use `node-osquery`, you must have [OSQuery](https://osquery.io/) installed on your system. OSQuery exposes an operating system as a high-performance relational database, and this module provides methods to interact with that data. To install OSQuery and learn more about its capabilities, please refer to the [official OSQuery documentation](https://osquery.readthedocs.io/en/stable/).
 
 ## Installation
 
@@ -29,13 +33,18 @@ You can import and use the methods provided by this package as follows:
 const { runOSQuery } = require('node-osquery');
 // OR with ES6 import
 import { runOSQuery } from 'node-osquery';
+import { getWifiSurvey } from 'node-osquery';
 
 const main = async () => {
 const result = await runOSQuery('select * from users');
-console.log(result);
+    console.log(result);
 };
 
 main().catch(console.error);
+
+getWifiSurvey().then((data) => {
+    console.log(data);
+});
 ```
 
 ## Test
@@ -43,7 +52,7 @@ main().catch(console.error);
 To run the test suite, execute the following command:
 
 `
-npm test
+yarn test
 `
 
 ## Contributing
