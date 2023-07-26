@@ -1,9 +1,6 @@
 import { getCurl } from '../../src/getters';
 import { runOsquery, OsType } from '../../src/runOsquery';
 
-const replacer = (key: any, value: { toString: () => any }) =>
-    typeof value === 'bigint' ? value.toString() : value;
-
 jest.mock('../../src/runOsquery', () => ({
     runOsquery: jest.fn(),
     OsType: {
@@ -27,7 +24,7 @@ describe('getCurl', () => {
                 result: 'result',
             },
         ];
-        mockRunOsquery.mockResolvedValue(JSON.stringify(expectedCurl, replacer));
+        mockRunOsquery.mockResolvedValue(JSON.stringify(expectedCurl));
 
         await expect(getCurl()).resolves.toEqual(expectedCurl);
         expect(mockRunOsquery).toHaveBeenCalledWith('SELECT * FROM curl', [

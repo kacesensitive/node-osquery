@@ -173,8 +173,8 @@ export interface Curl {
   method: string;
   user_agent: string;
   response_code: number;
-  round_trip_time: bigint;
-  bytes: bigint;
+  round_trip_time: number;
+  bytes: number;
   result: string;
 }
 
@@ -340,17 +340,17 @@ export interface InterfaceDetails {
   mtu: number;
   metric: number;
   flags: number;
-  ipackets: bigint;
-  opackets: bigint;
-  ibytes: bigint;
-  obytes: bigint;
-  ierrors: bigint;
-  oerrors: bigint;
-  idrops: bigint;
-  odrops: bigint;
-  collisions: bigint;
-  last_change: bigint;
-  link_speed: bigint;
+  ipackets: number;
+  opackets: number;
+  ibytes: number;
+  obytes: number;
+  ierrors: number;
+  oerrors: number;
+  idrops: number;
+  odrops: number;
+  collisions: number;
+  last_change: number;
+  link_speed: number;
   pci_slot: string;
   friendly_name: string;
   description: string;
@@ -384,8 +384,8 @@ export interface ListeningPorts {
   protocol: number;
   family: number;
   address: string;
-  fd: bigint;
-  socket: bigint;
+  fd: number;
+  socket: number;
   path: string;
   net_namespace: string;
 }
@@ -395,7 +395,7 @@ export interface LoggedInUsers {
   user: string;
   tty: string;
   host: string;
-  time: bigint;
+  time: number;
   pid: number;
   sid: string;
   registry_hive: string;
@@ -448,7 +448,7 @@ export interface OsVersion {
   platform_like: string;
   codename: string;
   arch: string;
-  install_date: bigint;
+  install_date: number;
   pid_with_namespace: number;
   mount_namespace_id: string;
 }
@@ -464,7 +464,7 @@ export interface OsqueryEvents {
 }
 
 export interface OsqueryExtensions {
-  uuid: bigint;
+  uuid: number;
   name: string;
   version: string;
   sdk_version: string;
@@ -518,19 +518,19 @@ export interface OsquerySchedule {
   name: string;
   query: string;
   interval: number;
-  executions: bigint;
-  last_executed: bigint;
+  executions: number;
+  last_executed: number;
   denylisted: number;
-  output_size: bigint;
-  wall_time: bigint;
-  wall_time_ms: bigint;
-  last_wall_time_ms: bigint;
-  user_time: bigint;
-  last_user_time: bigint;
-  system_time: bigint;
-  last_system_time: bigint;
-  average_memory: bigint;
-  last_memory: bigint;
+  output_size: number;
+  wall_time: number;
+  wall_time_ms: number;
+  last_wall_time_ms: number;
+  user_time: number;
+  last_user_time: number;
+  system_time: number;
+  last_system_time: number;
+  average_memory: number;
+  last_memory: number;
 }
 
 export interface PlatformInfo {
@@ -550,7 +550,7 @@ export interface ProcessMemoryMap {
   start: string;
   end: string;
   permissions: string;
-  offset: bigint;
+  offset: number;
   device: string;
   inode: number;
   path: string;
@@ -559,8 +559,8 @@ export interface ProcessMemoryMap {
 
 export interface ProcessOpenSockets {
   pid: number;
-  fd: bigint;
-  socket: bigint;
+  fd: number;
+  socket: number;
   family: number;
   protocol: number;
   local_address: string;
@@ -573,41 +573,41 @@ export interface ProcessOpenSockets {
 }
 
 export interface Processes {
-  pid: bigint;
+  pid: number;
   name: string;
   path: string;
   cmdline: string;
   state: string;
   cwd: string;
   root: string;
-  uid: bigint;
-  gid: bigint;
-  euid: bigint;
-  egid: bigint;
-  suid: bigint;
-  sgid: bigint;
+  uid: number;
+  gid: number;
+  euid: number;
+  egid: number;
+  suid: number;
+  sgid: number;
   on_disk: number;
-  wired_size: bigint;
-  resident_size: bigint;
-  total_size: bigint;
-  user_time: bigint;
-  system_time: bigint;
-  disk_bytes_read: bigint;
-  disk_bytes_written: bigint;
-  start_time: bigint;
-  parent: bigint;
-  pgroup: bigint;
+  wired_size: number;
+  resident_size: number;
+  total_size: number;
+  user_time: number;
+  system_time: number;
+  disk_bytes_read: number;
+  disk_bytes_written: number;
+  start_time: number;
+  parent: number;
+  pgroup: number;
   threads: number;
   nice: number;
   elevated_token: number;
   secure_process: number;
   protection_type: string;
   virtual_process: number;
-  elapsed_time: bigint;
-  handle_count: bigint;
-  percent_processor_time: bigint;
-  upid: bigint;
-  uppid: bigint;
+  elapsed_time: number;
+  handle_count: number;
+  percent_processor_time: number;
+  upid: number;
+  uppid: number;
   cpu_type: number;
   cpu_subtype: number;
   translated: number;
@@ -670,7 +670,7 @@ export interface SystemInfo {
   cpu_physical_cores: number;
   cpu_logical_cores: number;
   cpu_microcode: string;
-  physical_memory: bigint;
+  physical_memory: number;
   hardware_vendor: string;
   hardware_model: string;
   hardware_version: string;
@@ -697,7 +697,7 @@ export interface Time {
   timestamp: string;
   datetime: string;
   iso_8601: string;
-  win_timestamp: bigint;
+  win_timestamp: number;
 }
 
 export interface Uptime {
@@ -705,16 +705,16 @@ export interface Uptime {
   hours: number;
   minutes: number;
   seconds: number;
-  total_seconds: bigint;
+  total_seconds: number;
 }
 
 export interface UserGroups {
-  uid: bigint;
-  gid: bigint;
+  uid: number;
+  gid: number;
 }
 
 export interface UserSshKeys {
-  uid: bigint;
+  uid: number;
   path: string;
   encrypted: number;
   key_type: string;
@@ -722,10 +722,10 @@ export interface UserSshKeys {
 }
 
 export interface Users {
-  uid: bigint;
-  gid: bigint;
-  uid_signed: bigint;
-  gid_signed: bigint;
+  uid: number;
+  gid: number;
+  uid_signed: number;
+  gid_signed: number;
   username: string;
   description: string;
   directory: string;
@@ -800,7 +800,7 @@ export interface Autoexec {
 
 export interface BackgroundActivitiesModerator {
   path: string;
-  last_execution_time: bigint;
+  last_execution_time: number;
   sid: string;
 }
 
@@ -892,7 +892,7 @@ export interface Drivers {
   provider: string;
   manufacturer: string;
   driver_key: string;
-  date: bigint;
+  date: number;
   signed: number;
 }
 
@@ -933,8 +933,8 @@ export interface LogicalDrives {
   device_id: string;
   type: string;
   description: string;
-  free_space: bigint;
-  size: bigint;
+  free_space: number;
+  size: number;
   file_system: string;
   boot_partition: number;
 }
@@ -947,7 +947,7 @@ export interface LogonSessions {
   logon_type: string;
   session_id: number;
   logon_sid: string;
-  logon_time: bigint;
+  logon_time: number;
   logon_server: string;
   dns_domain_name: string;
   upn: string;
@@ -987,8 +987,8 @@ export interface NTFSJournalEvents {
   parent_ref_number: string;
   drive_letter: string;
   file_attributes: string;
-  partial: bigint;
-  time: bigint;
+  partial: number;
+  time: number;
   eid: string;
 }
 
@@ -996,7 +996,7 @@ export interface OfficeMRU {
   application: string;
   version: string;
   path: string;
-  last_opened_time: bigint;
+  last_opened_time: number;
   sid: string;
 }
 
@@ -1013,21 +1013,21 @@ export interface Patches {
 
 export interface PhysicalDiskPerformance {
   name: string;
-  avg_disk_bytes_per_read: bigint;
-  avg_disk_bytes_per_write: bigint;
-  avg_disk_read_queue_length: bigint;
-  avg_disk_write_queue_length: bigint;
+  avg_disk_bytes_per_read: number;
+  avg_disk_bytes_per_write: number;
+  avg_disk_read_queue_length: number;
+  avg_disk_write_queue_length: number;
   avg_disk_sec_per_read: number;
   avg_disk_sec_per_write: number;
   current_disk_queue_length: number;
-  percent_disk_read_time: bigint;
-  percent_disk_write_time: bigint;
-  percent_disk_time: bigint;
-  percent_idle_time: bigint;
+  percent_disk_read_time: number;
+  percent_disk_write_time: number;
+  percent_disk_time: number;
+  percent_idle_time: number;
 }
 
 export interface Pipes {
-  pid: bigint;
+  pid: number;
   name: string;
   instances: number;
   max_instances: number;
@@ -1035,7 +1035,7 @@ export interface Pipes {
 }
 
 export interface PowershellEvents {
-  time: bigint;
+  time: number;
   datetime: string;
   script_block_id: string;
   script_block_count: number;
@@ -1101,7 +1101,7 @@ export interface Registry {
   name: string;
   type: string;
   data: string;
-  mtime: bigint;
+  mtime: number;
 }
 
 export interface ScheduledTask {
@@ -1111,8 +1111,8 @@ export interface ScheduledTask {
   enabled: number;
   state: string;
   hidden: number;
-  last_run_time: bigint;
-  next_run_time: bigint;
+  last_run_time: number;
+  next_run_time: number;
   last_run_message: string;
   last_run_code: string;
 }
@@ -1163,10 +1163,10 @@ export interface SharedResources {
   install_date: string;
   status: string;
   allow_maximum: number;
-  maximum_allowed: bigint;
+  maximum_allowed: number;
   name: string;
   path: string;
-  type: bigint;
+  type: number;
   type_name: string;
 }
 
@@ -1174,17 +1174,17 @@ export interface Shellbags {
   sid: string;
   source: string;
   path: string;
-  modified_time: bigint;
-  created_time: bigint;
-  accessed_time: bigint;
-  mft_entry: bigint;
+  modified_time: number;
+  created_time: number;
+  accessed_time: number;
+  mft_entry: number;
   mft_sequence: number;
 }
 
 export interface Shimcache {
   entry: number;
   path: string;
-  modified_time: bigint;
+  modified_time: number;
   execution_flag: number;
 }
 
@@ -1202,7 +1202,7 @@ export interface TpmInfo {
 
 export interface UserAssist {
   path: string;
-  last_execution_time: bigint;
+  last_execution_time: number;
   count: number;
   sid: string;
 }
@@ -1210,7 +1210,7 @@ export interface UserAssist {
 export interface VideoInfo {
   color_depth: number;
   driver: string;
-  driver_date: bigint;
+  driver_date: number;
   driver_version: string;
   manufacturer: string;
   model: string;
@@ -1328,9 +1328,9 @@ export interface WindowsSecurityProducts {
 
 export interface WindowsUpdateHistory {
   client_app_id: string;
-  date: bigint;
+  date: number;
   description: string;
-  hresult: bigint;
+  hresult: number;
   operation: string;
   result_code: string;
   server_selection: string;
@@ -1338,7 +1338,7 @@ export interface WindowsUpdateHistory {
   support_url: string;
   title: string;
   update_id: string;
-  update_revision: bigint;
+  update_revision: number;
 }
 
 export interface WmiBiosInfo {
@@ -1444,15 +1444,15 @@ export interface DeviceFile {
   partition: string;
   path: string;
   filename: string;
-  inode: bigint;
-  uid: bigint;
-  gid: bigint;
+  inode: number;
+  uid: number;
+  gid: number;
   mode: string;
-  size: bigint;
+  size: number;
   block_size: number;
-  atime: bigint;
-  mtime: bigint;
-  ctime: bigint;
+  atime: number;
+  mtime: number;
+  ctime: number;
   hard_links: number;
   type: string;
 }
@@ -1460,7 +1460,7 @@ export interface DeviceFile {
 export interface DeviceHash {
   device: string;
   partition: string;
-  inode: bigint;
+  inode: number;
   md5: string;
   sha1: string;
   sha256: string;
@@ -1471,10 +1471,10 @@ export interface DevicePartitions {
   partition: number;
   label: string;
   type: string;
-  offset: bigint;
-  blocks_size: bigint;
-  blocks: bigint;
-  inodes: bigint;
+  offset: number;
+  blocks_size: number;
+  blocks: number;
+  inodes: number;
   flags: number;
 }
 
@@ -1552,22 +1552,22 @@ export interface DockerContainerPorts {
 
 export interface DockerContainerProcesses {
   id: string;
-  pid: bigint;
+  pid: number;
   name: string;
   cmdline: string;
   state: string;
-  uid: bigint;
-  gid: bigint;
-  euid: bigint;
-  egid: bigint;
-  suid: bigint;
-  sgid: bigint;
-  wired_size: bigint;
-  resident_size: bigint;
-  total_size: bigint;
-  start_time: bigint;
-  parent: bigint;
-  pgroup: bigint;
+  uid: number;
+  gid: number;
+  euid: number;
+  egid: number;
+  suid: number;
+  sgid: number;
+  wired_size: number;
+  resident_size: number;
+  total_size: number;
+  start_time: number;
+  parent: number;
+  pgroup: number;
   threads: number;
   nice: number;
   user: string;
@@ -1580,28 +1580,28 @@ export interface DockerContainerStats {
   id: string;
   name: string;
   pids: number;
-  read: bigint;
-  preread: bigint;
-  interval: bigint;
-  disk_read: bigint;
-  disk_write: bigint;
+  read: number;
+  preread: number;
+  interval: number;
+  disk_read: number;
+  disk_write: number;
   num_procs: number;
-  cpu_total_usage: bigint;
-  cpu_kernelmode_usage: bigint;
-  cpu_usermode_usage: bigint;
-  system_cpu_usage: bigint;
+  cpu_total_usage: number;
+  cpu_kernelmode_usage: number;
+  cpu_usermode_usage: number;
+  system_cpu_usage: number;
   online_cpus: number;
-  pre_cpu_total_usage: bigint;
-  pre_cpu_kernelmode_usage: bigint;
-  pre_cpu_usermode_usage: bigint;
-  pre_system_cpu_usage: bigint;
+  pre_cpu_total_usage: number;
+  pre_cpu_kernelmode_usage: number;
+  pre_cpu_usermode_usage: number;
+  pre_system_cpu_usage: number;
   pre_online_cpus: number;
-  memory_usage: bigint;
-  memory_cached: bigint;
-  memory_max_usage: bigint;
-  memory_limit: bigint;
-  network_rx_bytes: bigint;
-  network_tx_bytes: bigint;
+  memory_usage: number;
+  memory_cached: number;
+  memory_max_usage: number;
+  memory_limit: number;
+  network_rx_bytes: number;
+  network_tx_bytes: number;
 }
 
 export interface DockerContainers {
@@ -1610,10 +1610,10 @@ export interface DockerContainers {
   image: string;
   image_id: string;
   command: string;
-  created: bigint;
+  created: number;
   state: string;
   status: string;
-  pid: bigint;
+  pid: number;
   path: string;
   config_entrypoint: string;
   started_at: string;
@@ -1633,8 +1633,8 @@ export interface DockerContainers {
 
 export interface DockerImageHistory {
   id: string;
-  created: bigint;
-  size: bigint;
+  created: number;
+  size: number;
   created_by: string;
   tags: string;
   comment: string;
@@ -1654,8 +1654,8 @@ export interface DockerImageLayers {
 
 export interface DockerImages {
   id: string;
-  created: bigint;
-  size_bytes: bigint;
+  created: number;
+  size_bytes: number;
   tags: string;
 }
 
@@ -1685,7 +1685,7 @@ export interface DockerInfo {
   os_type: string;
   architecture: string;
   cpus: number;
-  memory: bigint;
+  memory: number;
   http_proxy: string;
   https_proxy: string;
   no_proxy: string;
@@ -1704,7 +1704,7 @@ export interface DockerNetworks {
   id: string;
   name: string;
   driver: string;
-  created: bigint;
+  created: number;
   enable_ipv6: number;
   subnet: string;
   gateway: string;
@@ -1747,20 +1747,20 @@ export interface FileEvents {
   target_path: string;
   category: string;
   action: string;
-  transaction_id: bigint;
-  inode: bigint;
-  uid: bigint;
-  gid: bigint;
+  transaction_id: number;
+  inode: number;
+  uid: number;
+  gid: number;
   mode: string;
-  size: bigint;
-  atime: bigint;
-  mtime: bigint;
-  ctime: bigint;
+  size: number;
+  atime: number;
+  mtime: number;
+  ctime: number;
   md5: string;
   sha1: string;
   sha256: string;
   hashed: number;
-  time: bigint;
+  time: number;
   eid: string;
 }
 
@@ -1775,7 +1775,7 @@ export interface HardwareEvents {
   model_id: string;
   serial: string;
   revision: string;
-  time: bigint;
+  time: number;
   eid: string;
 }
 
@@ -1788,7 +1788,7 @@ export interface InterfaceIpv6 {
 }
 
 export interface KnownHosts {
-  uid: bigint;
+  uid: number;
   key: string;
   key_file: string;
 }
@@ -1861,12 +1861,12 @@ export interface Mounts {
   device_alias: string;
   path: string;
   type: string;
-  blocks_size: bigint;
-  blocks: bigint;
-  blocks_free: bigint;
-  blocks_available: bigint;
-  inodes: bigint;
-  inodes_free: bigint;
+  blocks_size: number;
+  blocks: number;
+  blocks_free: number;
+  blocks_available: number;
+  inodes: number;
+  inodes_free: number;
   flags: string;
 }
 
@@ -1900,42 +1900,42 @@ export interface ProcessEnvs {
 }
 
 export interface ProcessEvents {
-  pid: bigint;
+  pid: number;
   path: string;
   mode: string;
   cmdline: string;
-  cmdline_size: bigint;
+  cmdline_size: number;
   env: string;
-  env_count: bigint;
-  env_size: bigint;
+  env_count: number;
+  env_size: number;
   cwd: string;
-  auid: bigint;
-  uid: bigint;
-  euid: bigint;
-  gid: bigint;
-  egid: bigint;
-  owner_uid: bigint;
-  owner_gid: bigint;
-  atime: bigint;
-  mtime: bigint;
-  ctime: bigint;
-  btime: bigint;
+  auid: number;
+  uid: number;
+  euid: number;
+  gid: number;
+  egid: number;
+  owner_uid: number;
+  owner_gid: number;
+  atime: number;
+  mtime: number;
+  ctime: number;
+  btime: number;
   overflows: string;
-  parent: bigint;
-  time: bigint;
-  uptime: bigint;
+  parent: number;
+  time: number;
+  uptime: number;
   eid: string;
-  status: bigint;
-  fsuid: bigint;
-  suid: bigint;
-  fsgid: bigint;
-  sgid: bigint;
+  status: number;
+  fsuid: number;
+  suid: number;
+  fsgid: number;
+  sgid: number;
   syscall: string;
 }
 
 export interface ProcessOpenFiles {
-  pid: bigint;
-  fd: bigint;
+  pid: number;
+  fd: number;
   path: string;
 }
 
@@ -1943,11 +1943,11 @@ export interface PrometheusMetrics {
   target_name: string;
   metric_name: string;
   metric_value: number;
-  timestamp_ms: bigint;
+  timestamp_ms: number;
 }
 
 export interface ShellHistory {
-  uid: bigint;
+  uid: number;
   time: number;
   command: string;
   history_file: string;
@@ -1965,10 +1965,10 @@ export interface SmbiosTables {
 
 export interface SocketEvents {
   action: string;
-  pid: bigint;
+  pid: number;
   path: string;
   fd: string;
-  auid: bigint;
+  auid: number;
   status: string;
   family: number;
   protocol: number;
@@ -1977,8 +1977,8 @@ export interface SocketEvents {
   local_port: number;
   remote_port: number;
   socket: string;
-  time: bigint;
-  uptime: bigint;
+  time: number;
+  uptime: number;
   eid: string;
   success: number;
 }
@@ -2088,11 +2088,11 @@ export interface AptSources {
 }
 
 export interface BpfProcessEvents {
-  tid: bigint;
-  pid: bigint;
-  parent: bigint;
-  uid: bigint;
-  gid: bigint;
+  tid: number;
+  pid: number;
+  parent: number;
+  uid: number;
+  gid: number;
   cid: number;
   exit_code: string;
   probe_error: number;
@@ -2103,16 +2103,16 @@ export interface BpfProcessEvents {
   duration: number;
   json_cmdline: string;
   ntime: string;
-  time: bigint;
+  time: number;
   eid: number;
 }
 
 export interface BpfSocketEvents {
-  tid: bigint;
-  pid: bigint;
-  parent: bigint;
-  uid: bigint;
-  gid: bigint;
+  tid: number;
+  pid: number;
+  parent: number;
+  uid: number;
+  gid: number;
   cid: number;
   exit_code: string;
   probe_error: number;
@@ -2128,7 +2128,7 @@ export interface BpfSocketEvents {
   remote_port: number;
   duration: number;
   ntime: string;
-  time: bigint;
+  time: number;
   eid: number;
 }
 
@@ -2136,7 +2136,7 @@ export interface DebPackages {
   name: string;
   version: string;
   source: string;
-  size: bigint;
+  size: number;
   arch: string;
   revision: string;
   status: string;
@@ -2271,10 +2271,10 @@ export interface LxdNetworks {
   ipv4_address: string;
   ipv6_address: string;
   used_by: string;
-  bytes_received: bigint;
-  bytes_sent: bigint;
-  packets_received: bigint;
-  packets_sent: bigint;
+  bytes_received: number;
+  bytes_sent: number;
+  packets_received: number;
+  packets_sent: number;
   hwaddr: string;
   state: string;
   mtu: number;
@@ -2285,18 +2285,18 @@ export interface LxdStoragePools {
   driver: string;
   source: string;
   size: string;
-  space_used: bigint;
-  space_total: bigint;
-  inodes_used: bigint;
-  inodes_total: bigint;
+  space_used: number;
+  space_total: number;
+  inodes_used: number;
+  inodes_total: number;
 }
 
 export interface MdDevices {
   device_name: string;
   status: string;
   raid_level: number;
-  size: bigint;
-  chunk_size: bigint;
+  size: number;
+  chunk_size: number;
   raid_disks: number;
   nr_raid_disks: number;
   working_disks: number;
@@ -2305,7 +2305,7 @@ export interface MdDevices {
   spare_disks: number;
   superblock_state: string;
   superblock_version: string;
-  superblock_update_time: bigint;
+  superblock_update_time: number;
   bitmap_on_mem: string;
   bitmap_chunk_size: string;
   bitmap_external_file: string;
@@ -2337,16 +2337,16 @@ export interface MdPersonalities {
 }
 
 export interface MemoryInfo {
-  memory_total: bigint;
-  memory_free: bigint;
-  memory_available: bigint;
-  buffers: bigint;
-  cached: bigint;
-  swap_cached: bigint;
-  active: bigint;
-  inactive: bigint;
-  swap_total: bigint;
-  swap_free: bigint;
+  memory_total: number;
+  memory_free: number;
+  memory_available: number;
+  buffers: number;
+  cached: number;
+  swap_cached: number;
+  active: number;
+  inactive: number;
+  swap_total: number;
+  swap_free: number;
 }
 
 export interface MemoryMap {
@@ -2356,16 +2356,16 @@ export interface MemoryMap {
 }
 
 export interface Msr {
-  processor_number: bigint;
-  turbo_disabled: bigint;
-  turbo_ratio_limit: bigint;
-  platform_info: bigint;
-  perf_ctl: bigint;
-  perf_status: bigint;
-  feature_control: bigint;
-  rapl_power_limit: bigint;
-  rapl_energy_status: bigint;
-  rapl_power_units: bigint;
+  processor_number: number;
+  turbo_disabled: number;
+  turbo_ratio_limit: number;
+  platform_info: number;
+  perf_ctl: number;
+  perf_status: number;
+  feature_control: number;
+  rapl_power_limit: number;
+  rapl_energy_status: number;
+  rapl_power_units: number;
 }
 
 export interface PortageKeywords {
@@ -2499,34 +2499,34 @@ export interface SelinuxSettings {
 export interface Shadow {
   password_status: string;
   hash_alg: string;
-  last_change: bigint;
-  min: bigint;
-  max: bigint;
-  warning: bigint;
-  inactive: bigint;
-  expire: bigint;
-  flag: bigint;
+  last_change: number;
+  min: number;
+  max: number;
+  warning: number;
+  inactive: number;
+  expire: number;
+  flag: number;
   username: string;
 }
 
 export interface SharedMemory {
   shmid: number;
-  owner_uid: bigint;
-  creator_uid: bigint;
-  pid: bigint;
-  creator_pid: bigint;
-  atime: bigint;
-  dtime: bigint;
-  ctime: bigint;
+  owner_uid: number;
+  creator_uid: number;
+  pid: number;
+  creator_pid: number;
+  atime: number;
+  dtime: number;
+  ctime: number;
   permissions: string;
-  size: bigint;
+  size: number;
   attached: number;
   status: string;
   locked: number;
 }
 
 export interface SyslogEvent {
-  time: bigint;
+  time: number;
   datetime: string;
   host: string;
   severity: number;
@@ -2545,7 +2545,7 @@ export interface SystemdUnit {
   unit_file_state: string;
   following: string;
   object_path: string;
-  job_id: bigint;
+  job_id: number;
   job_type: string;
   job_path: string;
   fragment_path: string;
