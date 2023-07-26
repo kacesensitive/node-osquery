@@ -17,6 +17,7 @@
     "build": "tsc",
     "test": "jest",
     "doc": "tsdoc --json dist/tsdoc-metadata.json --out dist/api-docs",
+    "format": "prettier --write \"./**/*.ts\"",
     "prepublish": "yarn run build && yarn run doc"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.4.5",
+    "prettier": "^3.0.0",
     "tsdoc": "^0.0.4",
     "typescript": "^5.1.6"
   }

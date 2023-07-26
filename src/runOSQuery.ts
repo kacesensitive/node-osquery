@@ -1,10 +1,10 @@
-import { exec } from "child_process";
-import * as os from "os";
+import { exec } from 'child_process';
+import * as os from 'os';
 
 export enum OsType {
-    LINUX = 'linux',
-    DARWIN = 'darwin',
-    WINDOWS_NT = 'windows_nt',
+  LINUX = 'linux',
+  DARWIN = 'darwin',
+  WINDOWS_NT = 'windows_nt',
 }
 
 /**
@@ -14,22 +14,25 @@ export enum OsType {
  * @return A Promise that resolves with the command output, or rejects with an error message.
  */
 export function runOsquery(query: string, osTypes: OsType[]): Promise<string> {
-    return new Promise((resolve, reject) => {
-        const currentOsType = os.type().toLowerCase();
+  return new Promise((resolve, reject) => {
+    const currentOsType = os.type().toLowerCase();
 
-        if (!osTypes.includes(currentOsType as OsType)) {
-            reject(`Unsupported operating system: ${currentOsType}`);
-            return;
+    if (!osTypes.includes(currentOsType as OsType)) {
+      reject(`Unsupported operating system: ${currentOsType}`);
+      return;
+    }
+
+    exec(
+      `osqueryi --json "${query}"`,
+      (error: Error | null, stdout: string, stderr: string) => {
+        if (error) {
+          reject(`Execution error: ${error.message}`);
+        } else if (stderr) {
+          reject(`Command error: ${stderr}`);
+        } else {
+          resolve(stdout);
         }
-
-        exec(`osqueryi --json "${query}"`, (error: Error | null, stdout: string, stderr: string) => {
-            if (error) {
-                reject(`Execution error: ${error.message}`);
-            } else if (stderr) {
-                reject(`Command error: ${stderr}`);
-            } else {
-                resolve(stdout);
-            }
-        });
-    });
+      },
+    );
+  });
 }
