@@ -1,11 +1,11 @@
 # node-osquery
 
+`node-osquery` is a module that provides a convenient interface for interacting with [OSQuery](https://osquery.io/). This allows for easy access to system data exposed by OSQuery, all within a JavaScript environment.
+
 ![Badge Branches](./coverage/badge-branches.svg)
 ![Badge Functions](./coverage/badge-functions.svg)
 ![Badge Lines](./coverage/badge-lines.svg)
 ![Badge Statements](./coverage/badge-statements.svg)
-
-`node-osquery` is a Node.js module that provides a convenient interface for interacting with [OSQuery](https://osquery.io/). This allows for easy access to system data exposed by OSQuery, all within a JavaScript environment.
 
 ## Prerequisites
 
